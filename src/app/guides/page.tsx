@@ -1,0 +1,29 @@
+import Link from "next/link";
+import PageHeading from "@/components/PageHeading";
+import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+
+const cards = [
+  { href: "/guides/payroll-basics", title: "Payroll Basics", desc: "Core concepts for running payroll." },
+  { href: "/guides/overtime-rules", title: "Overtime Rules", desc: "Understand overtime thresholds and rates." },
+  { href: "/guides/benefits", title: "Benefits & Deductions", desc: "Health, retirement, taxes, and more." },
+];
+
+export default function GuidesHubPage() {
+  return (
+    <div className="space-y-6">
+      {/* Ensure descriptive meta title via layout metadata template; no extra h1s beyond PageHeading */}
+      <PageHeading title="Payroll & HR Guides" subtitle="Learn the essentials and best practices." />
+      {breadcrumbJsonLd([{ name: "Home", url: "https://workpay.tools/" }, { name: "Guides", url: "https://workpay.tools/guides" }])}
+      <div className="grid gap-4 sm:grid-cols-2">
+        {cards.map((c) => (
+          <Link key={c.href} href={c.href} className="rounded-lg border border-black/10 dark:border-white/15 p-4 hover:bg-black/[.03] dark:hover:bg-white/[.04]">
+            <h3 className="text-base font-semibold tracking-tight">{c.title}</h3>
+            <p className="mt-1 text-sm text-black/70 dark:text-white/70">{c.desc}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
