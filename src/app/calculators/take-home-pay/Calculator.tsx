@@ -241,9 +241,7 @@ export default function TakeHomePayCalculator() {
     }).format(amount);
   };
 
-  const formatPercentage = (rate: number) => {
-    return `${(rate * 100).toFixed(1)}%`;
-  };
+
 
 
 

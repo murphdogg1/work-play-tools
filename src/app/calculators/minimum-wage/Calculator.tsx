@@ -3,7 +3,7 @@
 // Minimum Wage Calculator - calculates pay based on federal, state, and local minimum wage laws
 import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
-import ResultCard from "@/components/calculators/ResultCard";
+
 import StickyResults from "@/components/calculators/StickyResults";
 import { trackCalculatorInput, trackCalculatorSubmit } from "@/lib/analytics";
 
@@ -343,8 +343,8 @@ export default function MinimumWageCalculator() {
             }
           ]}
           inputs={{
-            state: selectedState,
-            city: selectedCity,
+            state: state,
+            city: city,
             hoursWorked: hoursWorked,
             overtimeHours: overtimeHours
           }}
