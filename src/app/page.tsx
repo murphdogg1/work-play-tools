@@ -5,7 +5,6 @@ import {
   DollarSign, 
   FileText, 
   TrendingUp, 
-  Users,
   BookOpen,
   Mail,
   ArrowRight,

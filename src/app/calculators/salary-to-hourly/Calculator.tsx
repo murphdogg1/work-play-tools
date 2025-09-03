@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { z } from "zod";
 import NumberField from "@/components/calculators/NumberField";
-import ResultCard from "@/components/calculators/ResultCard";
 import StickyResults from "@/components/calculators/StickyResults";
 import { trackCalculatorInput, trackCalculatorSubmit } from "@/lib/analytics";
 
@@ -98,20 +97,16 @@ export default function Calculator() {
           label="Annual Salary"
           value={values.annualSalary}
           onChange={(value) => handleInputChange("annualSalary", value)}
-          prefix="$"
-          step="1000"
         />
         <NumberField
           label="Hours per Week"
           value={values.hoursPerWeek}
           onChange={(value) => handleInputChange("hoursPerWeek", value)}
-          step="0.5"
         />
         <NumberField
           label="Weeks per Year"
           value={values.weeksPerYear}
           onChange={(value) => handleInputChange("weeksPerYear", value)}
-          step="1"
         />
       </div>
 
