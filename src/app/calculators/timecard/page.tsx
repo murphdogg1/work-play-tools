@@ -65,7 +65,7 @@ const relatedItems: RelatedItem[] = [
 
 export default function TimecardPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <PageHeading title="Timecard Calculator" subtitle="Track your weekly hours and overtime. Perfect for hourly workers, freelancers, and anyone tracking billable time." />
       <WebAppJsonLd 
         name="Timecard Calculator"

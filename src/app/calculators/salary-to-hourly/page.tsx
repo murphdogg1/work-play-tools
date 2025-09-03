@@ -88,7 +88,7 @@ const relatedItems: RelatedItem[] = [
 
 export default function SalaryToHourlyPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <PageHeading 
         title="Salary → Hourly Calculator" 
         subtitle="Convert your annual salary to an hourly rate. Essential for contract negotiations, freelance pricing, and comparing compensation packages." 

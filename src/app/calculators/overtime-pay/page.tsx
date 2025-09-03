@@ -77,7 +77,7 @@ const relatedItems: RelatedItem[] = [
 
 export default function OvertimePayCalculatorPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <PageHeading
         title="Overtime Pay Calculator (2025)"
         subtitle="Calculate your weekly pay including overtime. Perfect for hourly workers tracking hours or employers calculating payroll."

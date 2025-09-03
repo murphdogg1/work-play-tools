@@ -65,7 +65,7 @@ const relatedItems: RelatedItem[] = [
 
 export default function HourlyToSalaryPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <PageHeading title="Hourly → Salary" subtitle="Convert your hourly rate to annual salary. Essential for job negotiations, budgeting, and comparing offers." />
       <WebAppJsonLd 
         name="Hourly to Salary Calculator"

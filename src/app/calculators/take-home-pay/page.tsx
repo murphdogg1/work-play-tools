@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function TakeHomePayPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/calculators", label: "Calculators" }, { label: "Take-Home Pay" }]} />
       <PageHeading 
         title="Take-Home Pay Calculator" 

@@ -94,7 +94,7 @@ const faqItems: FaqItem[] = [
 
 export default function PayrollCalculatorPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <PageHeading 
         title="Free Payroll Calculator 2025" 
         subtitle="Calculate employee pay, taxes, deductions, and net pay instantly. Perfect for small businesses, HR professionals, and employers." 
