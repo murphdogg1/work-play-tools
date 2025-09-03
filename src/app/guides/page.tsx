@@ -31,6 +31,7 @@ const cards = [
   { href: "/guides/payroll-basics", title: "Payroll Basics", desc: "Core concepts for running payroll." },
   { href: "/guides/overtime-rules", title: "Overtime Rules", desc: "Understand overtime thresholds and rates." },
   { href: "/guides/benefits", title: "Benefits & Deductions", desc: "Health, retirement, taxes, and more." },
+  { href: "/guides/payroll-software-comparison", title: "Payroll Software Comparison", desc: "Compare the best payroll software for 2025." },
 ];
 
 export default function GuidesHubPage() {

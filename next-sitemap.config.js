@@ -11,6 +11,7 @@ module.exports = {
     const calculators = [
       '/calculators/overtime-pay',
       '/calculators/hourly-to-salary',
+      '/calculators/salary-to-hourly',
       '/calculators/take-home-pay',
       '/calculators/payroll-tax',
       '/calculators/minimum-wage',
@@ -32,6 +33,7 @@ module.exports = {
       '/guides/payroll-basics',
       '/guides/overtime-rules',
       '/guides/benefits',
+      '/guides/payroll-software-comparison',
       '/guides'
     ];
     

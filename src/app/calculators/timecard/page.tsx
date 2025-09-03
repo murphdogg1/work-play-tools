@@ -10,11 +10,12 @@ import TimecardForm from "./TimecardForm";
 import EmbedButton from "./EmbedButton";
 
 export const metadata: Metadata = {
-  title: "Timecard Calculator",
-  description: "Calculate total hours, overtime, and regular hours for weekly timecards.",
+  title: "Free Timecard Calculator 2025 | Track Hours & Calculate Overtime",
+  description: "Free timecard calculator for 2025. Track daily hours, calculate overtime, and manage weekly timecards. Perfect for hourly workers, freelancers, and payroll processing. No signup required.",
+  keywords: ["timecard calculator", "time tracking calculator", "hours calculator", "overtime calculator", "weekly hours calculator", "timecard template", "employee hours tracker"],
   openGraph: {
-    title: "Timecard Calculator",
-    description: "Calculate total hours, overtime, and regular hours for weekly timecards.",
+    title: "Free Timecard Calculator 2025 | Track Hours & Calculate Overtime",
+    description: "Free timecard calculator for 2025. Track daily hours, calculate overtime, and manage weekly timecards. Perfect for hourly workers, freelancers, and payroll processing. No signup required.",
     images: [
       {
         url: generateOgImageUrl("Timecard Calculator", "Calculate total hours, overtime, and regular hours for weekly timecards."),
@@ -66,9 +67,9 @@ export default function TimecardPage() {
     <div className="space-y-8">
       <PageHeading title="Timecard Calculator" subtitle="Track your weekly hours and overtime. Perfect for hourly workers, freelancers, and anyone tracking billable time." />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpay.tools/" },
-        { name: "Calculators", url: "https://workpay.tools/calculators" },
-        { name: "Timecard", url: "https://workpay.tools/calculators/timecard" },
+        { name: "Home", url: "https://workpaytools.com/" },
+        { name: "Calculators", url: "https://workpaytools.com/calculators" },
+        { name: "Timecard", url: "https://workpaytools.com/calculators/timecard" },
       ])}
       <Suspense fallback={<div>Loading calculator...</div>}>
         <TimecardForm />

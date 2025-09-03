@@ -66,6 +66,26 @@ const nextConfig: NextConfig = {
         destination: '/calculators',
         permanent: true,
       },
+      {
+        source: '/payroll-calculator',
+        destination: '/calculators/payroll-tax',
+        permanent: true,
+      },
+      {
+        source: '/overtime-calculator',
+        destination: '/calculators/overtime-pay',
+        permanent: true,
+      },
+      {
+        source: '/salary-calculator',
+        destination: '/calculators/take-home-pay',
+        permanent: true,
+      },
+      {
+        source: '/hourly-calculator',
+        destination: '/calculators/hourly-to-salary',
+        permanent: true,
+      },
     ];
   },
 };

@@ -10,11 +10,12 @@ import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
 export const metadata: Metadata = {
-  title: "Hourly to Salary Calculator",
-  description: "Convert hourly pay to annual, monthly, and weekly salary.",
+  title: "Free Hourly to Salary Calculator 2025 | Convert Hourly Rate to Annual Pay",
+  description: "Free hourly to salary calculator for 2025. Convert hourly pay to annual, monthly, and weekly salary instantly. Perfect for job negotiations and salary comparisons. No signup required.",
+  keywords: ["hourly to salary calculator", "hourly rate to salary", "convert hourly to annual salary", "hourly wage calculator", "salary converter", "hourly pay calculator", "annual salary calculator"],
   openGraph: {
-    title: "Hourly to Salary Calculator",
-    description: "Convert hourly pay to annual, monthly, and weekly salary.",
+    title: "Free Hourly to Salary Calculator 2025 | Convert Hourly Rate to Annual Pay",
+    description: "Free hourly to salary calculator for 2025. Convert hourly pay to annual, monthly, and weekly salary instantly. Perfect for job negotiations and salary comparisons. No signup required.",
     images: [
       {
         url: generateOgImageUrl("Hourly to Salary Calculator", "Convert hourly pay to annual, monthly, and weekly salary."),
@@ -66,9 +67,9 @@ export default function HourlyToSalaryPage() {
     <div className="space-y-8">
       <PageHeading title="Hourly → Salary" subtitle="Convert your hourly rate to annual salary. Essential for job negotiations, budgeting, and comparing offers." />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpay.tools/" },
-        { name: "Calculators", url: "https://workpay.tools/calculators" },
-        { name: "Hourly to Salary", url: "https://workpay.tools/calculators/hourly-to-salary" },
+        { name: "Home", url: "https://workpaytools.com/" },
+        { name: "Calculators", url: "https://workpaytools.com/calculators" },
+        { name: "Hourly to Salary", url: "https://workpaytools.com/calculators/hourly-to-salary" },
       ])}
       <Suspense fallback={<div>Loading calculator...</div>}>
         <Calculator />

@@ -82,9 +82,9 @@ export default function OvertimePayCalculatorPage() {
         subtitle="Calculate your weekly pay including overtime. Perfect for hourly workers tracking hours or employers calculating payroll."
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpay.tools/" },
-        { name: "Calculators", url: "https://workpay.tools/calculators" },
-        { name: "Overtime Pay", url: "https://workpay.tools/calculators/overtime-pay" },
+        { name: "Home", url: "https://workpaytools.com/" },
+        { name: "Calculators", url: "https://workpaytools.com/calculators" },
+        { name: "Overtime Pay", url: "https://workpaytools.com/calculators/overtime-pay" },
       ])}
 
       <Suspense fallback={<div>Loading calculator...</div>}>

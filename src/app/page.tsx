@@ -28,10 +28,10 @@ const featuredCalculators = [
     description: "Convert hourly rates to annual salary equivalents"
   },
   {
-    title: "Timecard Calculator",
-    href: "/calculators/timecard",
-    icon: Calculator,
-    description: "Track work hours and calculate totals with break time"
+    title: "Salary to Hourly Calculator",
+    href: "/calculators/salary-to-hourly",
+    icon: TrendingUp,
+    description: "Convert annual salary to hourly rate for contracts and negotiations"
   },
   {
     title: "Take-Home Pay Calculator",
@@ -46,10 +46,10 @@ const featuredCalculators = [
     description: "Calculate FICA, Medicare, and Social Security taxes"
   },
   {
-    title: "Minimum Wage Calculator",
-    href: "/calculators/minimum-wage",
-    icon: Users,
-    description: "Check minimum wage requirements by state and federal law"
+    title: "Timecard Calculator",
+    href: "/calculators/timecard",
+    icon: Calculator,
+    description: "Track work hours and calculate totals with break time"
   }
 ];
 
