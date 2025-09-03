@@ -5,6 +5,7 @@ import { generateOgImageUrl } from "@/lib/og";
 import Header from "@/components/nav/Header";
 import SkipToContent from "@/components/SkipToContent";
 import NewsletterForm from "@/components/NewsletterForm";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 import "../styles/theme.css";
 
@@ -175,6 +176,7 @@ export default function RootLayout({
         </script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <GoogleAnalytics />
         <SkipToContent />
         <div className="min-h-screen flex flex-col">
           <Header />

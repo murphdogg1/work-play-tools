@@ -9,7 +9,20 @@ export function gaPageview(path: string) {
   if (typeof window === "undefined") return;
   const id = "G-KYVLET7NMT";
   if (!id || !window.gtag) return;
-  window.gtag("config", id, { page_path: path });
+  
+  // Track pageview with enhanced parameters
+  window.gtag("config", id, { 
+    page_path: path,
+    page_title: document.title,
+    page_location: window.location.href
+  });
+  
+  // Also send a page_view event for better tracking
+  window.gtag("event", "page_view", {
+    page_path: path,
+    page_title: document.title,
+    page_location: window.location.href
+  });
 }
 
 export function gaEvent(event: string, params?: Record<string, unknown>) {
@@ -60,6 +73,26 @@ export function trackSearchSelect(query: string, href: string) {
   gaEvent("search_select", {
     query,
     href,
+    page_path: window.location.pathname,
+  });
+}
+
+// Enhanced tracking for calculator engagement
+export function trackCalculatorEngagement(tool: string, action: string, value?: string) {
+  gaEvent("calculator_engagement", {
+    tool,
+    action,
+    value,
+    page_path: window.location.pathname,
+    timestamp: new Date().toISOString(),
+  });
+}
+
+// Track user session duration on calculators
+export function trackCalculatorSession(tool: string, duration: number) {
+  gaEvent("calculator_session", {
+    tool,
+    duration_seconds: Math.round(duration / 1000),
     page_path: window.location.pathname,
   });
 }
