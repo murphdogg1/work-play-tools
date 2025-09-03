@@ -1,11 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const adsTxtContent = `# ads.txt file for WorkPayTools
-# This file helps prevent ad fraud by listing authorized digital sellers
-
-# Google AdSense
-google.com, pub-6178941739913559, DIRECT, f08c47fec0942fa0
+  const adsTxtContent = `google.com, pub-6178941739913559, DIRECT, f08c47fec0942fa0
 
 # Example entries for other ad networks (uncomment and replace with actual values when needed)
 # facebook.com, 123456789, DIRECT, c3e20eee3f780d68

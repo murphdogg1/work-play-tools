@@ -59,6 +59,7 @@ export default function RootLayout({
           name="description"
           content="Free payroll calculators, HR templates, and guides"
         />
+        <meta name="google-adsense-account" content="ca-pub-6178941739913559" />
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
