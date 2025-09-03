@@ -234,82 +234,7 @@ export default function MinimumWageCalculator() {
     return cityMinimumWages[state] ? Object.keys(cityMinimumWages[state]) : [];
   };
 
-  const resultsContent = (
-    <div className="space-y-4">
-      <ResultCard
-        title="Total Pay"
-        items={[
-          { label: "Amount", value: formatCurrency(results.totalPay) },
-          { label: "Rate", value: `${formatCurrency(results.applicableMinimum)}/hour` }
-        ]}
-        tool="minimum-wage"
-      />
-      
-      <div className="space-y-3">
-        <h3 className="font-medium text-sm">Minimum Wage Rates</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex justify-between">
-            <span>Federal Minimum:</span>
-            <span>{formatCurrency(results.federalMinimum)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>State Minimum:</span>
-            <span>{formatCurrency(results.stateMinimum)}</span>
-          </div>
-          {results.localMinimum > 0 && (
-            <div className="flex justify-between">
-              <span>Local Minimum:</span>
-              <span>{formatCurrency(results.localMinimum)}</span>
-            </div>
-          )}
-          <div className="flex justify-between border-t pt-2 font-medium">
-            <span>Applicable Rate:</span>
-            <span>{formatCurrency(results.applicableMinimum)}</span>
-          </div>
-        </div>
-      </div>
 
-      <div className="space-y-3">
-        <h3 className="font-medium text-sm">Pay Breakdown</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex justify-between">
-            <span>Regular Pay ({Math.min(hoursWorked, 40)} hrs):</span>
-            <span>{formatCurrency(results.regularPay)}</span>
-          </div>
-          {(results.overtimePay > 0) && (
-            <div className="flex justify-between">
-              <span>Overtime Pay ({Math.max(0, hoursWorked - 40) + overtimeHours} hrs):</span>
-              <span>{formatCurrency(results.overtimePay)}</span>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="space-y-3">
-        <h3 className="font-medium text-sm">Annual Equivalents</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex justify-between">
-            <span>Weekly:</span>
-            <span>{formatCurrency(results.weeklySalary)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Monthly:</span>
-            <span>{formatCurrency(results.monthlySalary)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Annual:</span>
-            <span>{formatCurrency(results.annualSalary)}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-        <div className="text-xs text-yellow-800 dark:text-yellow-200">
-          <strong>Note:</strong> Minimum wage rates are current as of 2024. Some cities and counties may have higher rates. Always verify current rates with local authorities.
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
@@ -396,9 +321,35 @@ export default function MinimumWageCalculator() {
       </div>
 
       <div className="lg:col-span-1">
-        <StickyResults>
-          {resultsContent}
-        </StickyResults>
+        <StickyResults
+          title="Minimum Wage Results"
+          results={[
+            {
+              label: "Total Pay",
+              value: formatCurrency(results.totalPay),
+              highlight: true
+            },
+            {
+              label: "Regular Pay",
+              value: formatCurrency(results.regularPay)
+            },
+            {
+              label: "Overtime Pay",
+              value: formatCurrency(results.overtimePay)
+            },
+            {
+              label: "Applicable Minimum Wage",
+              value: formatCurrency(results.applicableMinimum) + "/hour"
+            }
+          ]}
+          inputs={{
+            state: selectedState,
+            city: selectedCity,
+            hoursWorked: hoursWorked,
+            overtimeHours: overtimeHours
+          }}
+          tool="minimum-wage"
+        />
       </div>
     </div>
   );

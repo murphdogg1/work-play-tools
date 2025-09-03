@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
-import ResultCard from "@/components/calculators/ResultCard";
+
 import StickyResults from "@/components/calculators/StickyResults";
-import { trackCalculatorInput, trackCalculatorSubmit, trackCalculatorCopy } from "@/lib/analytics";
+import { trackCalculatorInput, trackCalculatorSubmit } from "@/lib/analytics";
 
 interface Deductions {
   federalTax: number;
@@ -245,67 +245,7 @@ export default function TakeHomePayCalculator() {
     return `${(rate * 100).toFixed(1)}%`;
   };
 
-  const resultsContent = (
-    <div className="space-y-4">
-      <ResultCard
-        title="Net Take-Home Pay"
-        value={formatCurrency(results.netPay)}
-        subtitle={`After ${formatCurrency(results.totalDeductions)} in deductions`}
-        onCopy={() => trackCalculatorCopy("take-home-pay")}
-      />
-      
-      <div className="grid gap-3 sm:grid-cols-2">
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3">
-          <div className="text-sm text-gray-600 dark:text-gray-400">Gross Pay</div>
-          <div className="text-lg font-semibold">{formatCurrency(results.grossPay)}</div>
-        </div>
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3">
-          <div className="text-sm text-gray-600 dark:text-gray-400">Effective Tax Rate</div>
-          <div className="text-lg font-semibold">{formatPercentage(results.effectiveTaxRate)}</div>
-        </div>
-      </div>
 
-      <div className="space-y-2">
-        <h3 className="font-medium text-sm">Deductions Breakdown</h3>
-        <div className="space-y-1 text-sm">
-          <div className="flex justify-between">
-            <span>Federal Income Tax:</span>
-            <span>{formatCurrency(results.deductions.federalTax)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>State Income Tax:</span>
-            <span>{formatCurrency(results.deductions.stateTax)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Social Security (6.2%):</span>
-            <span>{formatCurrency(results.deductions.socialSecurity)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Medicare (1.45%):</span>
-            <span>{formatCurrency(results.deductions.medicare)}</span>
-          </div>
-          {results.deductions.healthInsurance > 0 && (
-            <div className="flex justify-between">
-              <span>Health Insurance:</span>
-              <span>{formatCurrency(results.deductions.healthInsurance)}</span>
-            </div>
-          )}
-          {results.deductions.retirement401k > 0 && (
-            <div className="flex justify-between">
-              <span>401(k) Contribution:</span>
-              <span>{formatCurrency(results.deductions.retirement401k)}</span>
-            </div>
-          )}
-          {results.deductions.otherDeductions > 0 && (
-            <div className="flex justify-between">
-              <span>Other Deductions:</span>
-              <span>{formatCurrency(results.deductions.otherDeductions)}</span>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
@@ -405,9 +345,48 @@ export default function TakeHomePayCalculator() {
       </div>
 
       <div className="lg:col-span-1">
-        <StickyResults>
-          {resultsContent}
-        </StickyResults>
+        <StickyResults
+          title="Take-Home Pay Results"
+          results={[
+            {
+              label: "Net Pay",
+              value: formatCurrency(results.netPay),
+              highlight: true
+            },
+            {
+              label: "Gross Pay",
+              value: formatCurrency(results.grossPay)
+            },
+            {
+              label: "Federal Tax",
+              value: formatCurrency(results.federalTax)
+            },
+            {
+              label: "State Tax",
+              value: formatCurrency(results.stateTax)
+            },
+            {
+              label: "Social Security",
+              value: formatCurrency(results.socialSecurity)
+            },
+            {
+              label: "Medicare",
+              value: formatCurrency(results.medicare)
+            },
+            {
+              label: "Total Deductions",
+              value: formatCurrency(results.totalDeductions)
+            }
+          ]}
+          inputs={{
+            grossPay: grossPay,
+            payPeriod: payPeriod,
+            filingStatus: filingStatus,
+            state: state,
+            deductions: deductions
+          }}
+          tool="take-home-pay"
+        />
       </div>
     </div>
   );

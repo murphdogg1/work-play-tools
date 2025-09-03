@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
-import ResultCard from "@/components/calculators/ResultCard";
+
 import StickyResults from "@/components/calculators/StickyResults";
-import { trackCalculatorInput, trackCalculatorSubmit, trackCalculatorCopy } from "@/lib/analytics";
+import { trackCalculatorInput, trackCalculatorSubmit } from "@/lib/analytics";
 
 interface TaxResults {
   grossPay: number;
@@ -280,78 +280,7 @@ export default function PayrollTaxCalculator() {
     }).format(amount);
   };
 
-  const resultsContent = (
-    <div className="space-y-4">
-      <ResultCard
-        title="Net Pay"
-        value={formatCurrency(results.netPay)}
-        subtitle={`After ${formatCurrency(results.totalTaxes)} in taxes`}
-        onCopy={() => trackCalculatorCopy("payroll-tax")}
-      />
-      
-      <div className="space-y-3">
-        <h3 className="font-medium text-sm">Employee Tax Withholdings</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex justify-between">
-            <span>Federal Income Tax:</span>
-            <span>{formatCurrency(results.federalIncomeTax)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>State Income Tax:</span>
-            <span>{formatCurrency(results.stateIncomeTax)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Social Security (6.2%):</span>
-            <span>{formatCurrency(results.socialSecurityTax)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Medicare (1.45%):</span>
-            <span>{formatCurrency(results.medicareTax)}</span>
-          </div>
-          {results.localTax > 0 && (
-            <div className="flex justify-between">
-              <span>Local Tax:</span>
-              <span>{formatCurrency(results.localTax)}</span>
-            </div>
-          )}
-          {additionalWithholding > 0 && (
-            <div className="flex justify-between">
-              <span>Additional Withholding:</span>
-              <span>{formatCurrency(additionalWithholding)}</span>
-            </div>
-          )}
-        </div>
-      </div>
 
-      <div className="space-y-3">
-        <h3 className="font-medium text-sm">Employer Payroll Taxes</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex justify-between">
-            <span>Social Security (6.2%):</span>
-            <span>{formatCurrency(results.employerTaxes.socialSecurity)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Medicare (1.45%):</span>
-            <span>{formatCurrency(results.employerTaxes.medicare)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Unemployment (FUTA):</span>
-            <span>{formatCurrency(results.employerTaxes.unemployment)}</span>
-          </div>
-          <div className="flex justify-between border-t pt-2 font-medium">
-            <span>Total Employer Taxes:</span>
-            <span>{formatCurrency(results.employerTaxes.total)}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
-        <div className="text-xs text-blue-800 dark:text-blue-200">
-          <strong>Note:</strong> This calculator provides estimates based on 2024 tax rates. Actual withholdings may vary based on specific circumstances and should be verified with tax professionals.
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
@@ -445,9 +374,53 @@ export default function PayrollTaxCalculator() {
       </div>
 
       <div className="lg:col-span-1">
-        <StickyResults>
-          {resultsContent}
-        </StickyResults>
+        <StickyResults
+          title="Payroll Tax Results"
+          results={[
+            {
+              label: "Net Pay",
+              value: formatCurrency(results.netPay),
+              highlight: true
+            },
+            {
+              label: "Gross Pay",
+              value: formatCurrency(results.grossPay)
+            },
+            {
+              label: "Federal Income Tax",
+              value: formatCurrency(results.federalIncomeTax)
+            },
+            {
+              label: "State Income Tax",
+              value: formatCurrency(results.stateIncomeTax)
+            },
+            {
+              label: "Social Security",
+              value: formatCurrency(results.socialSecurity)
+            },
+            {
+              label: "Medicare",
+              value: formatCurrency(results.medicare)
+            },
+            {
+              label: "FUTA",
+              value: formatCurrency(results.futa)
+            },
+            {
+              label: "SUTA",
+              value: formatCurrency(results.suta)
+            }
+          ]}
+          inputs={{
+            grossPay: grossPay,
+            payPeriod: payPeriod,
+            filingStatus: filingStatus,
+            state: state,
+            allowances: allowances,
+            additionalWithholding: additionalWithholding
+          }}
+          tool="payroll-tax"
+        />
       </div>
     </div>
   );
