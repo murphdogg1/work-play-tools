@@ -1,10 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { safeNumber } from "@/lib/format";
 import { useForm, useFieldArray } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import ResultCard from "@/components/calculators/ResultCard";
+import StickyResults from "@/components/calculators/StickyResults";
+import { useCalculatorState } from "@/lib/calculator-utils";
+import { trackCalculatorSubmit } from "@/lib/analytics";
 
 const RowSchema = z.object({
   in: z.string().default("09:00"),
@@ -32,13 +36,19 @@ function diffHours(inTime: string, outTime: string): number {
 }
 
 export default function TimecardForm() {
-  const { control, watch, register } = useForm<FormValues>({
+  const defaultValues = { rows: [{ in: "09:00", out: "17:00", breakMinutes: 30 }] };
+  const hasTrackedSubmit = useRef(false);
+  
+  const { control, watch, register, setValue } = useForm<FormValues>({
     resolver: zodResolver(Schema),
-    defaultValues: { rows: [{ in: "09:00", out: "17:00", breakMinutes: 30 }] },
+    defaultValues,
     mode: "onChange",
   });
   const { fields, append, remove } = useFieldArray({ control, name: "rows" });
   const rows = (watch("rows") ?? []) as RowValues[];
+
+  // Restore state from URL parameters
+  useCalculatorState(defaultValues, setValue);
 
   const perRowHours = rows.map((r) => {
     const inTime = r.in ?? "00:00";
@@ -49,8 +59,28 @@ export default function TimecardForm() {
   const overtimeHours = Math.max(0, totalHours - 40);
   const regularHours = Math.max(0, totalHours - overtimeHours);
 
+  // Track submit event when calculator first shows meaningful results
+  useEffect(() => {
+    if (!hasTrackedSubmit.current && totalHours > 0) {
+      trackCalculatorSubmit("timecard");
+      hasTrackedSubmit.current = true;
+    }
+  }, [totalHours]);
+
+  const results = [
+    { label: "Regular hours", value: `${regularHours.toFixed(2)}h` },
+    { label: "Overtime hours", value: `${overtimeHours.toFixed(2)}h` },
+    { label: "Total hours", value: `${totalHours.toFixed(2)}h`, highlight: true },
+  ];
+
+  const currentInputs = {
+    "Days tracked": `${rows.length} day${rows.length !== 1 ? 's' : ''}`,
+    "Total entries": `${rows.length} entries`,
+  };
+
   return (
-    <div className="space-y-4">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="lg:col-span-2 space-y-4">
       <div className="space-y-3">
         {fields.map((field, idx) => (
           <div key={field.id} className="grid gap-2 sm:grid-cols-4 items-end">
@@ -74,24 +104,22 @@ export default function TimecardForm() {
         {fields.length < 7 ? (
           <button type="button" className="h-10 px-3 rounded-md border border-black/10 dark:border-white/15 text-sm" onClick={() => append({ in: "09:00", out: "17:00", breakMinutes: 30 })}>+ Add row</button>
         ) : null}
+        </div>
+
+        <ResultCard
+          title="Results"
+          tool="timecard"
+          items={results}
+        />
+        <p className="text-xs text-black/60 dark:text-white/60">Estimates only; not legal advice.</p>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-3">
-        <div className="rounded-md border border-black/10 dark:border-white/15 p-3">
-          <p className="text-xs text-black/70 dark:text-white/70">Regular hours</p>
-          <p className="text-base font-semibold">{regularHours.toFixed(2)}</p>
-        </div>
-        <div className="rounded-md border border-black/10 dark:border-white/15 p-3">
-          <p className="text-xs text-black/70 dark:text-white/70">Overtime hours</p>
-          <p className="text-base font-semibold">{overtimeHours.toFixed(2)}</p>
-        </div>
-        <div className="rounded-md border border-black/10 dark:border-white/15 p-3">
-          <p className="text-xs text-black/70 dark:text-white/70">Total hours</p>
-          <p className="text-base font-semibold">{totalHours.toFixed(2)}</p>
-        </div>
-      </div>
-
-      <p className="text-xs text-black/60 dark:text-white/60">Estimates only; not legal advice.</p>
+      <StickyResults
+        title="Timecard Results"
+        results={results}
+        inputs={currentInputs}
+        tool="timecard"
+      />
     </div>
   );
 }

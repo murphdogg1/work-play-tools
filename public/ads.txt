@@ -1,0 +1,12 @@
+# ads.txt file for WorkPayTools
+# This file helps prevent ad fraud by listing authorized digital sellers
+
+# Google AdSense
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Example entries for other ad networks (replace with actual values)
+# facebook.com, 123456789, DIRECT, c3e20eee3f780d68
+# amazon-adsystem.com, 123456789, DIRECT, 3d4e5f6g7h8i9j0k
+
+# Note: Replace pub-0000000000000000 with your actual Google AdSense publisher ID
+# Add other ad networks as needed when you sign up with them

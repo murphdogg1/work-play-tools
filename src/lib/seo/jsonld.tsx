@@ -63,4 +63,35 @@ export function faqJsonLd(faqs: { question: string; answer: string }[]) {
   return <Script data={data} />;
 }
 
+export function howToJsonLd({ 
+  name, 
+  description, 
+  steps, 
+  result 
+}: { 
+  name: string; 
+  description: string; 
+  steps: { name: string; text: string; url?: string }[]; 
+  result: string; 
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.url ? { url: step.url } : {}),
+    })),
+    result: {
+      "@type": "HowToResult",
+      name: result,
+    },
+  };
+  return <Script data={data} />;
+}
+
 

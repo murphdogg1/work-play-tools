@@ -1,6 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeading from "@/components/PageHeading";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { generateOgImageUrl } from "@/lib/og";
+
+export const metadata: Metadata = {
+  title: "Payroll & HR Guides",
+  description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.",
+  openGraph: {
+    title: "Payroll & HR Guides",
+    description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.",
+    images: [
+      {
+        url: generateOgImageUrl("Payroll & HR Guides", "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits."),
+        width: 1200,
+        height: 630,
+        alt: "Payroll & HR Guides - Learn the essentials and best practices",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Payroll & HR Guides",
+    description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.",
+    images: [generateOgImageUrl("Payroll & HR Guides", "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.")],
+  },
+};
 
 const cards = [
   { href: "/guides/payroll-basics", title: "Payroll Basics", desc: "Core concepts for running payroll." },

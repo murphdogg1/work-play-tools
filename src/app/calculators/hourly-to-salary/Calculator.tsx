@@ -1,12 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import NumberField from "@/components/calculators/NumberField";
 import ResultCard from "@/components/calculators/ResultCard";
+import StickyResults from "@/components/calculators/StickyResults";
 import { currency, safeNumber } from "@/lib/format";
+import { trackCalculatorSubmit } from "@/lib/analytics";
+import { useCalculatorState } from "@/lib/calculator-utils";
 
 const Schema = z.object({
   hourly: z.coerce.number().min(0).default(30),
@@ -17,11 +20,17 @@ const Schema = z.object({
 type FormValues = z.input<typeof Schema>;
 
 export default function Calculator() {
+  const defaultValues = { hourly: 30, hoursPerWeek: 40, weeksPerYear: 52 };
+  const hasTrackedSubmit = useRef(false);
+  
   const { watch, setValue, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(Schema),
     mode: "onChange",
-    defaultValues: { hourly: 30, hoursPerWeek: 40, weeksPerYear: 52 },
+    defaultValues,
   });
+
+  // Restore state from URL parameters
+  useCalculatorState(defaultValues, setValue);
 
   const hourly = watch("hourly");
   const hoursPerWeek = watch("hoursPerWeek");
@@ -31,9 +40,30 @@ export default function Calculator() {
   const annual = weekly * safeNumber(weeksPerYear);
   const monthly = annual / 12;
 
+  // Track submit event when calculator first shows meaningful results
+  useEffect(() => {
+    if (!hasTrackedSubmit.current && annual > 0) {
+      trackCalculatorSubmit("hourly-to-salary");
+      hasTrackedSubmit.current = true;
+    }
+  }, [annual]);
+
+  const results = [
+    { label: "Annual", value: currency(annual), highlight: true },
+    { label: "Monthly", value: currency(monthly) },
+    { label: "Weekly", value: currency(weekly) },
+  ];
+
+  const currentInputs = {
+    "Hourly Rate": `$${hourly}`,
+    "Hours per Week": `${hoursPerWeek} hours`,
+    "Weeks per Year": `${weeksPerYear} weeks`,
+  };
+
   return (
-    <>
-      <div className="grid gap-4 sm:grid-cols-3">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="lg:col-span-2">
+        <div className="grid gap-4 sm:grid-cols-3">
         <NumberField
           label="Hourly rate (USD)"
           value={String(hourly)}
@@ -41,6 +71,8 @@ export default function Calculator() {
           step={0.01}
           min={0}
           errorMessage={errors.hourly?.message as string | undefined}
+          tool="hourly-to-salary"
+          field="hourly"
         />
         <NumberField
           label="Hours per week"
@@ -49,6 +81,8 @@ export default function Calculator() {
           step={0.5}
           min={0}
           errorMessage={errors.hoursPerWeek?.message as string | undefined}
+          tool="hourly-to-salary"
+          field="hoursPerWeek"
         />
         <NumberField
           label="Weeks per year"
@@ -57,19 +91,26 @@ export default function Calculator() {
           step={1}
           min={1}
           errorMessage={errors.weeksPerYear?.message as string | undefined}
+          tool="hourly-to-salary"
+          field="weeksPerYear"
+        />
+        </div>
+
+        <ResultCard
+          className="mt-4"
+          title="Results"
+          tool="hourly-to-salary"
+          items={results}
         />
       </div>
 
-      <ResultCard
-        className="mt-4"
-        title="Results"
-        items={[
-          { label: "Annual", value: currency(annual) },
-          { label: "Monthly", value: currency(monthly) },
-          { label: "Weekly", value: currency(weekly) },
-        ]}
+      <StickyResults
+        title="Salary Conversion Results"
+        results={results}
+        inputs={currentInputs}
+        tool="hourly-to-salary"
       />
-    </>
+    </div>
   );
 }
 

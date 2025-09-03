@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { trackCalculatorInput } from "@/lib/analytics";
 
 export type NumberFieldProps = {
   id?: string;
@@ -14,6 +15,8 @@ export type NumberFieldProps = {
   errorMessage?: string;
   className?: string;
   inputClassName?: string;
+  tool?: string;
+  field?: string;
 };
 
 export default function NumberField({
@@ -28,10 +31,34 @@ export default function NumberField({
   errorMessage,
   className,
   inputClassName,
+  tool,
+  field,
 }: NumberFieldProps) {
   const reactId = React.useId();
   const inputId = id ?? `num-${reactId}`;
   const describedById = helperText ? `${inputId}-desc` : undefined;
+
+  const handleChange = (newValue: string) => {
+    onChange(newValue);
+    
+    // Track analytics if tool and field are provided
+    if (tool && field) {
+      const numValue = parseFloat(newValue);
+      let valueBucket: string | undefined;
+      
+      // Create value buckets for common ranges
+      if (!isNaN(numValue)) {
+        if (numValue < 10) valueBucket = "0-10";
+        else if (numValue < 25) valueBucket = "10-25";
+        else if (numValue < 50) valueBucket = "25-50";
+        else if (numValue < 100) valueBucket = "50-100";
+        else if (numValue < 200) valueBucket = "100-200";
+        else valueBucket = "200+";
+      }
+      
+      trackCalculatorInput(tool, field, valueBucket);
+    }
+  };
 
   return (
     <div className={className}>
@@ -48,7 +75,7 @@ export default function NumberField({
           value={value as number | string}
           aria-invalid={Boolean(errorMessage) || undefined}
           aria-describedby={describedById}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => handleChange(e.target.value)}
         />
       </label>
       {helperText ? (

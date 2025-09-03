@@ -17,4 +17,51 @@ export function gaEvent(event: string, params?: Record<string, unknown>) {
   window.gtag("event", event, params || {});
 }
 
+// Calculator-specific event tracking
+export function trackCalculatorInput(tool: string, field: string, valueBucket?: string) {
+  gaEvent("calculator_input", {
+    tool,
+    field,
+    valueBucket,
+    page_path: window.location.pathname,
+  });
+}
+
+export function trackCalculatorSubmit(tool: string) {
+  gaEvent("calculator_submit", {
+    tool,
+    page_path: window.location.pathname,
+  });
+}
+
+export function trackCalculatorCopy(tool: string) {
+  gaEvent("calculator_copy", {
+    tool,
+    page_path: window.location.pathname,
+  });
+}
+
+export function trackRelatedClick(from: string, to: string) {
+  gaEvent("related_click", {
+    from,
+    to,
+    page_path: window.location.pathname,
+  });
+}
+
+// Search palette event tracking
+export function trackSearchOpen() {
+  gaEvent("search_open", {
+    page_path: window.location.pathname,
+  });
+}
+
+export function trackSearchSelect(query: string, href: string) {
+  gaEvent("search_select", {
+    query,
+    href,
+    page_path: window.location.pathname,
+  });
+}
+
 
