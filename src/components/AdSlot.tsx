@@ -48,7 +48,7 @@ export default function AdSlot({ id, className, style }: AdSlotProps) {
         ref={adRef}
         className="adsbygoogle block"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-0000000000000000" // Replace with your AdSense client ID
+        data-ad-client="ca-pub-6178941739913559"
         data-ad-slot={id}
         data-ad-format="auto"
         data-full-width-responsive="true"
