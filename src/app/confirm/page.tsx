@@ -51,12 +51,12 @@ async function ConfirmSubscription({ token }: { token: string }) {
           <p className="text-gray-600 dark:text-gray-400">
             This confirmation link is invalid or has expired.
           </p>
-          <a 
+          <Link 
             href="/" 
             className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
           >
             Return to Homepage
-          </a>
+          </Link>
         </div>
       )
     }
@@ -73,12 +73,12 @@ async function ConfirmSubscription({ token }: { token: string }) {
           <p className="text-gray-600 dark:text-gray-400">
             Your email {subscriber.email} is already confirmed and subscribed to our updates.
           </p>
-          <a 
+          <Link 
             href="/" 
             className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
           >
             Return to Homepage
-          </a>
+          </Link>
         </div>
       )
     }
