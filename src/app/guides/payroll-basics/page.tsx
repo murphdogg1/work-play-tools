@@ -105,17 +105,7 @@ export default function PayrollBasicsGuide() {
       <GuideLayout breadcrumbs={breadcrumbs}>
         <div className="space-y-8">
 
-          {/* TL;DR Box */}
-          <div className="rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 p-4">
-            <h2 className="text-lg font-semibold tracking-tight text-blue-900 dark:text-blue-100 mb-3">TL;DR</h2>
-        <ul className="space-y-2 text-sm sm:text-base text-blue-800 dark:text-blue-200">
-          <li>• <strong>Gross pay</strong> = total earnings before deductions; <strong>net pay</strong> = what employees actually receive</li>
-          <li>• Choose a <strong>payroll cycle</strong> (weekly, bi-weekly, semi-monthly, or monthly) based on your business needs</li>
-          <li>• Keep detailed <strong>records</strong> for 3-4 years and ensure compliance with federal, state, and local tax requirements</li>
-            </ul>
-          </div>
 
-          <AdSlot id="payroll-basics-guide-tldr" />
 
           {/* Overview */}
           <section className="space-y-4">
