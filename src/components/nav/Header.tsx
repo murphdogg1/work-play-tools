@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import MegaMenu from "./MegaMenu";
 import MobileDrawer from "./MobileDrawer";
 import SearchCommand from "@/components/SearchCommand";
+import { Button } from "@/components/ui/button";
 
 const navigation = {
   calculators: {
@@ -125,13 +126,14 @@ export default function Header() {
                   }
                 }}
               >
-                <button
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium"
+                <Button
+                  variant="ghost"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium"
                   aria-expanded={activeMenu === key}
                   aria-haspopup="true"
                 >
                   {section.title}
-                </button>
+                </Button>
                 {activeMenu === key && (
                   <MegaMenu 
                     section={section} 
@@ -144,9 +146,10 @@ export default function Header() {
 
           {/* Search and CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button
+            <Button
+              variant="outline"
               onClick={() => setIsSearchOpen(true)}
-              className="flex items-center gap-2 px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors border border-gray-300 dark:border-gray-600 rounded-lg hover:border-gray-400 dark:hover:border-gray-500"
+              className="flex items-center gap-2"
               aria-label="Search (Cmd+K)"
             >
               <Search size={16} />
@@ -154,24 +157,25 @@ export default function Header() {
               <kbd className="hidden sm:inline-flex items-center gap-1 rounded border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 px-1.5 font-mono text-[10px] font-medium text-gray-600 dark:text-gray-400">
                 <span className="text-xs">⌘</span>K
               </kbd>
-            </button>
-            <Link
-              href="/calculators/overtime-pay"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              Start with Overtime Calculator
-            </Link>
+            </Button>
+            <Button asChild>
+              <Link href="/calculators/overtime-pay">
+                Start with Overtime Calculator
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
             onClick={handleMobileMenuToggle}
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
         </div>
       </Container>
 

@@ -2,6 +2,8 @@
 
 import React from "react";
 import { trackCalculatorInput } from "@/lib/analytics";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export type NumberFieldProps = {
   id?: string;
@@ -62,27 +64,29 @@ export default function NumberField({
 
   return (
     <div className={className}>
-      <label className="flex flex-col gap-1" htmlFor={inputId}>
-        <span className="text-sm font-medium">{label}</span>
-        <input
+      <div className="flex flex-col gap-1">
+        <Label htmlFor={inputId} className="text-sm font-medium">
+          {label}
+        </Label>
+        <Input
           id={inputId}
           type="number"
           inputMode="decimal"
           step={step}
           min={min as number | undefined}
           max={max as number | undefined}
-          className={`h-10 rounded-md border bg-transparent px-3 text-sm outline-none focus:ring-2 border-black/10 dark:border-white/15 focus:ring-black/10 dark:focus:ring-white/20 ${inputClassName ?? ""} ${errorMessage ? "border-red-500/70 focus:ring-red-500/30" : ""}`}
+          className={inputClassName}
           value={value as number | string}
           aria-invalid={Boolean(errorMessage) || undefined}
           aria-describedby={describedById}
           onChange={(e) => handleChange(e.target.value)}
         />
-      </label>
+      </div>
       {helperText ? (
-        <p id={describedById} className="mt-1 text-xs text-black/70 dark:text-white/70">{helperText}</p>
+        <p id={describedById} className="mt-1 text-xs text-muted-foreground">{helperText}</p>
       ) : null}
       {errorMessage ? (
-        <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errorMessage}</p>
+        <p className="mt-1 text-xs text-destructive">{errorMessage}</p>
       ) : null}
     </div>
   );

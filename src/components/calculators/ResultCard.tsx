@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { trackCalculatorCopy } from "@/lib/analytics";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export type ResultItem = {
   label: string;
@@ -37,36 +39,40 @@ export default function ResultCard({ title, items, className, tool }: ResultCard
   };
 
   return (
-    <section className={`rounded-lg border border-black/10 dark:border-white/15 p-4 sm:p-5 ${className ?? ""}`}>
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
+    <Card className={className}>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <CardTitle className="text-lg font-semibold tracking-tight">{title}</CardTitle>
         {tool && (
-          <button
+          <Button
+            variant="outline"
+            size="sm"
             onClick={handleCopy}
-            className="text-xs px-2 py-1 rounded border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+            className="text-xs"
           >
             {copied ? "Copied!" : "Copy"}
-          </button>
+          </Button>
         )}
-      </div>
-      <dl className="mt-3 grid gap-3 sm:grid-cols-3">
-        {items.map((item, idx) => {
-          let display: React.ReactNode = item.value;
-          if (typeof display === "number") {
-            display = Number.isFinite(display) ? display : "—";
-          }
-          if (display === null || display === undefined || (typeof display === "string" && display.trim() === "")) {
-            display = "—";
-          }
-          return (
-            <div key={idx} className="rounded-md border border-black/10 dark:border-white/15 p-3">
-              <dt className="text-xs text-black/70 dark:text-white/70">{item.label}</dt>
-              <dd className="text-base font-semibold">{display}</dd>
-            </div>
-          );
-        })}
-      </dl>
-    </section>
+      </CardHeader>
+      <CardContent>
+        <dl className="grid gap-3 sm:grid-cols-3">
+          {items.map((item, idx) => {
+            let display: React.ReactNode = item.value;
+            if (typeof display === "number") {
+              display = Number.isFinite(display) ? display : "—";
+            }
+            if (display === null || display === undefined || (typeof display === "string" && display.trim() === "")) {
+              display = "—";
+            }
+            return (
+              <div key={idx} className="rounded-md border p-3">
+                <dt className="text-xs text-muted-foreground">{item.label}</dt>
+                <dd className="text-base font-semibold">{display}</dd>
+              </div>
+            );
+          })}
+        </dl>
+      </CardContent>
+    </Card>
   );
 }
 
