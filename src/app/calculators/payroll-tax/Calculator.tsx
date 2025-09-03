@@ -364,8 +364,6 @@ export default function PayrollTaxCalculator() {
               label="Gross Pay"
               value={grossPay}
               onChange={(value) => handleInputChange("grossPay", value)}
-              placeholder="Enter gross pay amount"
-              prefix="$"
             />
 
             <div>
@@ -432,7 +430,7 @@ export default function PayrollTaxCalculator() {
               label="Allowances/Exemptions"
               value={allowances}
               onChange={(value) => handleInputChange("allowances", value)}
-              placeholder="Number of allowances"
+
               min={0}
               max={20}
             />
@@ -441,8 +439,6 @@ export default function PayrollTaxCalculator() {
               label="Additional Withholding"
               value={additionalWithholding}
               onChange={(value) => handleInputChange("additionalWithholding", value)}
-              placeholder="Extra amount to withhold"
-              prefix="$"
             />
           </div>
         </div>

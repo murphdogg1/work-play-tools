@@ -318,8 +318,6 @@ export default function TakeHomePayCalculator() {
               label="Gross Pay"
               value={grossPay}
               onChange={(value) => handleInputChange("grossPay", value)}
-              placeholder="Enter your gross pay"
-              prefix="$"
             />
 
             <div>
@@ -386,24 +384,21 @@ export default function TakeHomePayCalculator() {
               label="Health Insurance Premium"
               value={deductions.healthInsurance}
               onChange={(value) => handleInputChange("deductions.healthInsurance", value)}
-              placeholder="Monthly premium"
-              prefix="$"
+
             />
 
             <NumberField
               label="401(k) Contribution"
               value={deductions.retirement401k}
               onChange={(value) => handleInputChange("deductions.retirement401k", value)}
-              placeholder="Monthly contribution"
-              prefix="$"
+
             />
 
             <NumberField
               label="Other Deductions"
               value={deductions.otherDeductions}
               onChange={(value) => handleInputChange("deductions.otherDeductions", value)}
-              placeholder="Union dues, parking, etc."
-              prefix="$"
+
             />
           </div>
         </div>

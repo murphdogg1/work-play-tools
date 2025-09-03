@@ -361,7 +361,6 @@ export default function MinimumWageCalculator() {
               label="Hours Worked (per week)"
               value={hoursWorked}
               onChange={(value) => handleInputChange("hoursWorked", value)}
-              placeholder="Enter hours worked"
               min={0}
               max={168}
             />
@@ -370,7 +369,6 @@ export default function MinimumWageCalculator() {
               label="Additional Overtime Hours"
               value={overtimeHours}
               onChange={(value) => handleInputChange("overtimeHours", value)}
-              placeholder="Extra overtime hours"
               min={0}
               max={40}
             />
