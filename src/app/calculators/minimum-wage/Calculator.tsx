@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
 import ResultCard from "@/components/calculators/ResultCard";
 import StickyResults from "@/components/calculators/StickyResults";
@@ -24,7 +24,7 @@ export default function MinimumWageCalculator() {
   const [city, setCity] = useState<string>("");
   const [hoursWorked, setHoursWorked] = useState<number>(40);
   const [overtimeHours, setOvertimeHours] = useState<number>(0);
-  const [payPeriod, setPayPeriod] = useState<"weekly" | "biweekly" | "monthly" | "annually">("weekly");
+
 
   const [results, setResults] = useState<WageResults>({
     federalMinimum: 7.25,
@@ -149,7 +149,7 @@ export default function MinimumWageCalculator() {
     return Math.max(federalMinimum, stateMinimum, localMinimum);
   };
 
-  const calculateResults = () => {
+  const calculateResults = useCallback(() => {
     const federalMinimum = 7.25;
     const stateMinimum = stateMinimumWages[state] || federalMinimum;
     const localMinimum = cityMinimumWages[state]?.[city] || 0;
@@ -165,7 +165,6 @@ export default function MinimumWageCalculator() {
 
     // Convert to different pay periods
     const weeklySalary = totalPay;
-    const biweeklySalary = weeklySalary * 2;
     const monthlySalary = weeklySalary * 4.33; // Average weeks per month
     const annualSalary = weeklySalary * 52;
 
@@ -181,11 +180,11 @@ export default function MinimumWageCalculator() {
       monthlySalary,
       weeklySalary,
     });
-  };
+  }, [state, city, hoursWorked, overtimeHours]);
 
   useEffect(() => {
     calculateResults();
-  }, [state, city, hoursWorked, overtimeHours]);
+  }, [calculateResults]);
 
   useEffect(() => {
     if (results.totalPay > 0 && !hasTrackedSubmit.current) {
@@ -237,9 +236,11 @@ export default function MinimumWageCalculator() {
     <div className="space-y-4">
       <ResultCard
         title="Total Pay"
-        value={formatCurrency(results.totalPay)}
-        subtitle={`At ${formatCurrency(results.applicableMinimum)}/hour`}
-        onCopy={() => trackCalculatorCopy("minimum-wage")}
+        items={[
+          { label: "Amount", value: formatCurrency(results.totalPay) },
+          { label: "Rate", value: `${formatCurrency(results.applicableMinimum)}/hour` }
+        ]}
+        tool="minimum-wage"
       />
       
       <div className="space-y-3">

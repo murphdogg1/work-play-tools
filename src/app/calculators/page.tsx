@@ -237,7 +237,7 @@ export default function CalculatorsPage() {
           <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
             <h3 className="font-medium mb-2">Do you store my data?</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              No, we don't store any of your personal information or calculation data. All calculations are performed locally in your browser.
+              No, we don&apos;t store any of your personal information or calculation data. All calculations are performed locally in your browser.
             </p>
           </div>
         </div>

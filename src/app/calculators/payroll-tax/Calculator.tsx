@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
 import ResultCard from "@/components/calculators/ResultCard";
 import StickyResults from "@/components/calculators/StickyResults";
@@ -162,7 +162,7 @@ export default function PayrollTaxCalculator() {
     };
   };
 
-  const calculateResults = () => {
+  const calculateResults = useCallback(() => {
     if (grossPay <= 0) {
       setResults({
         grossPay: 0,
@@ -244,11 +244,11 @@ export default function PayrollTaxCalculator() {
         total: employerTaxes.total / conversionFactor,
       }
     });
-  };
+  }, [grossPay, payPeriod, filingStatus, state, allowances, additionalWithholding]);
 
   useEffect(() => {
     calculateResults();
-  }, [grossPay, payPeriod, filingStatus, state, allowances, additionalWithholding]);
+  }, [calculateResults]);
 
   useEffect(() => {
     if (results.netPay > 0 && !hasTrackedSubmit.current) {

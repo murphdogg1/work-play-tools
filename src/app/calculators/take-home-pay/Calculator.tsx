@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
 import ResultCard from "@/components/calculators/ResultCard";
 import StickyResults from "@/components/calculators/StickyResults";
@@ -121,7 +121,7 @@ export default function TakeHomePayCalculator() {
     return { socialSecurity, medicare };
   };
 
-  const calculateResults = () => {
+  const calculateResults = useCallback(() => {
     if (grossPay <= 0) {
       setResults({
         grossPay: 0,
@@ -202,11 +202,11 @@ export default function TakeHomePayCalculator() {
       effectiveTaxRate,
       deductions: calculatedDeductions,
     });
-  };
+  }, [grossPay, payPeriod, filingStatus, state, deductions]);
 
   useEffect(() => {
     calculateResults();
-  }, [grossPay, payPeriod, filingStatus, state, deductions]);
+  }, [calculateResults]);
 
   useEffect(() => {
     if (results.netPay > 0 && !hasTrackedSubmit.current) {
