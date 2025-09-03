@@ -7,7 +7,7 @@ Disallow: /confirm
 Disallow: /test
 
 # Host
-Host: https://www.workpaytools.com
+Host: https://workpaytools.com
 
 # Sitemaps
-Sitemap: https://www.workpaytools.com/sitemap.xml
+Sitemap: https://workpaytools.com/sitemap.xml

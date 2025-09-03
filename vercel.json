@@ -4,5 +4,22 @@
   "framework": "nextjs",
   "env": {
     "NEXT_TELEMETRY_DISABLED": "1"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/ads.txt",
+      "destination": "https://www.workpaytools.com/ads.txt",
+      "permanent": true
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "https://www.workpaytools.com/robots.txt",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://www.workpaytools.com/sitemap.xml",
+      "permanent": true
+    }
+  ]
 }
