@@ -101,6 +101,13 @@ export default function CalculatorsPage() {
         subtitle="Free payroll and HR calculators to help you manage compensation and compliance" 
       />
       
+      {/* Rates Review Note */}
+      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+        <p className="text-sm text-blue-800 dark:text-blue-200">
+          <strong>Rates last reviewed:</strong> January 2025
+        </p>
+      </div>
+      
       <AdSlot id="calculators-listing" />
 
       {/* Overview */}
