@@ -396,19 +396,19 @@ export default function PayrollTaxCalculator() {
             },
             {
               label: "Social Security",
-              value: formatCurrency(results.socialSecurity)
+              value: formatCurrency(results.socialSecurityTax)
             },
             {
               label: "Medicare",
-              value: formatCurrency(results.medicare)
+              value: formatCurrency(results.medicareTax)
             },
             {
               label: "FUTA",
-              value: formatCurrency(results.futa)
+              value: formatCurrency(results.employerTaxes.unemployment)
             },
             {
               label: "SUTA",
-              value: formatCurrency(results.suta)
+              value: formatCurrency(results.employerTaxes.unemployment)
             }
           ]}
           inputs={{
