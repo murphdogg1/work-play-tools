@@ -7,7 +7,7 @@ declare global {
 
 export function gaPageview(path: string) {
   if (typeof window === "undefined") return;
-  const id = process.env.NEXT_PUBLIC_GA_ID;
+  const id = "G-KYVLET7NMT";
   if (!id || !window.gtag) return;
   window.gtag("config", id, { page_path: path });
 }

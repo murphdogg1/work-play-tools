@@ -65,10 +65,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        {process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_GA_ID ? (
+        {process.env.NODE_ENV === "production" ? (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              src="https://www.googletagmanager.com/gtag/js?id=G-KYVLET7NMT"
               strategy="afterInteractive"
             />
             <Script id="gtag-init" strategy="afterInteractive">
@@ -76,7 +76,7 @@ export default function RootLayout({
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);} 
                 gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { anonymize_ip: true });
+                gtag('config', 'G-KYVLET7NMT', { anonymize_ip: true });
               `}
             </Script>
           </>
