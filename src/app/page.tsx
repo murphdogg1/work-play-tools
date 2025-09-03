@@ -6,12 +6,10 @@ import {
   FileText, 
   TrendingUp, 
   BookOpen,
-  Mail,
   ArrowRight,
   CheckCircle
 } from "lucide-react";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
-import NewsletterForm from "@/components/NewsletterForm";
 
 const featuredCalculators = [
   {
@@ -228,24 +226,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="bg-indigo-600 rounded-2xl p-8 lg:p-12 text-center">
-        <div className="max-w-2xl mx-auto space-y-6">
-          <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto">
-            <Mail className="h-8 w-8 text-white" />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-white">
-              Stay Updated
-            </h2>
-            <p className="mt-2 text-lg text-indigo-100">
-              Get new calculators, templates, and HR tips delivered to your inbox
-            </p>
-          </div>
-          
-          <NewsletterForm variant="default" className="max-w-md mx-auto" />
-        </div>
-      </section>
+
 
       {/* Enhanced JSON-LD Structured Data */}
       <script type="application/ld+json">
