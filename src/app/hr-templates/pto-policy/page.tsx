@@ -33,8 +33,6 @@ export default function PtoPolicyTemplate() {
       <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/hr-templates", label: "HR Templates" }, { label: "PTO Policy" }]} />
       <PageHeading title="PTO Policy Template" subtitle="Comprehensive paid time off policy with accrual and approval guidelines" />
       <AdSlot id="pto-policy-template" />
-      
-
 
       {/* Policy Template */}
       <section className="space-y-4">
