@@ -88,30 +88,32 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="WorkPayTools" />
-        {process.env.NODE_ENV === "production" ? (
+        
+        {/* Google Analytics - Production Only */}
+        {process.env.NODE_ENV === "production" && (
           <>
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-KYVLET7NMT"
-              strategy="afterInteractive"
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYVLET7NMT"></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);} 
+                  gtag('js', new Date());
+                  gtag('config', 'G-KYVLET7NMT', { anonymize_ip: true });
+                `,
+              }}
             />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);} 
-                gtag('js', new Date());
-                gtag('config', 'G-KYVLET7NMT', { anonymize_ip: true });
-              `}
-            </Script>
           </>
-        ) : null}
-        {process.env.NODE_ENV === "production" ? (
-          <Script
-            async
+        )}
+        
+        {/* Google AdSense - Production Only */}
+        {process.env.NODE_ENV === "production" && (
+          <script 
+            async 
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6178941739913559"
             crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        ) : null}
+          ></script>
+        )}
         
         {/* Enhanced Structured Data */}
         <script type="application/ld+json">
