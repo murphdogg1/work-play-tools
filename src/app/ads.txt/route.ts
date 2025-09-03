@@ -1,4 +1,7 @@
-# ads.txt file for WorkPayTools
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const adsTxtContent = `# ads.txt file for WorkPayTools
 # This file helps prevent ad fraud by listing authorized digital sellers
 
 # Google AdSense
@@ -22,4 +25,12 @@ google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
 # 1. After getting approved for Google AdSense, replace pub-0000000000000000 with your actual publisher ID
 # 2. Add other ad networks as you sign up with them
 # 3. Each line should follow the format: domain, publisher_id, relationship, certification_authority_id
-# 4. Keep this file updated as you add new ad networks
+# 4. Keep this file updated as you add new ad networks`;
+
+  return new NextResponse(adsTxtContent, {
+    headers: {
+      'Content-Type': 'text/plain',
+      'Cache-Control': 'public, max-age=3600', // Cache for 1 hour
+    },
+  });
+}
