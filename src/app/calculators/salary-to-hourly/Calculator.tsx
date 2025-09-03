@@ -1,18 +1,15 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { z } from "zod";
 import NumberField from "@/components/calculators/NumberField";
 import StickyResults from "@/components/calculators/StickyResults";
 import { trackCalculatorInput, trackCalculatorSubmit } from "@/lib/analytics";
 
-const Schema = z.object({
-  annualSalary: z.number().min(0, "Annual salary must be positive"),
-  hoursPerWeek: z.number().min(1, "Hours per week must be at least 1").max(168, "Hours per week cannot exceed 168"),
-  weeksPerYear: z.number().min(1, "Weeks per year must be at least 1").max(52, "Weeks per year cannot exceed 52"),
-});
-
-type FormValues = z.input<typeof Schema>;
+type FormValues = {
+  annualSalary: number;
+  hoursPerWeek: number;
+  weeksPerYear: number;
+};
 
 export default function Calculator() {
   const [values, setValues] = useState<FormValues>({
@@ -116,18 +113,15 @@ export default function Calculator() {
           results={[
             {
               label: "Hourly Rate",
-              value: formatCurrency(results.hourlyRate),
-              subtitle: `Based on ${formatHours(results.totalHoursPerYear)} hours/year`
+              value: formatCurrency(results.hourlyRate)
             },
             {
               label: "Weekly Rate",
-              value: formatCurrency(results.weeklyRate),
-              subtitle: `${formatHours(values.hoursPerWeek)} hours/week`
+              value: formatCurrency(results.weeklyRate)
             },
             {
               label: "Monthly Rate",
-              value: formatCurrency(results.monthlyRate),
-              subtitle: "Annual salary ÷ 12"
+              value: formatCurrency(results.monthlyRate)
             }
           ]}
           inputs={{
