@@ -357,19 +357,19 @@ export default function TakeHomePayCalculator() {
             },
             {
               label: "Federal Tax",
-              value: formatCurrency(results.federalTax)
+              value: formatCurrency(results.deductions.federalTax)
             },
             {
               label: "State Tax",
-              value: formatCurrency(results.stateTax)
+              value: formatCurrency(results.deductions.stateTax)
             },
             {
               label: "Social Security",
-              value: formatCurrency(results.socialSecurity)
+              value: formatCurrency(results.deductions.socialSecurity)
             },
             {
               label: "Medicare",
-              value: formatCurrency(results.medicare)
+              value: formatCurrency(results.deductions.medicare)
             },
             {
               label: "Total Deductions",
