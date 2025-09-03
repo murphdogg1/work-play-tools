@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function PayrollTaxPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/calculators", label: "Calculators" }, { label: "Payroll Tax" }]} />
       <PageHeading 
         title="Payroll Tax Calculator" 

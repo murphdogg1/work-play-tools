@@ -44,7 +44,7 @@ export default function AdSlot({ id, adSlot, className, style }: AdSlotProps) {
   }
 
   return (
-    <div className={`my-6 ${className || ""}`} style={style}>
+    <div className={`my-4 ${className || ""}`} style={style}>
       <ins
         ref={adRef}
         className="adsbygoogle block"
