@@ -257,19 +257,20 @@ export default function PayrollTaxCalculator() {
     }
   }, [results.netPay]);
 
-  const handleInputChange = (field: string, value: number) => {
+  const handleInputChange = (field: string, value: string) => {
+    const numValue = parseFloat(value) || 0;
     switch (field) {
       case "grossPay":
-        setGrossPay(value);
+        setGrossPay(numValue);
         break;
       case "allowances":
-        setAllowances(value);
+        setAllowances(numValue);
         break;
       case "additionalWithholding":
-        setAdditionalWithholding(value);
+        setAdditionalWithholding(numValue);
         break;
     }
-    trackCalculatorInput("payroll-tax", field, value > 0 ? "has-value" : "no-value");
+    trackCalculatorInput("payroll-tax", field, numValue > 0 ? "has-value" : "no-value");
   };
 
   const formatCurrency = (amount: number) => {

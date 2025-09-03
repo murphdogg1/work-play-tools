@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
 import ResultCard from "@/components/calculators/ResultCard";
 import StickyResults from "@/components/calculators/StickyResults";
-import { trackCalculatorInput, trackCalculatorSubmit, trackCalculatorCopy } from "@/lib/analytics";
+import { trackCalculatorInput, trackCalculatorSubmit } from "@/lib/analytics";
 
 interface WageResults {
   federalMinimum: number;
@@ -193,16 +193,17 @@ export default function MinimumWageCalculator() {
     }
   }, [results.totalPay]);
 
-  const handleInputChange = (field: string, value: number) => {
+  const handleInputChange = (field: string, value: string) => {
+    const numValue = parseFloat(value) || 0;
     switch (field) {
       case "hoursWorked":
-        setHoursWorked(value);
+        setHoursWorked(numValue);
         break;
       case "overtimeHours":
-        setOvertimeHours(value);
+        setOvertimeHours(numValue);
         break;
     }
-    trackCalculatorInput("minimum-wage", field, value > 0 ? "has-value" : "no-value");
+    trackCalculatorInput("minimum-wage", field, numValue > 0 ? "has-value" : "no-value");
   };
 
   const formatCurrency = (amount: number) => {

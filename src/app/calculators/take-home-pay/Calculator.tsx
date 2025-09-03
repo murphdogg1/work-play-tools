@@ -215,21 +215,22 @@ export default function TakeHomePayCalculator() {
     }
   }, [results.netPay]);
 
-  const handleInputChange = (field: string, value: number) => {
+  const handleInputChange = (field: string, value: string) => {
+    const numValue = parseFloat(value) || 0;
     if (field.startsWith("deductions.")) {
       const deductionField = field.split(".")[1] as keyof Deductions;
       setDeductions(prev => ({
         ...prev,
-        [deductionField]: value
+        [deductionField]: numValue
       }));
-      trackCalculatorInput("take-home-pay", field, value > 0 ? "has-value" : "no-value");
+      trackCalculatorInput("take-home-pay", field, numValue > 0 ? "has-value" : "no-value");
     } else {
       switch (field) {
         case "grossPay":
-          setGrossPay(value);
+          setGrossPay(numValue);
           break;
       }
-      trackCalculatorInput("take-home-pay", field, value > 0 ? "has-value" : "no-value");
+      trackCalculatorInput("take-home-pay", field, numValue > 0 ? "has-value" : "no-value");
     }
   };
 
