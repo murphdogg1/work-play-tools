@@ -4,11 +4,12 @@ import { useEffect, useRef } from "react";
 
 export type AdSlotProps = {
   id: string;
+  adSlot?: string; // Optional AdSense ad unit ID
   className?: string;
   style?: React.CSSProperties;
 };
 
-export default function AdSlot({ id, className, style }: AdSlotProps) {
+export default function AdSlot({ id, adSlot, className, style }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export default function AdSlot({ id, className, style }: AdSlotProps) {
         className="adsbygoogle block"
         style={{ display: "block" }}
         data-ad-client="ca-pub-6178941739913559"
-        data-ad-slot={id}
+        data-ad-slot={adSlot || "auto"}
         data-ad-format="auto"
         data-full-width-responsive="true"
       />
