@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import AdSlot from "@/components/AdSlot";
 import MinimumWageCalculator from "./Calculator";
 import { generateOgImageUrl } from "@/lib/og";
+import WebAppJsonLd from "@/lib/seo/appJsonLd";
 
 export const metadata: Metadata = {
   title: "Minimum Wage Calculator",
@@ -35,6 +36,11 @@ export default function MinimumWagePage() {
       <PageHeading 
         title="Minimum Wage Calculator" 
         subtitle="Calculate minimum wage rates and overtime pay by location" 
+      />
+      <WebAppJsonLd 
+        name="Minimum Wage Calculator"
+        url="https://workpaytools.com/calculators/minimum-wage"
+        description="Calculate minimum wage rates by state and city. Compare federal vs state minimum wages and calculate overtime pay for minimum wage workers."
       />
       <AdSlot id="minimum-wage-calculator" />
       <MinimumWageCalculator />

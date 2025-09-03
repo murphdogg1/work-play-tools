@@ -15,7 +15,9 @@ const navigation = {
     links: [
       { title: "Payroll Calculator", href: "/calculators/payroll", description: "Calculate employee pay and taxes" },
       { title: "Overtime Pay Calculator", href: "/calculators/overtime-pay", description: "Calculate regular and overtime pay" },
+      { title: "Take-Home Pay Calculator", href: "/calculators/take-home-pay", description: "Calculate net pay after taxes and deductions" },
       { title: "Hourly to Salary Converter", href: "/calculators/hourly-to-salary", description: "Convert hourly rates to annual salary" },
+      { title: "Payroll Tax Calculator", href: "/calculators/payroll-tax", description: "Calculate FICA, Medicare, and Social Security taxes" },
       { title: "Timecard Calculator", href: "/calculators/timecard", description: "Track hours and calculate totals" },
     ]
   },
@@ -26,6 +28,7 @@ const navigation = {
       { title: "Payroll Basics", href: "/guides/payroll-basics", description: "Essential payroll concepts and processes" },
       { title: "Overtime Rules by State", href: "/guides/overtime-rules", description: "State-specific overtime regulations" },
       { title: "Benefits & Deductions", href: "/guides/benefits", description: "Employee benefits and tax deductions" },
+      { title: "Payroll Software Comparison", href: "/guides/payroll-software-comparison", description: "Compare the best payroll software for 2025" },
     ]
   },
   hrTemplates: {

@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import AdSlot from "@/components/AdSlot";
 import PayrollTaxCalculator from "./Calculator";
 import { generateOgImageUrl } from "@/lib/og";
+import WebAppJsonLd from "@/lib/seo/appJsonLd";
 
 export const metadata: Metadata = {
   title: "Payroll Tax Calculator",
@@ -35,6 +36,11 @@ export default function PayrollTaxPage() {
       <PageHeading 
         title="Payroll Tax Calculator" 
         subtitle="Calculate federal, state, and local tax withholdings" 
+      />
+      <WebAppJsonLd 
+        name="Payroll Tax Calculator"
+        url="https://workpaytools.com/calculators/payroll-tax"
+        description="Calculate federal, state, and local payroll taxes for employees"
       />
       <AdSlot id="payroll-tax-calculator" />
       <PayrollTaxCalculator />

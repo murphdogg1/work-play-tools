@@ -6,6 +6,7 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
@@ -66,6 +67,11 @@ export default function HourlyToSalaryPage() {
   return (
     <div className="space-y-8">
       <PageHeading title="Hourly → Salary" subtitle="Convert your hourly rate to annual salary. Essential for job negotiations, budgeting, and comparing offers." />
+      <WebAppJsonLd 
+        name="Hourly to Salary Calculator"
+        url="https://workpaytools.com/calculators/hourly-to-salary"
+        description="Convert your hourly rate to annual salary. Essential for job negotiations, budgeting, and comparing offers."
+      />
       {breadcrumbJsonLd([
         { name: "Home", url: "https://workpaytools.com/" },
         { name: "Calculators", url: "https://workpaytools.com/calculators" },

@@ -6,6 +6,7 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import TimecardForm from "./TimecardForm";
 import EmbedButton from "./EmbedButton";
 
@@ -66,6 +67,11 @@ export default function TimecardPage() {
   return (
     <div className="space-y-8">
       <PageHeading title="Timecard Calculator" subtitle="Track your weekly hours and overtime. Perfect for hourly workers, freelancers, and anyone tracking billable time." />
+      <WebAppJsonLd 
+        name="Timecard Calculator"
+        url="https://workpaytools.com/calculators/timecard"
+        description="Track your weekly hours and overtime. Perfect for hourly workers, freelancers, and anyone tracking billable time."
+      />
       {breadcrumbJsonLd([
         { name: "Home", url: "https://workpaytools.com/" },
         { name: "Calculators", url: "https://workpaytools.com/calculators" },

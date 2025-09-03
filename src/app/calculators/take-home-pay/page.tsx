@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import AdSlot from "@/components/AdSlot";
 import TakeHomePayCalculator from "./Calculator";
 import { generateOgImageUrl } from "@/lib/og";
+import WebAppJsonLd from "@/lib/seo/appJsonLd";
 
 export const metadata: Metadata = {
   title: "Take-Home Pay Calculator",
@@ -35,6 +36,11 @@ export default function TakeHomePayPage() {
       <PageHeading 
         title="Take-Home Pay Calculator" 
         subtitle="Calculate your net pay after all deductions and taxes" 
+      />
+      <WebAppJsonLd 
+        name="Take-Home Pay Calculator"
+        url="https://workpaytools.com/calculators/take-home-pay"
+        description="Calculate your net take-home pay after taxes, benefits, and deductions"
       />
       <AdSlot id="take-home-pay-calculator" />
       <TakeHomePayCalculator />

@@ -36,6 +36,13 @@ export const searchIndex: SearchItem[] = [
     section: "Calculators",
     description: "Track work hours and calculate totals with break time"
   },
+  {
+    title: "Salary to Hourly Calculator",
+    href: "/calculators/salary-to-hourly",
+    tags: ["salary", "hourly", "convert", "annual", "wage", "rate", "contract"],
+    section: "Calculators",
+    description: "Convert annual salary to hourly rate for contracts and negotiations"
+  },
   
   // Guide Hubs
   {
@@ -58,6 +65,13 @@ export const searchIndex: SearchItem[] = [
     tags: ["benefits", "deductions", "health insurance", "401k", "taxes", "employee"],
     section: "Guides",
     description: "Employee benefits and tax deduction guidelines"
+  },
+  {
+    title: "Payroll Software Comparison",
+    href: "/guides/payroll-software-comparison",
+    tags: ["payroll software", "comparison", "gusto", "quickbooks", "adp", "paychex", "best payroll software"],
+    section: "Guides",
+    description: "Compare the best payroll software solutions for 2025"
   },
   
   // State-specific Overtime Rules
