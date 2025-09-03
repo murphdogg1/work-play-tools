@@ -13,6 +13,7 @@ const navigation = {
     title: "Calculators",
     description: "Payroll & HR calculation tools",
     links: [
+      { title: "Payroll Calculator", href: "/calculators/payroll", description: "Calculate employee pay and taxes" },
       { title: "Overtime Pay Calculator", href: "/calculators/overtime-pay", description: "Calculate regular and overtime pay" },
       { title: "Hourly to Salary Converter", href: "/calculators/hourly-to-salary", description: "Convert hourly rates to annual salary" },
       { title: "Timecard Calculator", href: "/calculators/timecard", description: "Track hours and calculate totals" },

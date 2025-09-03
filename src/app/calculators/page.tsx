@@ -29,6 +29,14 @@ export const metadata: Metadata = {
 
 const calculators = [
   {
+    title: "Payroll Calculator",
+    href: "/calculators/payroll",
+    description: "Comprehensive payroll calculator for employee pay, taxes, and deductions. Perfect for small businesses and HR professionals.",
+    features: ["Employee pay calculation", "Tax calculations", "Benefits & deductions", "Net pay breakdown"],
+    category: "Payroll",
+    icon: "💰"
+  },
+  {
     title: "Overtime Pay Calculator",
     href: "/calculators/overtime-pay",
     description: "Calculate overtime pay for hourly employees. Supports federal and state overtime rules including daily overtime.",

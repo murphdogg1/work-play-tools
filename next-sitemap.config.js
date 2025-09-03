@@ -9,6 +9,7 @@ module.exports = {
     
     // Add high-priority calculator pages
     const calculators = [
+      '/calculators/payroll',
       '/calculators/overtime-pay',
       '/calculators/hourly-to-salary',
       '/calculators/salary-to-hourly',

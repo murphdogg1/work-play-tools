@@ -9,6 +9,13 @@ export interface SearchItem {
 export const searchIndex: SearchItem[] = [
   // Calculators
   {
+    title: "Payroll Calculator",
+    href: "/calculators/payroll",
+    tags: ["payroll", "calculator", "employee", "pay", "taxes", "deductions", "net pay", "gross pay"],
+    section: "Calculators",
+    description: "Comprehensive payroll calculator for employee pay, taxes, and deductions"
+  },
+  {
     title: "Overtime Pay Calculator",
     href: "/calculators/overtime-pay",
     tags: ["overtime", "pay", "hours", "1.5x", "double time", "wage", "salary"],
