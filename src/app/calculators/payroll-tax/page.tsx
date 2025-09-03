@@ -52,7 +52,7 @@ export default function PayrollTaxPage() {
             </h3>
             <div className="mt-2 text-sm text-amber-700 dark:text-amber-300">
               <p>
-                All tax estimates are based on 2024 federal and state tax rates, brackets, and regulations. 
+                All tax estimates are based on 2025 federal and state tax rates, brackets, and regulations. 
                 Tax laws change frequently, and actual tax liability may vary based on your specific circumstances, 
                 deductions, credits, and other factors. This calculator provides estimates only and should not be 
                 considered as professional tax advice. Please consult with a qualified tax professional for 

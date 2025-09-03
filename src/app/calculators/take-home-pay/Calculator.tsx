@@ -104,34 +104,34 @@ export default function TakeHomePayCalculator() {
     "WY": 0,     // Wyoming (no state income tax)
   };
 
-  // Federal tax brackets (2024, simplified)
+  // Federal tax brackets (2025, simplified)
   const federalTaxBrackets = {
     single: [
-      { min: 0, max: 11000, rate: 0.10 },
-      { min: 11000, max: 44725, rate: 0.12 },
-      { min: 44725, max: 95375, rate: 0.22 },
-      { min: 95375, max: 182050, rate: 0.24 },
-      { min: 182050, max: 231250, rate: 0.32 },
-      { min: 231250, max: 578125, rate: 0.35 },
-      { min: 578125, max: Infinity, rate: 0.37 },
+      { min: 0, max: 11925, rate: 0.10 },
+      { min: 11925, max: 48475, rate: 0.12 },
+      { min: 48475, max: 103350, rate: 0.22 },
+      { min: 103350, max: 197300, rate: 0.24 },
+      { min: 197300, max: 250525, rate: 0.32 },
+      { min: 250525, max: 626350, rate: 0.35 },
+      { min: 626350, max: Infinity, rate: 0.37 },
     ],
     married: [
-      { min: 0, max: 22000, rate: 0.10 },
-      { min: 22000, max: 89450, rate: 0.12 },
-      { min: 89450, max: 190750, rate: 0.22 },
-      { min: 190750, max: 364200, rate: 0.24 },
-      { min: 364200, max: 462500, rate: 0.32 },
-      { min: 462500, max: 693750, rate: 0.35 },
-      { min: 693750, max: Infinity, rate: 0.37 },
+      { min: 0, max: 23850, rate: 0.10 },
+      { min: 23850, max: 96950, rate: 0.12 },
+      { min: 96950, max: 206700, rate: 0.22 },
+      { min: 206700, max: 394600, rate: 0.24 },
+      { min: 394600, max: 501050, rate: 0.32 },
+      { min: 501050, max: 751600, rate: 0.35 },
+      { min: 751600, max: Infinity, rate: 0.37 },
     ],
     headofhousehold: [
-      { min: 0, max: 15700, rate: 0.10 },
-      { min: 15700, max: 59850, rate: 0.12 },
-      { min: 59850, max: 95350, rate: 0.22 },
-      { min: 95350, max: 182050, rate: 0.24 },
-      { min: 182050, max: 231250, rate: 0.32 },
-      { min: 231250, max: 578100, rate: 0.35 },
-      { min: 578100, max: Infinity, rate: 0.37 },
+      { min: 0, max: 17000, rate: 0.10 },
+      { min: 17000, max: 64850, rate: 0.12 },
+      { min: 64850, max: 103350, rate: 0.22 },
+      { min: 103350, max: 197300, rate: 0.24 },
+      { min: 197300, max: 250500, rate: 0.32 },
+      { min: 250500, max: 626350, rate: 0.35 },
+      { min: 626350, max: Infinity, rate: 0.37 },
     ],
   };
 
