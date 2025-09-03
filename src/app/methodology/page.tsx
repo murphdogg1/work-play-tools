@@ -60,9 +60,9 @@ export default function MethodologyPage() {
             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Overtime Pay Calculator</h3>
             <div className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
               <p><strong>Regular Pay:</strong> Hours ≤ 40 × Hourly Rate</p>
-              <p><strong>Overtime Pay:</strong> Hours > 40 × Hourly Rate × 1.5</p>
-              <p><strong>Daily Overtime (CA):</strong> Hours > 8 in a day × Hourly Rate × 1.5</p>
-              <p><strong>Double Time (CA):</strong> Hours > 12 in a day × Hourly Rate × 2.0</p>
+              <p><strong>Overtime Pay:</strong> Hours &gt; 40 × Hourly Rate × 1.5</p>
+              <p><strong>Daily Overtime (CA):</strong> Hours &gt; 8 in a day × Hourly Rate × 1.5</p>
+              <p><strong>Double Time (CA):</strong> Hours &gt; 12 in a day × Hourly Rate × 2.0</p>
             </div>
           </div>
 
@@ -71,7 +71,7 @@ export default function MethodologyPage() {
             <div className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
               <p><strong>Federal Income Tax:</strong> Based on 2025 tax brackets and standard deduction ($14,600 single, $29,200 married)</p>
               <p><strong>Social Security:</strong> 6.2% on wages up to $168,600</p>
-              <p><strong>Medicare:</strong> 1.45% on all wages (2.35% on wages > $200,000)</p>
+              <p><strong>Medicare:</strong> 1.45% on all wages (2.35% on wages &gt; $200,000)</p>
               <p><strong>State Tax:</strong> Varies by state using current 2025 rates</p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { onCLS, onFID, onFCP, onLCP, onTTFB, onINP } from "web-vitals";
+import { onCLS, onFCP, onLCP, onTTFB, onINP } from "web-vitals";
 import { gaEvent } from "@/lib/analytics";
 
 export default function WebVitals() {
@@ -19,7 +19,6 @@ export default function WebVitals() {
     };
 
     onCLS(sendToAnalytics);
-    onFID(sendToAnalytics);
     onFCP(sendToAnalytics);
     onLCP(sendToAnalytics);
     onTTFB(sendToAnalytics);
