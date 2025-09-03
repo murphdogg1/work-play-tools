@@ -6,6 +6,7 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
@@ -81,6 +82,11 @@ export default function OvertimePayCalculatorPage() {
         title="Overtime Pay Calculator (2025)"
         subtitle="Calculate your weekly pay including overtime. Perfect for hourly workers tracking hours or employers calculating payroll."
       />
+      <WebAppJsonLd 
+        name="Overtime Pay Calculator"
+        url="https://workpaytools.com/calculators/overtime-pay"
+        description="Free overtime pay calculator for 2025. Calculate regular and overtime pay with state-specific rules."
+      />
       {breadcrumbJsonLd([
         { name: "Home", url: "https://workpaytools.com/" },
         { name: "Calculators", url: "https://workpaytools.com/calculators" },
@@ -108,7 +114,7 @@ export default function OvertimePayCalculatorPage() {
       <AdSlot id="overtime-calculator-faq" />
       <FAQ items={faqItems} />
       <FaqJsonLd items={faqItems} />
-      <Related items={relatedItems} tool="overtime-pay" />
+      <Related pageKey="overtime-pay" tool="overtime-pay" />
       
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mt-6">
         <div className="flex items-start">

@@ -22,10 +22,10 @@ Allow: /hr-templates/
 Crawl-delay: 1
 
 # Host directive
-Host: https://www.workpaytools.com
+Host: https://workpaytools.com
 
 # Sitemap location
-Sitemap: https://www.workpaytools.com/sitemap.xml
+Sitemap: https://workpaytools.com/sitemap.xml
 
 # Additional sitemaps (if any)
-# Sitemap: https://www.workpaytools.com/sitemap-images.xml
+# Sitemap: https://workpaytools.com/sitemap-images.xml

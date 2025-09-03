@@ -92,13 +92,13 @@ const additionalResources = [
     title: "Methodology",
     href: "/methodology",
     description: "Learn how our calculators work and our data sources",
-    status: "Coming Soon"
+    status: "Available"
   },
   {
     title: "Editorial Policy",
     href: "/editorial-policy",
     description: "How we create, review, and maintain our content",
-    status: "Coming Soon"
+    status: "Available"
   }
 ];
 
@@ -164,7 +164,11 @@ export default function ResourcesPage() {
                   <h3 className="font-medium text-gray-900 dark:text-white">{resource.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{resource.description}</p>
                 </div>
-                <span className="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400">
+                <span className={`ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  resource.status === 'Available' 
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
+                    : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400'
+                }`}>
                   {resource.status}
                 </span>
               </div>

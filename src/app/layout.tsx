@@ -5,6 +5,7 @@ import Header from "@/components/nav/Header";
 import SkipToContent from "@/components/SkipToContent";
 import NewsletterForm from "@/components/NewsletterForm";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import WebVitals from "@/components/WebVitals";
 import "./globals.css";
 import "../styles/theme.css";
 
@@ -77,6 +78,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-6178941739913559" />
         {/* Preconnect to external domains for performance */}
         <link rel="canonical" href="https://workpaytools.com" />
+        <link rel="alternate" type="application/rss+xml" title="WorkPayTools RSS Feed" href="/feed.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -176,6 +178,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <GoogleAnalytics />
+        <WebVitals />
         <SkipToContent />
         <div className="min-h-screen flex flex-col">
           <Header />
@@ -206,7 +209,25 @@ export default function RootLayout({
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                   © {new Date().getFullYear()} WorkPayTools
                 </p>
-                <div className="flex gap-6 text-sm">
+                <div className="flex flex-wrap gap-6 text-sm">
+                  <a 
+                    href="/about" 
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  >
+                    About
+                  </a>
+                  <a 
+                    href="/methodology" 
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  >
+                    Methodology
+                  </a>
+                  <a 
+                    href="/editorial-policy" 
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  >
+                    Editorial Policy
+                  </a>
                   <a 
                     href="/privacy" 
                     className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"

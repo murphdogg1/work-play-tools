@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { trackRelatedClick } from "@/lib/analytics";
+import { getInternalLinks, type InternalLink } from "@/lib/internalLinks";
 
 export type RelatedItem = {
   title: string;
@@ -9,8 +10,15 @@ export type RelatedItem = {
   description: string;
 };
 
-export default function Related({ items, className, tool }: { items: RelatedItem[]; className?: string; tool?: string }) {
-  if (!items.length) return null;
+export default function Related({ items, className, tool, pageKey }: { items?: RelatedItem[]; className?: string; tool?: string; pageKey?: string }) {
+  // Use provided items or get from internal link config
+  const relatedItems = items || (pageKey ? getInternalLinks(pageKey).map(link => ({
+    title: link.title,
+    href: link.href,
+    description: link.reason
+  })) : []);
+  
+  if (!relatedItems.length) return null;
 
   const handleRelatedClick = (href: string) => {
     if (tool) {
@@ -22,7 +30,7 @@ export default function Related({ items, className, tool }: { items: RelatedItem
     <section className={className}>
       <h2 className="text-lg font-semibold tracking-tight">Related tools</h2>
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {items.map((item, idx) => (
+        {relatedItems.map((item, idx) => (
           <Link
             key={idx}
             href={item.href}
