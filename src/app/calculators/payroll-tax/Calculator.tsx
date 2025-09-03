@@ -52,26 +52,57 @@ export default function PayrollTaxCalculator() {
 
   // State tax rates (simplified)
   const stateTaxRates: { [key: string]: number } = {
-    "CA": 0.05,
-    "NY": 0.06,
-    "TX": 0,
-    "FL": 0,
-    "WA": 0,
-    "NV": 0,
-    "SD": 0,
-    "WY": 0,
-    "TN": 0,
-    "NH": 0,
-    "PA": 0.03,
-    "OH": 0.03,
-    "MI": 0.04,
-    "IL": 0.05,
-    "MA": 0.05,
-    "NJ": 0.06,
-    "CT": 0.05,
-    "MD": 0.05,
-    "VA": 0.05,
-    "NC": 0.05,
+    "AL": 0.05, // Alabama
+    "AK": 0,    // Alaska (no state income tax)
+    "AZ": 0.025, // Arizona
+    "AR": 0.055, // Arkansas
+    "CA": 0.05,  // California
+    "CO": 0.045, // Colorado
+    "CT": 0.05,  // Connecticut
+    "DE": 0.06,  // Delaware
+    "DC": 0.06,  // District of Columbia
+    "FL": 0,     // Florida (no state income tax)
+    "GA": 0.055, // Georgia
+    "HI": 0.11,  // Hawaii
+    "ID": 0.06,  // Idaho
+    "IL": 0.0495, // Illinois
+    "IN": 0.0315, // Indiana
+    "IA": 0.06,  // Iowa
+    "KS": 0.057, // Kansas
+    "KY": 0.05,  // Kentucky
+    "LA": 0.06,  // Louisiana
+    "ME": 0.075, // Maine
+    "MD": 0.0575, // Maryland
+    "MA": 0.05,  // Massachusetts
+    "MI": 0.0425, // Michigan
+    "MN": 0.0985, // Minnesota
+    "MS": 0.05,  // Mississippi
+    "MO": 0.054, // Missouri
+    "MT": 0.06,  // Montana
+    "NE": 0.0684, // Nebraska
+    "NV": 0,     // Nevada (no state income tax)
+    "NH": 0,     // New Hampshire (no state income tax)
+    "NJ": 0.0637, // New Jersey
+    "NM": 0.049, // New Mexico
+    "NY": 0.06,  // New York
+    "NC": 0.0525, // North Carolina
+    "ND": 0.029, // North Dakota
+    "OH": 0.0399, // Ohio
+    "OK": 0.05,  // Oklahoma
+    "OR": 0.099, // Oregon
+    "PA": 0.0307, // Pennsylvania
+    "RI": 0.0599, // Rhode Island
+    "SC": 0.07,  // South Carolina
+    "SD": 0,     // South Dakota (no state income tax)
+    "TN": 0,     // Tennessee (no state income tax)
+    "TX": 0,     // Texas (no state income tax)
+    "UT": 0.0495, // Utah
+    "VT": 0.0875, // Vermont
+    "VA": 0.0575, // Virginia
+    "WA": 0,     // Washington (no state income tax)
+    "WV": 0.065, // West Virginia
+    "WI": 0.0765, // Wisconsin
+    "WY": 0,     // Wyoming (no state income tax)
   };
 
   // Federal tax brackets (2024)
@@ -336,22 +367,57 @@ export default function PayrollTaxCalculator() {
                 onChange={(e) => setState(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               >
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
                 <option value="CA">California</option>
-                <option value="NY">New York</option>
-                <option value="TX">Texas</option>
-                <option value="FL">Florida</option>
-                <option value="WA">Washington</option>
-                <option value="NV">Nevada</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="OH">Ohio</option>
-                <option value="MI">Michigan</option>
-                <option value="IL">Illinois</option>
-                <option value="MA">Massachusetts</option>
-                <option value="NJ">New Jersey</option>
+                <option value="CO">Colorado</option>
                 <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
                 <option value="MD">Maryland</option>
-                <option value="VA">Virginia</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
                 <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
               </select>
             </div>
 
