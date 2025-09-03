@@ -1,5 +1,6 @@
 "use client";
 
+// Minimum Wage Calculator - calculates pay based on federal, state, and local minimum wage laws
 import { useState, useEffect, useRef, useCallback } from "react";
 import NumberField from "@/components/calculators/NumberField";
 import ResultCard from "@/components/calculators/ResultCard";
