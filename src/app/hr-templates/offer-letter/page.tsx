@@ -33,8 +33,6 @@ export default function OfferLetterTemplate() {
       <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/hr-templates", label: "HR Templates" }, { label: "Offer Letter" }]} />
       <PageHeading title="Offer Letter Template" subtitle="Professional job offer letter template with legal compliance" />
       <AdSlot id="offer-letter-template" />
-      
-
 
       {/* Template Content */}
       <section className="space-y-4">
