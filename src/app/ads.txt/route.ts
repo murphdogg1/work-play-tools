@@ -1,25 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const adsTxtContent = `google.com, pub-6178941739913559, DIRECT, f08c47fec0942fa0
-
-# Example entries for other ad networks (uncomment and replace with actual values when needed)
-# facebook.com, 123456789, DIRECT, c3e20eee3f780d68
-# amazon-adsystem.com, 123456789, DIRECT, 3d4e5f6g7h8i9j0k
-# indexexchange.com, 123456, DIRECT, 50b1c356f2c5c8a2
-# openx.com, 123456789, DIRECT, 6a698e2ec38604c6
-# rubiconproject.com, 123456, DIRECT, 0bfd66d529a55807
-# sovrn.com, 123456, DIRECT, fafdf38b16bf6b2b
-# appnexus.com, 123456, DIRECT, f08c47fec0942fa0
-# pubmatic.com, 123456, DIRECT, 5d62403b186f2ace
-# adnxs.com, 123456, DIRECT, f08c47fec0942fa0
-# adsystem.amazon.com, 123456789, DIRECT, 3d4e5f6g7h8i9j0k
-
-# Instructions:
-# 1. After getting approved for Google AdSense, replace pub-0000000000000000 with your actual publisher ID
-# 2. Add other ad networks as you sign up with them
-# 3. Each line should follow the format: domain, publisher_id, relationship, certification_authority_id
-# 4. Keep this file updated as you add new ad networks`;
+  const adsTxtContent = `google.com, pub-6178941739913559, DIRECT, f08c47fec0942fa0`;
 
   return new NextResponse(adsTxtContent, {
     headers: {
