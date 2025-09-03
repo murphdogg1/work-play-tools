@@ -44,7 +44,7 @@ export default function NewsletterForm({ className = '', variant = 'default' }: 
         setStatus('error')
         setMessage(data.error || 'Something went wrong. Please try again.')
       }
-    } catch (error) {
+    } catch {
       setStatus('error')
       setMessage('Network error. Please try again.')
     }

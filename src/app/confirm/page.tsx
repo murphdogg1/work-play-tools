@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
 import PageHeading from '@/components/PageHeading'
 import Container from '@/components/Container'
@@ -21,12 +21,12 @@ async function ConfirmSubscription({ token }: { token: string }) {
         <p className="text-gray-600 dark:text-gray-400">
           This confirmation link is invalid or has expired.
         </p>
-        <a 
+        <Link 
           href="/" 
           className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
         >
           Return to Homepage
-        </a>
+        </Link>
       </div>
     )
   }
@@ -105,22 +105,22 @@ async function ConfirmSubscription({ token }: { token: string }) {
         </div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Subscription Confirmed!</h2>
         <p className="text-gray-600 dark:text-gray-400">
-          Thank you for confirming your subscription! You'll now receive updates about new calculators, 
+          Thank you for confirming your subscription! You&apos;ll now receive updates about new calculators, 
           templates, and HR resources from WorkPayTools.
         </p>
         <div className="space-y-2">
-          <a 
+          <Link 
             href="/" 
             className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors mr-4"
           >
             Return to Homepage
-          </a>
-          <a 
+          </Link>
+          <Link 
             href="/calculators/overtime-pay" 
             className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
           >
             Try Our Calculators
-          </a>
+          </Link>
         </div>
       </div>
     )
@@ -137,12 +137,12 @@ async function ConfirmSubscription({ token }: { token: string }) {
         <p className="text-gray-600 dark:text-gray-400">
           There was an error confirming your subscription. Please try again or contact support.
         </p>
-        <a 
+        <Link 
           href="/" 
           className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
         >
           Return to Homepage
-        </a>
+        </Link>
       </div>
     )
   }
