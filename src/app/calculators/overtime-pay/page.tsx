@@ -10,12 +10,13 @@ import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
 export const metadata: Metadata = {
-  title: "Overtime Pay Calculator (2025)",
+  title: "Free Overtime Pay Calculator 2025 | Calculate Overtime Hours & Pay",
   description:
-    "Calculate regular and overtime pay based on hourly rate, hours worked, and overtime thresholds.",
+    "Free overtime pay calculator for 2025. Calculate regular and overtime pay with state-specific rules. Supports federal and state overtime laws. No signup required.",
+  keywords: ["overtime calculator", "overtime pay calculator", "overtime hours calculator", "calculate overtime pay", "overtime pay 2025", "federal overtime calculator", "state overtime rules"],
   openGraph: {
-    title: "Overtime Pay Calculator (2025)",
-    description: "Calculate regular and overtime pay based on hourly rate, hours worked, and overtime thresholds.",
+    title: "Free Overtime Pay Calculator 2025 | Calculate Overtime Hours & Pay",
+    description: "Free overtime pay calculator for 2025. Calculate regular and overtime pay with state-specific rules. Supports federal and state overtime laws. No signup required.",
     images: [
       {
         url: generateOgImageUrl("Overtime Pay Calculator (2025)", "Calculate regular and overtime pay based on hourly rate, hours worked, and overtime thresholds."),

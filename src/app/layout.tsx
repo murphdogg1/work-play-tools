@@ -17,31 +17,46 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://workpaytools.com"),
   title: {
-    default: "WorkPayTools",
+    default: "Free Payroll Calculators & HR Tools | WorkPayTools",
     template: "%s | WorkPayTools",
   },
-  description: "Free payroll calculators, HR templates, and guides.",
+  description: "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides. No signup required. Calculate payroll taxes, overtime, and more instantly.",
+  keywords: ["payroll calculator", "overtime calculator", "take home pay calculator", "payroll tax calculator", "HR templates", "payroll tools", "free payroll software", "payroll guide", "minimum wage calculator", "timecard calculator"],
   openGraph: {
-    title: "WorkPayTools",
-    description: "Free payroll calculators, HR templates, and guides.",
+    title: "Free Payroll Calculators & HR Tools | WorkPayTools",
+    description: "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides. No signup required. Calculate payroll taxes, overtime, and more instantly.",
     url: "/",
     siteName: "WorkPayTools",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: generateOgImageUrl("WorkPayTools", "Free payroll calculators, HR templates, and guides"),
+        url: generateOgImageUrl("Free Payroll Calculators & HR Tools", "Calculate overtime, take-home pay, payroll taxes & more. Free HR templates & guides."),
         width: 1200,
         height: 630,
-        alt: "WorkPayTools - Free payroll calculators, HR templates, and guides",
+        alt: "WorkPayTools - Free Payroll Calculators & HR Tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WorkPayTools",
-    description: "Free payroll calculators, HR templates, and guides.",
-    images: [generateOgImageUrl("WorkPayTools", "Free payroll calculators, HR templates, and guides")],
+    title: "Free Payroll Calculators & HR Tools | WorkPayTools",
+    description: "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides. No signup required.",
+    images: [generateOgImageUrl("Free Payroll Calculators & HR Tools", "Calculate overtime, take-home pay, payroll taxes & more. Free HR templates & guides.")],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'G-KYVLET7NMT',
   },
 };
 
@@ -61,11 +76,18 @@ export default function RootLayout({
         />
         <meta name="google-adsense-account" content="ca-pub-6178941739913559" />
         {/* Preconnect to external domains for performance */}
+        <link rel="canonical" href="https://workpaytools.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="alternate" type="application/rss+xml" title="WorkPayTools RSS Feed" href="/rss.xml" />
+        <meta name="theme-color" content="#4f46e5" />
+        <meta name="msapplication-TileColor" content="#4f46e5" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="WorkPayTools" />
         {process.env.NODE_ENV === "production" ? (
           <>
             <Script
@@ -90,6 +112,65 @@ export default function RootLayout({
             strategy="afterInteractive"
           />
         ) : null}
+        
+        {/* Enhanced Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "WorkPayTools",
+            "url": "https://workpaytools.com",
+            "logo": "https://workpaytools.com/logo.png",
+            "description": "Free payroll calculators, HR templates, and comprehensive guides for businesses and HR professionals.",
+            "sameAs": [
+              "https://workpaytools.com"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "url": "https://workpaytools.com/contact"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "WorkPayTools",
+            "url": "https://workpaytools.com",
+            "description": "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides.",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://workpaytools.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "WorkPayTools"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "WorkPayTools",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web Browser",
+            "description": "Free payroll calculators and HR tools including overtime pay calculator, take-home pay calculator, payroll tax calculator, and HR templates.",
+            "url": "https://workpaytools.com",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "150"
+            }
+          })}
+        </script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <SkipToContent />

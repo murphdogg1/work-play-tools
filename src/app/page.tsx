@@ -89,11 +89,10 @@ export default function Home() {
       <section className="text-center space-y-6">
         <div className="space-y-4">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-            Free Payroll & HR Calculators
+            Free Payroll Calculators & HR Tools
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300 sm:text-xl">
-            Quick, accurate calculators and templates to help you run payroll and HR with confidence. 
-            No signup required, completely free.
+            Calculate overtime pay, take-home pay, payroll taxes, and more with our free online calculators. Access professional HR templates and comprehensive guides. No signup required - completely free payroll tools for businesses and HR professionals.
           </p>
         </div>
         
@@ -249,7 +248,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* JSON-LD */}
+      {/* Enhanced JSON-LD Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Free Payroll Calculators & HR Tools",
+          "description": "Comprehensive collection of free payroll calculators, HR templates, and guides for businesses and HR professionals.",
+          "url": "https://workpaytools.com",
+          "mainEntity": {
+            "@type": "ItemList",
+            "name": "Payroll Calculators and HR Tools",
+            "description": "Free online tools for payroll calculations, HR management, and business compliance",
+            "numberOfItems": 6,
+            "itemListElement": [
+              {
+                "@type": "SoftwareApplication",
+                "position": 1,
+                "name": "Overtime Pay Calculator",
+                "description": "Calculate regular and overtime pay with state-specific rules",
+                "url": "https://workpaytools.com/calculators/overtime-pay",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web Browser",
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+              },
+              {
+                "@type": "SoftwareApplication",
+                "position": 2,
+                "name": "Take-Home Pay Calculator",
+                "description": "Calculate net pay after taxes and deductions",
+                "url": "https://workpaytools.com/calculators/take-home-pay",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web Browser",
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+              },
+              {
+                "@type": "SoftwareApplication",
+                "position": 3,
+                "name": "Payroll Tax Calculator",
+                "description": "Calculate FICA, Medicare, and Social Security taxes",
+                "url": "https://workpaytools.com/calculators/payroll-tax",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web Browser",
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+              }
+            ]
+          }
+        })}
+      </script>
       {organizationJsonLd({ name: "WorkPayTools", url: "https://workpaytools.com" })}
       {websiteJsonLd({ url: "https://workpaytools.com" })}
     </div>
