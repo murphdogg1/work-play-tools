@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'G-KYVLET7NMT',
+    google: "uORANjBwxHNbfacAtskWGmKWnB7YMV_3ukAG2L9J_44",
   },
 };
 
