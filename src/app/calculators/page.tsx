@@ -61,6 +61,14 @@ const calculators = [
     icon: "📊"
   },
   {
+    title: "Paystub Generator",
+    href: "/calculators/paystub-generator",
+    description: "Create professional ADP-style pay stubs instantly. Generate realistic pay stubs for employees, contractors, or personal use.",
+    features: ["ADP-style formatting", "Employee & employer info", "Earnings & deductions", "Print & download"],
+    category: "Payroll",
+    icon: "📄"
+  },
+  {
     title: "Minimum Wage Calculator",
     href: "/calculators/minimum-wage",
     description: "Calculate minimum wage rates by state and city. Compare federal vs state minimum wages and overtime pay.",

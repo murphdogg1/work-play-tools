@@ -185,5 +185,12 @@ export const searchIndex: SearchItem[] = [
     tags: ["payroll tax", "fica", "medicare", "social security", "federal", "state"],
     section: "Calculators",
     description: "Calculate payroll taxes including FICA, Medicare, and Social Security"
+  },
+  {
+    title: "Paystub Generator",
+    href: "/calculators/paystub-generator",
+    tags: ["paystub", "pay stub", "generator", "adp", "payroll", "employee", "wage", "salary", "deductions"],
+    section: "Calculators",
+    description: "Create professional ADP-style pay stubs instantly"
   }
 ];

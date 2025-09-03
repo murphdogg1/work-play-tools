@@ -19,6 +19,7 @@ const navigation = {
       { title: "Take-Home Pay Calculator", href: "/calculators/take-home-pay", description: "Calculate net pay after taxes and deductions" },
       { title: "Hourly to Salary Converter", href: "/calculators/hourly-to-salary", description: "Convert hourly rates to annual salary" },
       { title: "Payroll Tax Calculator", href: "/calculators/payroll-tax", description: "Calculate FICA, Medicare, and Social Security taxes" },
+      { title: "Paystub Generator", href: "/calculators/paystub-generator", description: "Create professional ADP-style pay stubs" },
       { title: "Timecard Calculator", href: "/calculators/timecard", description: "Track hours and calculate totals" },
     ]
   },
