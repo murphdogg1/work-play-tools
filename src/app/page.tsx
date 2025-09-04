@@ -10,6 +10,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
+import AdSlot from "@/components/AdSlot";
 
 const featuredCalculators = [
   {
@@ -110,6 +111,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ad Slot - Top of Page */}
+      <AdSlot id="homepage-top" testMode={true} />
+
       {/* Featured Calculators Grid */}
       <section className="space-y-8">
         <div className="text-center">
@@ -151,6 +155,9 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      {/* Ad Slot - Middle of Page */}
+      <AdSlot id="homepage-middle" testMode={true} />
 
       {/* How We Help Section */}
       <section className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12">

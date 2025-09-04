@@ -108,14 +108,12 @@ export default function RootLayout({
           </>
         )}
         
-        {/* Google AdSense - Production Only */}
-        {process.env.NODE_ENV === "production" && (
-          <script 
-            async 
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6178941739913559"
-            crossOrigin="anonymous"
-          ></script>
-        )}
+        {/* Google AdSense - Load in all environments for testing */}
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6178941739913559"
+          crossOrigin="anonymous"
+        ></script>
         
         {/* Enhanced Structured Data */}
         <script type="application/ld+json">
