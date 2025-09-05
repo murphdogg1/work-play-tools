@@ -2,15 +2,31 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export type AdSlotProps = {
+export type ResponsiveAdSlotProps = {
   id: string;
-  adSlot?: string; // Optional AdSense ad unit ID
+  adSlot?: string;
   className?: string;
   style?: React.CSSProperties;
-  testMode?: boolean; // Allow testing in development
+  testMode?: boolean;
+  size?: "small" | "medium" | "large" | "leaderboard" | "auto";
 };
 
-export default function AdSlot({ id, adSlot, className, style, testMode = false }: AdSlotProps) {
+const adSizes = {
+  small: { width: "300px", height: "250px", minHeight: "250px" },
+  medium: { width: "336px", height: "280px", minHeight: "280px" },
+  large: { width: "728px", height: "90px", minHeight: "90px" },
+  leaderboard: { width: "728px", height: "90px", minHeight: "90px" },
+  auto: { width: "100%", height: "250px", minHeight: "250px" }
+};
+
+export default function ResponsiveAdSlot({ 
+  id, 
+  adSlot, 
+  className, 
+  style, 
+  testMode = false,
+  size = "auto"
+}: ResponsiveAdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [adError, setAdError] = useState<string | null>(null);
@@ -34,7 +50,7 @@ export default function AdSlot({ id, adSlot, className, style, testMode = false 
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
         setIsAdLoaded(true);
-        console.log(`Ad loaded successfully for slot: ${id}`);
+        console.log(`Ad loaded successfully for slot: ${id} (${size})`);
       } catch (error) {
         console.error(`Error loading ad for slot ${id}:`, error);
         setAdError(error instanceof Error ? error.message : 'Unknown error');
@@ -43,16 +59,24 @@ export default function AdSlot({ id, adSlot, className, style, testMode = false 
 
     // Start loading the ad
     loadAd();
-  }, [id, testMode]);
+  }, [id, testMode, size]);
 
   // Show placeholder in development unless testMode is true
   if (process.env.NODE_ENV !== "production" && !testMode) {
+    const sizeInfo = adSizes[size];
     return (
       <div 
         className={`bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 text-center text-sm text-gray-500 dark:text-gray-400 ${className || ""}`}
-        style={style}
+        style={{
+          ...style,
+          width: sizeInfo.width,
+          height: sizeInfo.height,
+          margin: "0 auto"
+        }}
       >
-        [Ad Slot: {id}] - Only shown in production
+        [Ad Slot: {id}] - {sizeInfo.width} x {sizeInfo.height}
+        <br />
+        Only shown in production
       </div>
     );
   }
@@ -69,13 +93,14 @@ export default function AdSlot({ id, adSlot, className, style, testMode = false 
     );
   }
 
+  const sizeInfo = adSizes[size];
+
   return (
     <div className={`my-6 ${className || ""}`} style={style}>
       <div 
         style={{ 
           width: "100%",
-          minHeight: "250px", // Increased minimum height for better ad display
-          maxWidth: "728px", // Standard leaderboard width
+          maxWidth: sizeInfo.width,
           margin: "0 auto",
           display: "flex",
           alignItems: "center",
@@ -87,9 +112,9 @@ export default function AdSlot({ id, adSlot, className, style, testMode = false 
           className="adsbygoogle block"
           style={{ 
             display: "block",
-            width: "100%",
-            height: "250px", // Fixed height for better ad rendering
-            minHeight: "250px"
+            width: sizeInfo.width,
+            height: sizeInfo.height,
+            minHeight: sizeInfo.minHeight
           }}
           data-ad-client="ca-pub-6178941739913559"
           data-ad-slot={adSlot || "auto"}
@@ -99,7 +124,7 @@ export default function AdSlot({ id, adSlot, className, style, testMode = false 
       </div>
       {!isAdLoaded && (
         <div className="text-center text-xs text-gray-400 mt-2">
-          Loading ad... (250x250px reserved)
+          Loading ad... ({sizeInfo.width} x {sizeInfo.height})
         </div>
       )}
     </div>

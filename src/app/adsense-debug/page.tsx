@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import AdSlot from "@/components/AdSlot";
+import ResponsiveAdSlot from "@/components/ResponsiveAdSlot";
 
 export default function AdSenseDebugPage() {
   const [debugInfo, setDebugInfo] = useState<any>({});
@@ -170,16 +171,28 @@ export default function AdSenseDebugPage() {
       {/* Test Ad Slots */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-          Test Ad Slots
+          Test Ad Slots - Different Sizes
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div>
-            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Auto Ad (Test Mode)</h3>
-            <AdSlot id="debug-auto-1" testMode={true} />
+            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Small Ad (300x250)</h3>
+            <ResponsiveAdSlot id="debug-small" size="small" testMode={true} />
           </div>
           <div>
-            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Auto Ad (Production Mode)</h3>
-            <AdSlot id="debug-auto-2" testMode={false} />
+            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Medium Ad (336x280)</h3>
+            <ResponsiveAdSlot id="debug-medium" size="medium" testMode={true} />
+          </div>
+          <div>
+            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Large Ad (728x90)</h3>
+            <ResponsiveAdSlot id="debug-large" size="large" testMode={true} />
+          </div>
+          <div>
+            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Auto Responsive Ad</h3>
+            <ResponsiveAdSlot id="debug-auto" size="auto" testMode={true} />
+          </div>
+          <div>
+            <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Original AdSlot (Fixed Size)</h3>
+            <AdSlot id="debug-original" testMode={true} />
           </div>
         </div>
       </div>
