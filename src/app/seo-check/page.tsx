@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SEOCheckPage() {
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -72,8 +74,8 @@ export default function SEOCheckPage() {
             <ul className="space-y-1 text-sm text-green-700 dark:text-green-300">
               <li>• <a href="/robots.txt" target="_blank" className="underline">/robots.txt</a></li>
               <li>• <a href="/sitemap.xml" target="_blank" className="underline">/sitemap.xml</a></li>
-              <li>• <a href="/" className="underline">Homepage</a></li>
-              <li>• <a href="/calculators" className="underline">Calculators</a></li>
+              <li>• <Link href="/" className="underline">Homepage</Link></li>
+              <li>• <Link href="/calculators" className="underline">Calculators</Link></li>
             </ul>
           </div>
         </div>
