@@ -77,7 +77,6 @@ export default function RootLayout({
         />
         <meta name="google-adsense-account" content="ca-pub-6178941739913559" />
         {/* Preconnect to external domains for performance */}
-        <link rel="canonical" href="https://workpaytools.com" />
         <link rel="alternate" type="application/rss+xml" title="WorkPayTools RSS Feed" href="/feed.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
