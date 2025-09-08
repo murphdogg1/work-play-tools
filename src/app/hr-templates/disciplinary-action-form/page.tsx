@@ -6,10 +6,10 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Disciplinary Action Form Template",
-  description: "Document incidents and corrective actions with this professional disciplinary action form template.",
+  description: "Document incidents and corrective actions with this professional disciplinary action form template. Get accurate calculations and expert guidance.",
   openGraph: {
     title: "Disciplinary Action Form Template",
-    description: "Document incidents and corrective actions with this professional disciplinary action form template.",
+    description: "Document incidents and corrective actions with this professional disciplinary action form template. Get accurate calculations and expert guidance.",
     images: [
       {
         url: generateOgImageUrl("Disciplinary Action Form Template", "Document incidents and corrective actions with this professional disciplinary action form template."),
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Disciplinary Action Form Template",
-    description: "Document incidents and corrective actions with this professional disciplinary action form template.",
+    description: "Document incidents and corrective actions with this professional disciplinary action form template. Get accurate calculations and expert guidance.",
     images: [generateOgImageUrl("Disciplinary Action Form Template", "Document incidents and corrective actions with this professional disciplinary action form template.")],
   },
 };

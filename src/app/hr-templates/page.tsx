@@ -55,6 +55,25 @@ export default function HrTemplatesHubPage() {
           </Link>
         ))}
       </div>
+
+      {/* Related Resources */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Related Resources</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/calculators/overtime-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Overtime Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate overtime pay with state-specific rules</p>
+          </Link>
+          <Link href="/calculators/payroll" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Payroll Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate gross pay, taxes, and deductions</p>
+          </Link>
+          <Link href="/guides/overtime-rules" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Overtime Rules Guide</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Learn about federal and state overtime requirements</p>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

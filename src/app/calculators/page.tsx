@@ -132,6 +132,40 @@ export default function CalculatorsPage() {
       
       <AdSlot id="calculators-listing" />
 
+      {/* State-Specific Resources */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">State-Specific Resources</h2>
+        <p className="text-gray-600 dark:text-gray-400">
+          Overtime rules vary by state. Use our state-specific guides to ensure compliance:
+        </p>
+        
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          {['ca', 'ny', 'tx', 'fl', 'il', 'pa', 'oh', 'ga', 'nc', 'mi', 'nj', 'va', 'wa', 'az', 'tn', 'in', 'mo', 'md', 'wi', 'co', 'mn', 'la', 'al', 'ky'].map((state) => (
+            <Link
+              key={state}
+              href={`/guides/overtime-rules/${state}`}
+              className="text-center p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+            >
+              <span className="text-sm font-medium text-gray-900 dark:text-white">
+                {state.toUpperCase()}
+              </span>
+            </Link>
+          ))}
+        </div>
+        
+        <div className="text-center">
+          <Link
+            href="/guides/overtime-rules"
+            className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium"
+          >
+            View all state overtime rules
+            <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+
       {/* Overview */}
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Why Use Our Calculators?</h2>

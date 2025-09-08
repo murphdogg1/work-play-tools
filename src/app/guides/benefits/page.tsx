@@ -9,10 +9,10 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Benefits & Deductions Guide",
-  description: "Learn about employee benefits, deductions, and their impact on take-home pay.",
+  description: "Learn about employee benefits, deductions, and their impact on take-home pay. Get accurate calculations, state-specific rules, and expert guidance.",
   openGraph: {
     title: "Benefits & Deductions Guide",
-    description: "Learn about employee benefits, deductions, and their impact on take-home pay.",
+    description: "Learn about employee benefits, deductions, and their impact on take-home pay. Get accurate calculations, state-specific rules, and expert guidance.",
     images: [
       {
         url: generateOgImageUrl("Benefits & Deductions Guide", "Learn about employee benefits, deductions, and their impact on take-home pay."),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Benefits & Deductions Guide",
-    description: "Learn about employee benefits, deductions, and their impact on take-home pay.",
+    description: "Learn about employee benefits, deductions, and their impact on take-home pay. Get accurate calculations, state-specific rules, and expert guidance.",
     images: [generateOgImageUrl("Benefits & Deductions Guide", "Learn about employee benefits, deductions, and their impact on take-home pay.")],
   },
 };

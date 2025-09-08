@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeading from "@/components/PageHeading";
 import GuideLayout from "@/components/GuideLayout";
 import FAQ, { FaqJsonLd, type FaqItem } from "@/components/FAQ";
@@ -141,6 +142,28 @@ export default function OvertimeRulesGuide() {
                 <li>Individual coverage (employees engaged in interstate commerce)</li>
                 <li>Specific industry coverage (hospitals, schools, government agencies)</li>
               </ul>
+            </div>
+          </section>
+
+          {/* State-Specific Rules */}
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold tracking-tight">State-Specific Overtime Rules</h2>
+            <p className="text-sm sm:text-base text-black/80 dark:text-white/80">
+              Many states have additional overtime requirements beyond federal law. Click on your state below to see specific rules and regulations:
+            </p>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+              {['ca', 'ny', 'tx', 'fl', 'il', 'pa', 'oh', 'ga', 'nc', 'mi', 'nj', 'va', 'wa', 'az', 'tn', 'in', 'mo', 'md', 'wi', 'co', 'mn', 'la', 'al', 'ky', 'sc', 'ok', 'ar', 'ms', 'ut', 'ct', 'ma', 'me', 'nh', 'vt', 'ri', 'de', 'dc', 'hi', 'ak', 'id', 'mt', 'nd', 'sd', 'ne', 'ks', 'ia', 'wv', 'nv', 'or', 'wy'].map((state) => (
+                <Link
+                  key={state}
+                  href={`/guides/overtime-rules/${state}`}
+                  className="text-center p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                >
+                  <span className="text-sm font-medium text-gray-900 dark:text-white">
+                    {state.toUpperCase()}
+                  </span>
+                </Link>
+              ))}
             </div>
           </section>
 

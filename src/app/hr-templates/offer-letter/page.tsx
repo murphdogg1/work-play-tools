@@ -6,10 +6,10 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Offer Letter Template",
-  description: "Professional offer letter template for hiring new employees with role, compensation, and terms.",
+  description: "Professional offer letter template for hiring new employees with role, compensation, and terms. Get accurate calculations and expert guidance.",
   openGraph: {
     title: "Offer Letter Template",
-    description: "Professional offer letter template for hiring new employees with role, compensation, and terms.",
+    description: "Professional offer letter template for hiring new employees with role, compensation, and terms. Get accurate calculations and expert guidance.",
     images: [
       {
         url: generateOgImageUrl("Offer Letter Template", "Professional offer letter template for hiring new employees with role, compensation, and terms."),
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Offer Letter Template",
-    description: "Professional offer letter template for hiring new employees with role, compensation, and terms.",
+    description: "Professional offer letter template for hiring new employees with role, compensation, and terms. Get accurate calculations and expert guidance.",
     images: [generateOgImageUrl("Offer Letter Template", "Professional offer letter template for hiring new employees with role, compensation, and terms.")],
   },
 };

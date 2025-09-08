@@ -6,10 +6,10 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "PTO Policy Template",
-  description: "Clear paid time off policy template covering accruals, requests, holidays, and approval processes.",
+  description: "Clear paid time off policy template covering accruals, requests, holidays, and approval processes. Get accurate calculations and expert guidance.",
   openGraph: {
     title: "PTO Policy Template",
-    description: "Clear paid time off policy template covering accruals, requests, holidays, and approval processes.",
+    description: "Clear paid time off policy template covering accruals, requests, holidays, and approval processes. Get accurate calculations and expert guidance.",
     images: [
       {
         url: generateOgImageUrl("PTO Policy Template", "Clear paid time off policy template covering accruals, requests, holidays, and approval processes."),
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PTO Policy Template",
-    description: "Clear paid time off policy template covering accruals, requests, holidays, and approval processes.",
+    description: "Clear paid time off policy template covering accruals, requests, holidays, and approval processes. Get accurate calculations and expert guidance.",
     images: [generateOgImageUrl("PTO Policy Template", "Clear paid time off policy template covering accruals, requests, holidays, and approval processes.")],
   },
 };
