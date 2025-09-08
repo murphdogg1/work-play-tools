@@ -117,6 +117,18 @@ const additionalResources = [
     href: "/seo-comprehensive",
     description: "Detailed SEO audit report with fixes applied",
     status: "Available"
+  },
+  {
+    title: "Canonical URL Audit",
+    href: "/canonical-audit",
+    description: "Check canonical URL issues across your site",
+    status: "Available"
+  },
+  {
+    title: "SEO Fixes Tracker",
+    href: "/seo-fixes",
+    description: "Track and monitor SEO improvements",
+    status: "Available"
   }
 ];
 

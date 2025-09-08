@@ -135,7 +135,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/embed/', '/confirm', '/test'],
+        disallow: ['/api/', '/embed/', '/confirm'],
       },
     ],
     additionalSitemaps: [

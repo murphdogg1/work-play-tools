@@ -203,6 +203,28 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      {/* Related Tools Section */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Our Calculators</h2>
+        <p className="text-gray-600 dark:text-gray-400">
+          Try our free calculators that use the methodologies described above:
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/calculators/overtime-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Overtime Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate overtime pay with state-specific rules</p>
+          </Link>
+          <Link href="/calculators/take-home-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Take-Home Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate net pay after taxes and deductions</p>
+          </Link>
+          <Link href="/calculators/payroll" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Payroll Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate gross pay, taxes, and deductions</p>
+          </Link>
+        </div>
+      </section>
+
       {/* Contact for Corrections */}
       <section className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-6">
         <h2 className="text-lg font-semibold text-indigo-900 dark:text-indigo-100 mb-3">Report Issues</h2>

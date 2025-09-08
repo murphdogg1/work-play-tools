@@ -87,9 +87,12 @@ export function generateCalculatorMetadata(
   description: string,
   url: string
 ): Metadata {
+  // Create a shorter, more focused description
+  const shortDescription = `${description} Free calculator with accurate rates and rules. No signup required.`;
+  
   const { title: validTitle, description: validDescription } = validateSeoText(
     `${calculatorName} 2025 | WorkPayTools`,
-    `Free ${description} for 2025. Calculate ${calculatorName.toLowerCase()} with accurate rates and rules. No signup required.`
+    shortDescription
   );
   
   return generateMetadata({
@@ -109,9 +112,12 @@ export function generateGuideMetadata(
   description: string,
   url: string
 ): Metadata {
+  // Create a shorter, more focused description
+  const shortDescription = `Complete guide to ${description}. Expert insights, examples, and compliance information.`;
+  
   const { title: validTitle, description: validDescription } = validateSeoText(
     `${guideTitle} 2025 | WorkPayTools`,
-    `Complete guide to ${description} in 2025. Expert insights, examples, and compliance information.`
+    shortDescription
   );
   
   return generateMetadata({
@@ -132,9 +138,12 @@ export function generateStateMetadata(
   description: string,
   url: string
 ): Metadata {
+  // Create a shorter, more focused description
+  const shortDescription = `Learn about ${description} in ${stateName}. Current rates, rules, and compliance requirements.`;
+  
   const { title: validTitle, description: validDescription } = validateSeoText(
     `${stateName} ${topic} 2025 | WorkPayTools`,
-    `Learn about ${description} in ${stateName}. Current rates, rules, and compliance requirements for 2025.`
+    shortDescription
   );
   
   return generateMetadata({

@@ -4,7 +4,6 @@ Allow: /
 Disallow: /api/
 Disallow: /embed/
 Disallow: /confirm
-Disallow: /test
 
 # Host
 Host: https://www.workpaytools.com
