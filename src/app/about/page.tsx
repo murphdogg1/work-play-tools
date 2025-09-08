@@ -8,7 +8,7 @@ import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
   title: "About WorkPayTools - Free Payroll & HR Tools",
-  description: "Learn about WorkPayTools mission to provide free, accurate payroll calculators and HR resources. Meet our team and discover our commitment to helping businesses",
+  description: "Learn about WorkPayTools mission to provide free, accurate payroll calculators and HR resources. Meet our team and discover our commitment to helping businesses and employees.",
   openGraph: {
     title: "About WorkPayTools - Free Payroll & HR Tools",
     description: "Learn about WorkPayTools mission to provide free, accurate payroll calculators and HR resources. Meet our team and discover our commitment to helping businesses and employees.",

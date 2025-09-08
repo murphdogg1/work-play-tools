@@ -87,9 +87,14 @@ export function generateCalculatorMetadata(
   description: string,
   url: string
 ): Metadata {
+  const { title: validTitle, description: validDescription } = validateSeoText(
+    `${calculatorName} 2025 | WorkPayTools`,
+    `Free ${description} for 2025. Calculate ${calculatorName.toLowerCase()} with accurate rates and rules. No signup required.`
+  );
+  
   return generateMetadata({
-    title: `${calculatorName} 2025 | WorkPayTools`,
-    description: `Free ${description} for 2025. Calculate ${calculatorName.toLowerCase()} with accurate rates and rules. No signup required.`,
+    title: validTitle,
+    description: validDescription,
     url,
     imageTitle: `${calculatorName} (2025)`,
     imageDescription: description,
@@ -104,9 +109,14 @@ export function generateGuideMetadata(
   description: string,
   url: string
 ): Metadata {
+  const { title: validTitle, description: validDescription } = validateSeoText(
+    `${guideTitle} 2025 | WorkPayTools`,
+    `Complete guide to ${description} in 2025. Expert insights, examples, and compliance information.`
+  );
+  
   return generateMetadata({
-    title: `${guideTitle} 2025 | WorkPayTools`,
-    description: `Complete guide to ${description} in 2025. Expert insights, examples, and compliance information.`,
+    title: validTitle,
+    description: validDescription,
     url,
     imageTitle: guideTitle,
     imageDescription: description,
@@ -122,9 +132,14 @@ export function generateStateMetadata(
   description: string,
   url: string
 ): Metadata {
+  const { title: validTitle, description: validDescription } = validateSeoText(
+    `${stateName} ${topic} 2025 | WorkPayTools`,
+    `Learn about ${description} in ${stateName}. Current rates, rules, and compliance requirements for 2025.`
+  );
+  
   return generateMetadata({
-    title: `${stateName} ${topic} 2025 | WorkPayTools`,
-    description: `Learn about ${description} in ${stateName}. Current rates, rules, and compliance requirements for 2025.`,
+    title: validTitle,
+    description: validDescription,
     url,
     imageTitle: `${topic} in ${stateName}`,
     imageDescription: description,

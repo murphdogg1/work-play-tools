@@ -3,7 +3,7 @@ module.exports = {
   siteUrl: 'https://www.workpaytools.com',
   generateRobotsTxt: true,
   sitemapSize: 7000,
-  exclude: ['/api/*', '/embed/*', '/confirm', '/test'],
+  exclude: ['/api/*', '/embed/*', '/confirm'],
   additionalPaths: async (config) => {
     const result = [];
     
@@ -74,6 +74,30 @@ module.exports = {
         loc: path,
         changefreq: 'monthly',
         priority: 0.7,
+        lastmod: new Date().toISOString(),
+      });
+    });
+    
+    // Add important utility and info pages
+    const utilityPages = [
+      '/about',
+      '/contact',
+      '/privacy',
+      '/terms',
+      '/methodology',
+      '/editorial-policy',
+      '/resources',
+      '/seo-check',
+      '/seo-audit',
+      '/seo-comprehensive',
+      '/test'
+    ];
+    
+    utilityPages.forEach(path => {
+      result.push({
+        loc: path,
+        changefreq: 'monthly',
+        priority: 0.6,
         lastmod: new Date().toISOString(),
       });
     });
