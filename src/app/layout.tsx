@@ -71,10 +71,6 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Free payroll calculators, HR templates, and guides"
-        />
         <meta name="google-adsense-account" content="ca-pub-6178941739913559" />
         {/* Preconnect to external domains for performance */}
         <link rel="alternate" type="application/rss+xml" title="WorkPayTools RSS Feed" href="/feed.xml" />

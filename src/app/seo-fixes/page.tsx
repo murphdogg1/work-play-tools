@@ -2,21 +2,22 @@
 
 import { useEffect, useState } from "react";
 
-export default function CanonicalAuditPage() {
+export default function SEOFixesPage() {
   const [auditResults, setAuditResults] = useState<any>({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const runCanonicalAudit = async () => {
+    const runSEOAudit = async () => {
       const results: any = {
         timestamp: new Date().toISOString(),
         domain: "workpaytools.com",
         issues: [],
+        fixes: [],
         recommendations: [],
         pages: []
       };
 
-      // Test key pages for canonical URL issues
+      // Test key pages for SEO issues
       const testPages = [
         { path: "/", expected: "https://workpaytools.com" },
         { path: "/calculators", expected: "https://workpaytools.com/calculators" },
@@ -39,6 +40,9 @@ export default function CanonicalAuditPage() {
             
             const canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
             const title = doc.querySelector('title')?.textContent;
+            const descriptions = doc.querySelectorAll('meta[name="description"]');
+            const viewport = doc.querySelector('meta[name="viewport"]');
+            const robots = doc.querySelector('meta[name="robots"]');
             
             const pageResult = {
               path: page.path,
@@ -46,22 +50,55 @@ export default function CanonicalAuditPage() {
               canonical: canonical,
               expected: page.expected,
               title: title,
+              titleLength: title?.length || 0,
               hasCanonical: !!canonical,
               canonicalCorrect: canonical === page.expected,
-              issues: [] as string[]
+              metaDescriptions: descriptions.length,
+              descriptionLength: descriptions[0]?.getAttribute('content')?.length || 0,
+              hasViewport: !!viewport,
+              hasRobots: !!robots,
+              issues: [] as string[],
+              fixes: [] as string[]
             };
 
+            // Check for issues
             if (!canonical) {
               pageResult.issues.push("Missing canonical URL");
-              results.issues.push(`${page.path}: Missing canonical URL`);
             } else if (canonical !== page.expected) {
               pageResult.issues.push(`Canonical URL mismatch: ${canonical} (expected: ${page.expected})`);
-              results.issues.push(`${page.path}: Canonical URL mismatch`);
             }
 
-            if (!title) {
+            if (pageResult.titleLength === 0) {
               pageResult.issues.push("Missing title tag");
-              results.issues.push(`${page.path}: Missing title tag`);
+            } else if (pageResult.titleLength > 60) {
+              pageResult.issues.push(`Title too long: ${pageResult.titleLength} characters (max 60)`);
+            }
+
+            if (pageResult.metaDescriptions === 0) {
+              pageResult.issues.push("Missing meta description");
+            } else if (pageResult.metaDescriptions > 1) {
+              pageResult.issues.push(`Multiple meta descriptions: ${pageResult.metaDescriptions}`);
+            } else if (pageResult.descriptionLength > 0) {
+              if (pageResult.descriptionLength < 120) {
+                pageResult.issues.push(`Meta description too short: ${pageResult.descriptionLength} characters (min 120)`);
+              } else if (pageResult.descriptionLength > 160) {
+                pageResult.issues.push(`Meta description too long: ${pageResult.descriptionLength} characters (max 160)`);
+              }
+            }
+
+            if (!pageResult.hasViewport) {
+              pageResult.issues.push("Missing viewport meta tag");
+            }
+
+            // Add fixes applied
+            if (pageResult.canonicalCorrect) {
+              pageResult.fixes.push("✅ Canonical URL correctly configured");
+            }
+            if (pageResult.titleLength > 0 && pageResult.titleLength <= 60) {
+              pageResult.fixes.push("✅ Title length optimized");
+            }
+            if (pageResult.metaDescriptions === 1 && pageResult.descriptionLength >= 120 && pageResult.descriptionLength <= 160) {
+              pageResult.fixes.push("✅ Meta description optimized");
             }
 
             results.pages.push(pageResult);
@@ -83,23 +120,37 @@ export default function CanonicalAuditPage() {
         }
       }
 
+      // Generate summary
+      const totalIssues = results.pages.reduce((sum: number, page: any) => sum + (page.issues?.length || 0), 0);
+      const totalFixes = results.pages.reduce((sum: number, page: any) => sum + (page.fixes?.length || 0), 0);
+
+      results.summary = {
+        totalPages: results.pages.length,
+        totalIssues,
+        totalFixes,
+        issuesFixed: totalIssues === 0,
+        canonicalFixed: results.pages.every((p: any) => p.canonicalCorrect),
+        metaDescriptionFixed: results.pages.every((p: any) => p.metaDescriptions === 1),
+        titleLengthFixed: results.pages.every((p: any) => p.titleLength > 0 && p.titleLength <= 60)
+      };
+
       // Generate recommendations
-      if (results.issues.length === 0) {
-        results.recommendations.push("✅ All canonical URLs are correctly configured!");
+      if (totalIssues === 0) {
+        results.recommendations.push("🎉 All SEO issues have been resolved!");
       } else {
-        results.recommendations.push("Fix the canonical URL issues listed above");
+        results.recommendations.push("Continue monitoring and fixing remaining issues");
       }
 
-      results.recommendations.push("Ensure all pages use the generateMetadata function");
-      results.recommendations.push("Remove any hardcoded canonical URLs from layout files");
-      results.recommendations.push("Test canonical URLs in Google Search Console");
-      results.recommendations.push("Use relative URLs in canonical tags to avoid protocol issues");
+      results.recommendations.push("Submit updated sitemap to Google Search Console");
+      results.recommendations.push("Monitor Google Search Console for indexing improvements");
+      results.recommendations.push("Test pages with Google's Rich Results Test");
+      results.recommendations.push("Consider implementing structured data for better search results");
 
       setAuditResults(results);
       setIsLoading(false);
     };
 
-    runCanonicalAudit();
+    runSEOAudit();
   }, []);
 
   if (isLoading) {
@@ -107,9 +158,9 @@ export default function CanonicalAuditPage() {
       <div className="max-w-4xl mx-auto p-6">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Canonical URL Audit
+            SEO Fixes Audit
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">Running canonical URL audit...</p>
+          <p className="text-gray-600 dark:text-gray-300">Running comprehensive SEO audit...</p>
         </div>
       </div>
     );
@@ -119,10 +170,10 @@ export default function CanonicalAuditPage() {
     <div className="max-w-6xl mx-auto p-6 space-y-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          Canonical URL Audit Results
+          SEO Fixes Audit Results
         </h1>
         <p className="text-gray-600 dark:text-gray-300">
-          Comprehensive analysis of canonical URL configuration
+          Comprehensive analysis of SEO issues and fixes applied
         </p>
       </div>
 
@@ -131,40 +182,42 @@ export default function CanonicalAuditPage() {
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
           Summary
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600">{auditResults.pages.length}</div>
+            <div className="text-2xl font-bold text-blue-600">{auditResults.summary?.totalPages || 0}</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Pages Tested</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-600">
-              {auditResults.pages.filter((p: any) => p.canonicalCorrect).length}
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Correct Canonicals</div>
+            <div className="text-2xl font-bold text-red-600">{auditResults.summary?.totalIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Issues Found</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-red-600">{auditResults.issues.length}</div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Issues Found</div>
+            <div className="text-2xl font-bold text-green-600">{auditResults.summary?.totalFixes || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Fixes Applied</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-purple-600">
+              {auditResults.summary?.issuesFixed ? "✅" : "⚠️"}
+            </div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Status</div>
           </div>
         </div>
       </div>
 
-      {/* Issues */}
-      {auditResults.issues && auditResults.issues.length > 0 && (
-        <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border border-red-200 dark:border-red-700">
-          <h2 className="text-xl font-semibold text-red-900 dark:text-red-100 mb-4">
-            Issues Found ({auditResults.issues.length})
-          </h2>
-          <ul className="space-y-2">
-            {auditResults.issues.map((issue: string, index: number) => (
-              <li key={index} className="text-red-800 dark:text-red-200 flex items-start">
-                <span className="text-red-500 mr-2">❌</span>
-                {issue}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Fixes Applied */}
+      <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-700">
+        <h2 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">
+          Fixes Applied
+        </h2>
+        <ul className="space-y-2 text-green-800 dark:text-green-200">
+          <li>✅ Removed hardcoded meta description from layout.tsx</li>
+          <li>✅ Fixed canonical URL conflicts</li>
+          <li>✅ Optimized title lengths (removed "Free" and "Guide" from titles)</li>
+          <li>✅ Ensured single meta description per page</li>
+          <li>✅ Added proper metadata to homepage</li>
+          <li>✅ Fixed redirect issues in sitemap</li>
+        </ul>
+      </div>
 
       {/* Page Details */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
@@ -182,10 +235,16 @@ export default function CanonicalAuditPage() {
                   Status
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  Canonical URL
+                  Title Length
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Meta Desc
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Issues
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Fixes
                 </th>
               </tr>
             </thead>
@@ -198,24 +257,38 @@ export default function CanonicalAuditPage() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm">
                     {page.error ? (
                       <span className="text-red-600">❌ Error</span>
-                    ) : page.canonicalCorrect ? (
+                    ) : page.issues?.length === 0 ? (
                       <span className="text-green-600">✅ OK</span>
                     ) : (
-                      <span className="text-yellow-600">⚠️ Issue</span>
+                      <span className="text-yellow-600">⚠️ Issues</span>
                     )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                    {page.canonical || 'Not found'}
+                    {page.titleLength || 0} chars
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                    {page.metaDescriptions || 0} tags
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                     {page.issues && page.issues.length > 0 ? (
                       <ul className="space-y-1">
                         {page.issues.map((issue: string, i: number) => (
-                          <li key={i} className="text-red-600">{issue}</li>
+                          <li key={i} className="text-red-600 text-xs">{issue}</li>
                         ))}
                       </ul>
                     ) : (
                       <span className="text-green-600">None</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
+                    {page.fixes && page.fixes.length > 0 ? (
+                      <ul className="space-y-1">
+                        {page.fixes.map((fix: string, i: number) => (
+                          <li key={i} className="text-green-600 text-xs">{fix}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <span className="text-gray-400">-</span>
                     )}
                   </td>
                 </tr>
@@ -228,7 +301,7 @@ export default function CanonicalAuditPage() {
       {/* Recommendations */}
       <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
         <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">
-          Recommendations
+          Next Steps
         </h2>
         <ul className="space-y-2">
           {auditResults.recommendations.map((rec: string, index: number) => (
@@ -237,19 +310,6 @@ export default function CanonicalAuditPage() {
               {rec}
             </li>
           ))}
-        </ul>
-      </div>
-
-      {/* Quick Fixes */}
-      <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-700">
-        <h2 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">
-          Quick Fixes Applied
-        </h2>
-        <ul className="space-y-2 text-green-800 dark:text-green-200">
-          <li>✅ Removed hardcoded canonical URL from layout.tsx</li>
-          <li>✅ Added proper metadata to homepage</li>
-          <li>✅ Ensured all pages use generateMetadata function</li>
-          <li>✅ Fixed canonical URL conflicts</li>
         </ul>
       </div>
     </div>

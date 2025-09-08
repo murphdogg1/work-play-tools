@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const { state } = await params;
   const s = getStateBySlug(state);
   const name = s?.name ?? "State";
-  const title = `Overtime Rules in ${name} (2025)`;
+  const title = `${name} Overtime Rules 2025 | WorkPayTools`;
   const description = `Learn weekly thresholds and basics for ${name} overtime rules.`;
   
   return {

@@ -83,7 +83,7 @@ export function generateCalculatorMetadata(
   url: string
 ): Metadata {
   return generateMetadata({
-    title: `Free ${calculatorName} 2025 | WorkPayTools`,
+    title: `${calculatorName} Calculator 2025 | WorkPayTools`,
     description: `Free ${description} for 2025. Calculate ${calculatorName.toLowerCase()} with accurate rates and rules. No signup required.`,
     url,
     imageTitle: `${calculatorName} (2025)`,
@@ -100,7 +100,7 @@ export function generateGuideMetadata(
   url: string
 ): Metadata {
   return generateMetadata({
-    title: `${guideTitle} Guide 2025 | WorkPayTools`,
+    title: `${guideTitle} 2025 | WorkPayTools`,
     description: `Complete guide to ${description} in 2025. Expert insights, examples, and compliance information.`,
     url,
     imageTitle: guideTitle,
@@ -118,7 +118,7 @@ export function generateStateMetadata(
   url: string
 ): Metadata {
   return generateMetadata({
-    title: `${topic} in ${stateName} (2025) | WorkPayTools`,
+    title: `${stateName} ${topic} 2025 | WorkPayTools`,
     description: `Learn about ${description} in ${stateName}. Current rates, rules, and compliance requirements for 2025.`,
     url,
     imageTitle: `${topic} in ${stateName}`,
