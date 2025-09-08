@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://workpaytools.com"),
+  metadataBase: new URL("https://www.workpaytools.com"),
   title: {
     default: "Free Payroll Calculators & HR Tools | WorkPayTools",
     template: "%s | WorkPayTools",
@@ -116,16 +116,16 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "WorkPayTools",
-            "url": "https://workpaytools.com",
+            "url": "https://www.workpaytools.com",
             "logo": "https://www.workpaytools.com/logo.png",
             "description": "Free payroll calculators, HR templates, and comprehensive guides for businesses and HR professionals.",
             "sameAs": [
-              "https://workpaytools.com"
+              "https://www.workpaytools.com"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
-              "url": "https://workpaytools.com/contact"
+              "url": "https://www.workpaytools.com/contact"
             }
           })}
         </script>
@@ -134,11 +134,11 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "WorkPayTools",
-            "url": "https://workpaytools.com",
+            "url": "https://www.workpaytools.com",
             "description": "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides.",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://workpaytools.com/search?q={search_term_string}",
+              "target": "https://www.workpaytools.com/search?q={search_term_string}",
               "query-input": "required name=search_term_string"
             },
             "publisher": {
@@ -155,7 +155,7 @@ export default function RootLayout({
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web Browser",
             "description": "Free payroll calculators and HR tools including overtime pay calculator, take-home pay calculator, payroll tax calculator, and HR templates.",
-            "url": "https://workpaytools.com",
+            "url": "https://www.workpaytools.com",
             "offers": {
               "@type": "Offer",
               "price": "0",

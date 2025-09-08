@@ -110,8 +110,8 @@ export default function ResourcesPage() {
         subtitle="Additional tools, information, and resources to help you with payroll, HR, and business compliance" 
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Resources", url: "https://workpaytools.com/resources" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Resources", url: "https://www.workpaytools.com/resources" },
       ])}
 
       <AdSlot id="resources-overview" />

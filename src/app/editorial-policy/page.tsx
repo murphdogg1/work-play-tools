@@ -35,8 +35,8 @@ export default function EditorialPolicyPage() {
         subtitle="Our commitment to accurate, helpful, and up-to-date content" 
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Editorial Policy", url: "https://workpaytools.com/editorial-policy" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Editorial Policy", url: "https://www.workpaytools.com/editorial-policy" },
       ])}
 
       <AdSlot id="editorial-overview" />

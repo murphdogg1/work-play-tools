@@ -91,9 +91,9 @@ export default function BenefitsGuide() {
   return (
     <>
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Guides", url: "https://workpaytools.com/guides" },
-        { name: "Benefits & Deductions", url: "https://workpaytools.com/guides/benefits" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Guides", url: "https://www.workpaytools.com/guides" },
+        { name: "Benefits & Deductions", url: "https://www.workpaytools.com/guides/benefits" },
       ])}
       
       <PageHeading title="Benefits & Deductions" subtitle="Health, retirement, and other common programs" />

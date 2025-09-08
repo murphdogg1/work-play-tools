@@ -85,13 +85,13 @@ export default function PaystubGeneratorPage() {
       />
       <WebAppJsonLd 
         name="Paystub Generator"
-        url="https://workpaytools.com/calculators/paystub-generator"
+        url="https://www.workpaytools.com/calculators/paystub-generator"
         description="Create professional ADP-style pay stubs instantly"
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Calculators", url: "https://workpaytools.com/calculators" },
-        { name: "Paystub Generator", url: "https://workpaytools.com/calculators/paystub-generator" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Calculators", url: "https://www.workpaytools.com/calculators" },
+        { name: "Paystub Generator", url: "https://www.workpaytools.com/calculators/paystub-generator" },
       ])}
 
       <Suspense fallback={<div>Loading paystub generator...</div>}>

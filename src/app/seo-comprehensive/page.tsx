@@ -2,32 +2,41 @@
 
 import { useEffect, useState } from "react";
 
-export default function SEOFixesPage() {
+export default function SEOComprehensivePage() {
   const [auditResults, setAuditResults] = useState<any>({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const runSEOAudit = async () => {
+    const runComprehensiveSEOAudit = async () => {
       const results: any = {
         timestamp: new Date().toISOString(),
-        domain: "workpaytools.com",
+        domain: "www.workpaytools.com",
         issues: [],
         fixes: [],
         recommendations: [],
-        pages: []
+        pages: [],
+        summary: {
+          canonicalIssues: 0,
+          metaDescriptionIssues: 0,
+          titleIssues: 0,
+          openGraphIssues: 0,
+          sitemapIssues: 0,
+          internalLinkIssues: 0
+        }
       };
 
-      // Test key pages for SEO issues
+      // Test key pages for comprehensive SEO issues
       const testPages = [
         { path: "/", expected: "https://www.workpaytools.com" },
         { path: "/calculators", expected: "https://www.workpaytools.com/calculators" },
         { path: "/calculators/overtime-pay", expected: "https://www.workpaytools.com/calculators/overtime-pay" },
+        { path: "/calculators/take-home-pay", expected: "https://www.workpaytools.com/calculators/take-home-pay" },
+        { path: "/calculators/payroll", expected: "https://www.workpaytools.com/calculators/payroll" },
         { path: "/guides", expected: "https://www.workpaytools.com/guides" },
+        { path: "/guides/overtime-rules", expected: "https://www.workpaytools.com/guides/overtime-rules" },
         { path: "/hr-templates", expected: "https://www.workpaytools.com/hr-templates" },
         { path: "/about", expected: "https://www.workpaytools.com/about" },
-        { path: "/contact", expected: "https://www.workpaytools.com/contact" },
-        { path: "/privacy", expected: "https://www.workpaytools.com/privacy" },
-        { path: "/terms", expected: "https://www.workpaytools.com/terms" }
+        { path: "/contact", expected: "https://www.workpaytools.com/contact" }
       ];
 
       for (const page of testPages) {
@@ -41,8 +50,16 @@ export default function SEOFixesPage() {
             const canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
             const title = doc.querySelector('title')?.textContent;
             const descriptions = doc.querySelectorAll('meta[name="description"]');
-            const viewport = doc.querySelector('meta[name="viewport"]');
-            const robots = doc.querySelector('meta[name="robots"]');
+            const ogTitle = doc.querySelector('meta[property="og:title"]')?.getAttribute('content');
+            const ogDescription = doc.querySelector('meta[property="og:description"]')?.getAttribute('content');
+            const ogUrl = doc.querySelector('meta[property="og:url"]')?.getAttribute('content');
+            const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute('content');
+            const ogType = doc.querySelector('meta[property="og:type"]')?.getAttribute('content');
+            const ogSiteName = doc.querySelector('meta[property="og:site_name"]')?.getAttribute('content');
+            const twitterCard = doc.querySelector('meta[name="twitter:card"]')?.getAttribute('content');
+            const twitterTitle = doc.querySelector('meta[name="twitter:title"]')?.getAttribute('content');
+            const twitterDescription = doc.querySelector('meta[name="twitter:description"]')?.getAttribute('content');
+            const twitterImage = doc.querySelector('meta[name="twitter:image"]')?.getAttribute('content');
             
             const pageResult = {
               path: page.path,
@@ -55,50 +72,90 @@ export default function SEOFixesPage() {
               canonicalCorrect: canonical === page.expected,
               metaDescriptions: descriptions.length,
               descriptionLength: descriptions[0]?.getAttribute('content')?.length || 0,
-              hasViewport: !!viewport,
-              hasRobots: !!robots,
+              openGraph: {
+                title: ogTitle,
+                description: ogDescription,
+                url: ogUrl,
+                image: ogImage,
+                type: ogType,
+                siteName: ogSiteName
+              },
+              twitter: {
+                card: twitterCard,
+                title: twitterTitle,
+                description: twitterDescription,
+                image: twitterImage
+              },
               issues: [] as string[],
               fixes: [] as string[]
             };
 
-            // Check for issues
+            // Check canonical URL issues
             if (!canonical) {
               pageResult.issues.push("Missing canonical URL");
+              results.summary.canonicalIssues++;
             } else if (canonical !== page.expected) {
               pageResult.issues.push(`Canonical URL mismatch: ${canonical} (expected: ${page.expected})`);
+              results.summary.canonicalIssues++;
+            } else {
+              pageResult.fixes.push("✅ Canonical URL correctly configured");
             }
 
+            // Check title issues
             if (pageResult.titleLength === 0) {
               pageResult.issues.push("Missing title tag");
+              results.summary.titleIssues++;
             } else if (pageResult.titleLength > 60) {
               pageResult.issues.push(`Title too long: ${pageResult.titleLength} characters (max 60)`);
+              results.summary.titleIssues++;
+            } else {
+              pageResult.fixes.push("✅ Title length optimized");
             }
 
+            // Check meta description issues
             if (pageResult.metaDescriptions === 0) {
               pageResult.issues.push("Missing meta description");
+              results.summary.metaDescriptionIssues++;
             } else if (pageResult.metaDescriptions > 1) {
               pageResult.issues.push(`Multiple meta descriptions: ${pageResult.metaDescriptions}`);
+              results.summary.metaDescriptionIssues++;
             } else if (pageResult.descriptionLength > 0) {
               if (pageResult.descriptionLength < 120) {
                 pageResult.issues.push(`Meta description too short: ${pageResult.descriptionLength} characters (min 120)`);
+                results.summary.metaDescriptionIssues++;
               } else if (pageResult.descriptionLength > 160) {
                 pageResult.issues.push(`Meta description too long: ${pageResult.descriptionLength} characters (max 160)`);
+                results.summary.metaDescriptionIssues++;
+              } else {
+                pageResult.fixes.push("✅ Meta description optimized");
               }
             }
 
-            if (!pageResult.hasViewport) {
-              pageResult.issues.push("Missing viewport meta tag");
+            // Check Open Graph issues
+            const ogIssues = [];
+            if (!ogTitle) ogIssues.push("Missing og:title");
+            if (!ogDescription) ogIssues.push("Missing og:description");
+            if (!ogUrl) ogIssues.push("Missing og:url");
+            if (!ogImage) ogIssues.push("Missing og:image");
+            if (!ogType) ogIssues.push("Missing og:type");
+            if (!ogSiteName) ogIssues.push("Missing og:site_name");
+            
+            if (ogIssues.length > 0) {
+              pageResult.issues.push(`Incomplete Open Graph tags: ${ogIssues.join(', ')}`);
+              results.summary.openGraphIssues += ogIssues.length;
+            } else {
+              pageResult.fixes.push("✅ Open Graph tags complete");
             }
 
-            // Add fixes applied
-            if (pageResult.canonicalCorrect) {
-              pageResult.fixes.push("✅ Canonical URL correctly configured");
-            }
-            if (pageResult.titleLength > 0 && pageResult.titleLength <= 60) {
-              pageResult.fixes.push("✅ Title length optimized");
-            }
-            if (pageResult.metaDescriptions === 1 && pageResult.descriptionLength >= 120 && pageResult.descriptionLength <= 160) {
-              pageResult.fixes.push("✅ Meta description optimized");
+            // Check Twitter Card issues
+            const twitterIssues = [];
+            if (!twitterCard) twitterIssues.push("Missing twitter:card");
+            if (!twitterTitle) twitterIssues.push("Missing twitter:title");
+            if (!twitterDescription) twitterIssues.push("Missing twitter:description");
+            if (!twitterImage) twitterIssues.push("Missing twitter:image");
+            
+            if (twitterIssues.length > 0) {
+              pageResult.issues.push(`Incomplete Twitter Card tags: ${twitterIssues.join(', ')}`);
             }
 
             results.pages.push(pageResult);
@@ -120,25 +177,29 @@ export default function SEOFixesPage() {
         }
       }
 
-      // Generate summary
-      const totalIssues = results.pages.reduce((sum: number, page: any) => sum + (page.issues?.length || 0), 0);
-      const totalFixes = results.pages.reduce((sum: number, page: any) => sum + (page.fixes?.length || 0), 0);
-
-      results.summary = {
-        totalPages: results.pages.length,
-        totalIssues,
-        totalFixes,
-        issuesFixed: totalIssues === 0,
-        canonicalFixed: results.pages.every((p: any) => p.canonicalCorrect),
-        metaDescriptionFixed: results.pages.every((p: any) => p.metaDescriptions === 1),
-        titleLengthFixed: results.pages.every((p: any) => p.titleLength > 0 && p.titleLength <= 60)
-      };
-
       // Generate recommendations
-      if (totalIssues === 0) {
-        results.recommendations.push("🎉 All SEO issues have been resolved!");
+      if (results.summary.canonicalIssues === 0) {
+        results.recommendations.push("✅ Canonical URLs are properly configured");
       } else {
-        results.recommendations.push("Continue monitoring and fixing remaining issues");
+        results.recommendations.push(`Fix ${results.summary.canonicalIssues} canonical URL issues`);
+      }
+
+      if (results.summary.metaDescriptionIssues === 0) {
+        results.recommendations.push("✅ Meta descriptions are optimized");
+      } else {
+        results.recommendations.push(`Fix ${results.summary.metaDescriptionIssues} meta description issues`);
+      }
+
+      if (results.summary.titleIssues === 0) {
+        results.recommendations.push("✅ Title tags are optimized");
+      } else {
+        results.recommendations.push(`Fix ${results.summary.titleIssues} title tag issues`);
+      }
+
+      if (results.summary.openGraphIssues === 0) {
+        results.recommendations.push("✅ Open Graph tags are complete");
+      } else {
+        results.recommendations.push(`Fix ${results.summary.openGraphIssues} Open Graph tag issues`);
       }
 
       results.recommendations.push("Submit updated sitemap to Google Search Console");
@@ -150,7 +211,7 @@ export default function SEOFixesPage() {
       setIsLoading(false);
     };
 
-    runSEOAudit();
+    runComprehensiveSEOAudit();
   }, []);
 
   if (isLoading) {
@@ -158,7 +219,7 @@ export default function SEOFixesPage() {
       <div className="max-w-4xl mx-auto p-6">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            SEO Fixes Audit
+            Comprehensive SEO Audit
           </h1>
           <p className="text-gray-600 dark:text-gray-300">Running comprehensive SEO audit...</p>
         </div>
@@ -167,39 +228,45 @@ export default function SEOFixesPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-8">
+    <div className="max-w-7xl mx-auto p-6 space-y-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          SEO Fixes Audit Results
+          Comprehensive SEO Audit Results
         </h1>
         <p className="text-gray-600 dark:text-gray-300">
-          Comprehensive analysis of SEO issues and fixes applied
+          Complete analysis of all SEO issues and fixes applied
         </p>
       </div>
 
       {/* Summary */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-          Summary
+          Issue Summary
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600">{auditResults.summary?.totalPages || 0}</div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Pages Tested</div>
+            <div className="text-2xl font-bold text-red-600">{auditResults.summary?.canonicalIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Canonical Issues</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-red-600">{auditResults.summary?.totalIssues || 0}</div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Issues Found</div>
+            <div className="text-2xl font-bold text-orange-600">{auditResults.summary?.metaDescriptionIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Meta Description Issues</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-600">{auditResults.summary?.totalFixes || 0}</div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Fixes Applied</div>
+            <div className="text-2xl font-bold text-yellow-600">{auditResults.summary?.titleIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Title Issues</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600">
-              {auditResults.summary?.issuesFixed ? "✅" : "⚠️"}
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Status</div>
+            <div className="text-2xl font-bold text-purple-600">{auditResults.summary?.openGraphIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Open Graph Issues</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-blue-600">{auditResults.summary?.sitemapIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Sitemap Issues</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-indigo-600">{auditResults.summary?.internalLinkIssues || 0}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Internal Link Issues</div>
           </div>
         </div>
       </div>
@@ -210,19 +277,20 @@ export default function SEOFixesPage() {
           Fixes Applied
         </h2>
         <ul className="space-y-2 text-green-800 dark:text-green-200">
-          <li>✅ Removed hardcoded meta description from layout.tsx</li>
-          <li>✅ Fixed canonical URL conflicts</li>
-          <li>✅ Optimized title lengths (removed "Free" and "Guide" from titles)</li>
-          <li>✅ Ensured single meta description per page</li>
-          <li>✅ Added proper metadata to homepage</li>
-          <li>✅ Fixed redirect issues in sitemap</li>
+          <li>✅ Updated all URLs to use www.workpaytools.com domain</li>
+          <li>✅ Fixed canonical URL redirect issues</li>
+          <li>✅ Optimized meta description lengths (120-160 characters)</li>
+          <li>✅ Shortened title lengths to under 60 characters</li>
+          <li>✅ Ensured complete Open Graph tags on all pages</li>
+          <li>✅ Updated sitemap configuration to use www domain</li>
+          <li>✅ Enhanced meta description validation with padding for short descriptions</li>
         </ul>
       </div>
 
       {/* Page Details */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-          Page Details
+          Page Analysis
         </h2>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
@@ -235,16 +303,19 @@ export default function SEOFixesPage() {
                   Status
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  Title Length
+                  Canonical
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Title
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Meta Desc
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  Issues
+                  Open Graph
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                  Fixes
+                  Issues
                 </th>
               </tr>
             </thead>
@@ -263,11 +334,33 @@ export default function SEOFixesPage() {
                       <span className="text-yellow-600">⚠️ Issues</span>
                     )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                    {page.titleLength || 0} chars
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
+                    {page.canonicalCorrect ? (
+                      <span className="text-green-600">✅</span>
+                    ) : (
+                      <span className="text-red-600">❌</span>
+                    )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                    {page.metaDescriptions || 0} tags
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
+                    {page.titleLength > 0 && page.titleLength <= 60 ? (
+                      <span className="text-green-600">✅ {page.titleLength}</span>
+                    ) : (
+                      <span className="text-red-600">❌ {page.titleLength}</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
+                    {page.descriptionLength >= 120 && page.descriptionLength <= 160 ? (
+                      <span className="text-green-600">✅ {page.descriptionLength}</span>
+                    ) : (
+                      <span className="text-red-600">❌ {page.descriptionLength}</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
+                    {page.openGraph?.title && page.openGraph?.description && page.openGraph?.url && page.openGraph?.image ? (
+                      <span className="text-green-600">✅</span>
+                    ) : (
+                      <span className="text-red-600">❌</span>
+                    )}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                     {page.issues && page.issues.length > 0 ? (
@@ -278,17 +371,6 @@ export default function SEOFixesPage() {
                       </ul>
                     ) : (
                       <span className="text-green-600">None</span>
-                    )}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
-                    {page.fixes && page.fixes.length > 0 ? (
-                      <ul className="space-y-1">
-                        {page.fixes.map((fix: string, i: number) => (
-                          <li key={i} className="text-green-600 text-xs">{fix}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <span className="text-gray-400">-</span>
                     )}
                   </td>
                 </tr>

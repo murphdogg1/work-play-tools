@@ -52,7 +52,7 @@ export default function SEOCheckPage() {
             <li>
               <strong>3. Submit Sitemap:</strong>
               <br />
-              <span className="text-sm">Submit: <code className="bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded">https://workpaytools.com/sitemap.xml</code></span>
+              <span className="text-sm">Submit: <code className="bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded">https://www.workpaytools.com/sitemap.xml</code></span>
             </li>
             <li>
               <strong>4. Request Indexing:</strong>

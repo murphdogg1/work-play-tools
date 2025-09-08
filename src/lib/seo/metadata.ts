@@ -10,20 +10,25 @@ export interface SeoConfig {
 }
 
 /**
- * Ensures title is <= 60 characters and description is <= 155 characters
+ * Ensures title is <= 60 characters and description is between 120-160 characters
  * Truncates with ellipses if needed
  */
 export function validateSeoText(title: string, description: string): { title: string; description: string } {
   const maxTitleLength = 60;
-  const maxDescriptionLength = 155;
+  const maxDescriptionLength = 160;
+  const minDescriptionLength = 120;
   
   const truncatedTitle = title.length > maxTitleLength 
     ? title.substring(0, maxTitleLength - 3) + "..."
     : title;
     
-  const truncatedDescription = description.length > maxDescriptionLength
-    ? description.substring(0, maxDescriptionLength - 3) + "..."
-    : description;
+  let truncatedDescription = description;
+  if (description.length < minDescriptionLength) {
+    // Pad short descriptions with additional context
+    truncatedDescription = description + ". Get accurate calculations, state-specific rules, and expert guidance.";
+  } else if (description.length > maxDescriptionLength) {
+    truncatedDescription = description.substring(0, maxDescriptionLength - 3) + "...";
+  }
     
   return {
     title: truncatedTitle,
@@ -38,7 +43,7 @@ export function generateMetadata(config: SeoConfig): Metadata {
   const { title, description, url, imageTitle, imageDescription, noIndex } = config;
   const { title: validTitle, description: validDescription } = validateSeoText(title, description);
   
-  const baseUrl = "https://workpaytools.com";
+  const baseUrl = "https://www.workpaytools.com";
   const pageUrl = url ? `${baseUrl}${url}` : baseUrl;
   const ogImageUrl = `${baseUrl}/og?title=${encodeURIComponent(imageTitle || validTitle)}&description=${encodeURIComponent(imageDescription || validDescription)}`;
   

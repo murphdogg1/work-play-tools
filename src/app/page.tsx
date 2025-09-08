@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Free Payroll Calculators & HR Tools | WorkPayTools",
   description: "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides. No signup required. Calculate payroll taxes, overtime, and more instantly.",
   alternates: {
-    canonical: "https://workpaytools.com",
+    canonical: "https://www.workpaytools.com",
   },
 };
 
@@ -251,7 +251,7 @@ export default function Home() {
           "@type": "CollectionPage",
           "name": "Free Payroll Calculators & HR Tools",
           "description": "Comprehensive collection of free payroll calculators, HR templates, and guides for businesses and HR professionals.",
-          "url": "https://workpaytools.com",
+          "url": "https://www.workpaytools.com",
           "mainEntity": {
             "@type": "ItemList",
             "name": "Payroll Calculators and HR Tools",
@@ -263,7 +263,7 @@ export default function Home() {
                 "position": 1,
                 "name": "Overtime Pay Calculator",
                 "description": "Calculate regular and overtime pay with state-specific rules",
-                "url": "https://workpaytools.com/calculators/overtime-pay",
+                "url": "https://www.workpaytools.com/calculators/overtime-pay",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web Browser",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -273,7 +273,7 @@ export default function Home() {
                 "position": 2,
                 "name": "Take-Home Pay Calculator",
                 "description": "Calculate net pay after taxes and deductions",
-                "url": "https://workpaytools.com/calculators/take-home-pay",
+                "url": "https://www.workpaytools.com/calculators/take-home-pay",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web Browser",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -283,7 +283,7 @@ export default function Home() {
                 "position": 3,
                 "name": "Payroll Tax Calculator",
                 "description": "Calculate FICA, Medicare, and Social Security taxes",
-                "url": "https://workpaytools.com/calculators/payroll-tax",
+                "url": "https://www.workpaytools.com/calculators/payroll-tax",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web Browser",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -292,8 +292,8 @@ export default function Home() {
           }
         })}
       </script>
-      {organizationJsonLd({ name: "WorkPayTools", url: "https://workpaytools.com" })}
-      {websiteJsonLd({ url: "https://workpaytools.com" })}
+      {organizationJsonLd({ name: "WorkPayTools", url: "https://www.workpaytools.com" })}
+      {websiteJsonLd({ url: "https://www.workpaytools.com" })}
     </div>
   );
 }

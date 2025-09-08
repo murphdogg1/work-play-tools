@@ -92,9 +92,9 @@ export default function PayrollBasicsGuide() {
   return (
     <>
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Guides", url: "https://workpaytools.com/guides" },
-        { name: "Payroll Basics", url: "https://workpaytools.com/guides/payroll-basics" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Guides", url: "https://www.workpaytools.com/guides" },
+        { name: "Payroll Basics", url: "https://www.workpaytools.com/guides/payroll-basics" },
       ])}
       
       <PageHeading 
@@ -201,12 +201,12 @@ export default function PayrollBasicsGuide() {
           {
             name: "Collect Time Records",
             text: "Gather timesheets, timecards, or digital time tracking data. Use our Timecard Calculator to track hours and overtime.",
-            url: "https://workpaytools.com/calculators/timecard"
+            url: "https://www.workpaytools.com/calculators/timecard"
           },
           {
             name: "Calculate Gross Pay",
             text: "For hourly employees, multiply hours worked by hourly rate. Add overtime using our Overtime Pay Calculator. For salaried employees, divide annual salary by pay periods.",
-            url: "https://workpaytools.com/calculators/overtime-pay"
+            url: "https://www.workpaytools.com/calculators/overtime-pay"
           },
           {
             name: "Calculate Deductions",

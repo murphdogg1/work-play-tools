@@ -39,7 +39,7 @@ export default function TakeHomePayPage() {
       />
       <WebAppJsonLd 
         name="Take-Home Pay Calculator"
-        url="https://workpaytools.com/calculators/take-home-pay"
+        url="https://www.workpaytools.com/calculators/take-home-pay"
         description="Calculate your net take-home pay after taxes, benefits, and deductions"
       />
       <AdSlot id="take-home-pay-calculator" />

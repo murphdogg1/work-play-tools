@@ -69,13 +69,13 @@ export default function TimecardPage() {
       <PageHeading title="Timecard Calculator" subtitle="Track your weekly hours and overtime. Perfect for hourly workers, freelancers, and anyone tracking billable time." />
       <WebAppJsonLd 
         name="Timecard Calculator"
-        url="https://workpaytools.com/calculators/timecard"
+        url="https://www.workpaytools.com/calculators/timecard"
         description="Track your weekly hours and overtime. Perfect for hourly workers, freelancers, and anyone tracking billable time."
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Calculators", url: "https://workpaytools.com/calculators" },
-        { name: "Timecard", url: "https://workpaytools.com/calculators/timecard" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Calculators", url: "https://www.workpaytools.com/calculators" },
+        { name: "Timecard", url: "https://www.workpaytools.com/calculators/timecard" },
       ])}
       <Suspense fallback={<div>Loading calculator...</div>}>
         <TimecardForm />

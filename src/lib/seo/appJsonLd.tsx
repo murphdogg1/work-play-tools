@@ -33,7 +33,7 @@ export default function WebAppJsonLd({
     "publisher": {
       "@type": "Organization",
       "name": "WorkPayTools",
-      "url": "https://workpaytools.com"
+      "url": "https://www.workpaytools.com"
     }
   };
 

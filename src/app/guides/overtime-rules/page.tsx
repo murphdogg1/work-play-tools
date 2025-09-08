@@ -91,9 +91,9 @@ export default function OvertimeRulesGuide() {
   return (
     <>
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Guides", url: "https://workpaytools.com/guides" },
-        { name: "Overtime Rules", url: "https://workpaytools.com/guides/overtime-rules" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Guides", url: "https://www.workpaytools.com/guides" },
+        { name: "Overtime Rules", url: "https://www.workpaytools.com/guides/overtime-rules" },
       ])}
       
       <PageHeading title="Overtime Rules" subtitle="Thresholds, rates, and compliance basics" />

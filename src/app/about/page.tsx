@@ -36,8 +36,8 @@ export default function AboutPage() {
         subtitle="Empowering businesses and employees with free, accurate payroll and HR tools" 
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "About", url: "https://workpaytools.com/about" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "About", url: "https://www.workpaytools.com/about" },
       ])}
 
       <AdSlot id="about-mission" />

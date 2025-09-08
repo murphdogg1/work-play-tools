@@ -35,8 +35,8 @@ export default function MethodologyPage() {
         subtitle="How our calculators work, our data sources, and our commitment to accuracy" 
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Methodology", url: "https://workpaytools.com/methodology" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Methodology", url: "https://www.workpaytools.com/methodology" },
       ])}
 
       <AdSlot id="methodology-overview" />

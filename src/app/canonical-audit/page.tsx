@@ -18,15 +18,15 @@ export default function CanonicalAuditPage() {
 
       // Test key pages for canonical URL issues
       const testPages = [
-        { path: "/", expected: "https://workpaytools.com" },
-        { path: "/calculators", expected: "https://workpaytools.com/calculators" },
-        { path: "/calculators/overtime-pay", expected: "https://workpaytools.com/calculators/overtime-pay" },
-        { path: "/guides", expected: "https://workpaytools.com/guides" },
-        { path: "/hr-templates", expected: "https://workpaytools.com/hr-templates" },
-        { path: "/about", expected: "https://workpaytools.com/about" },
-        { path: "/contact", expected: "https://workpaytools.com/contact" },
-        { path: "/privacy", expected: "https://workpaytools.com/privacy" },
-        { path: "/terms", expected: "https://workpaytools.com/terms" }
+        { path: "/", expected: "https://www.workpaytools.com" },
+        { path: "/calculators", expected: "https://www.workpaytools.com/calculators" },
+        { path: "/calculators/overtime-pay", expected: "https://www.workpaytools.com/calculators/overtime-pay" },
+        { path: "/guides", expected: "https://www.workpaytools.com/guides" },
+        { path: "/hr-templates", expected: "https://www.workpaytools.com/hr-templates" },
+        { path: "/about", expected: "https://www.workpaytools.com/about" },
+        { path: "/contact", expected: "https://www.workpaytools.com/contact" },
+        { path: "/privacy", expected: "https://www.workpaytools.com/privacy" },
+        { path: "/terms", expected: "https://www.workpaytools.com/terms" }
       ];
 
       for (const page of testPages) {

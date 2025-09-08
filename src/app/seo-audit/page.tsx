@@ -246,7 +246,7 @@ export default function SEOAuditPage() {
             <ul className="text-sm text-green-700 dark:text-green-300 list-disc list-inside ml-4">
               <li>Add your property: workpaytools.com</li>
               <li>Verify ownership using the HTML tag method</li>
-              <li>Submit your sitemap: https://workpaytools.com/sitemap.xml</li>
+              <li>Submit your sitemap: https://www.workpaytools.com/sitemap.xml</li>
               <li>Request indexing for your main pages</li>
             </ul>
           </div>

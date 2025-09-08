@@ -39,7 +39,7 @@ export default function PayrollTaxPage() {
       />
       <WebAppJsonLd 
         name="Payroll Tax Calculator"
-        url="https://workpaytools.com/calculators/payroll-tax"
+        url="https://www.workpaytools.com/calculators/payroll-tax"
         description="Calculate federal, state, and local payroll taxes for employees"
       />
       <AdSlot id="payroll-tax-calculator" />

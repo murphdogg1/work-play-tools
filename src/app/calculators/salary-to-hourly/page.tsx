@@ -95,13 +95,13 @@ export default function SalaryToHourlyPage() {
       />
       <WebAppJsonLd 
         name="Salary to Hourly Calculator"
-        url="https://workpaytools.com/calculators/salary-to-hourly"
+        url="https://www.workpaytools.com/calculators/salary-to-hourly"
         description="Convert your annual salary to an hourly rate. Essential for contract negotiations, freelance pricing, and comparing compensation packages."
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Calculators", url: "https://workpaytools.com/calculators" },
-        { name: "Salary to Hourly", url: "https://workpaytools.com/calculators/salary-to-hourly" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Calculators", url: "https://www.workpaytools.com/calculators" },
+        { name: "Salary to Hourly", url: "https://www.workpaytools.com/calculators/salary-to-hourly" },
       ])}
       
       <Suspense fallback={<div>Loading calculator...</div>}>

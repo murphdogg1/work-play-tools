@@ -5,7 +5,7 @@ import { Copy, Check } from "lucide-react";
 
 export default function EmbedButton() {
   const [copied, setCopied] = useState(false);
-  const embedCode = `<iframe src="https://workpaytools.com/embed/calculators/salary-to-hourly" width="100%" height="600" frameborder="0"></iframe>`;
+  const embedCode = `<iframe src="https://www.workpaytools.com/embed/calculators/salary-to-hourly" width="100%" height="600" frameborder="0"></iframe>`;
 
   const handleCopy = async () => {
     try {

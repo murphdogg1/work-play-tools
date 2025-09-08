@@ -90,9 +90,9 @@ export default function PayrollSoftwareComparisonPage() {
         subtitle="Complete comparison guide to help you choose the perfect payroll solution for your business" 
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Guides", url: "https://workpaytools.com/guides" },
-        { name: "Payroll Software Comparison", url: "https://workpaytools.com/guides/payroll-software-comparison" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Guides", url: "https://www.workpaytools.com/guides" },
+        { name: "Payroll Software Comparison", url: "https://www.workpaytools.com/guides/payroll-software-comparison" },
       ])}
       
       <AdSlot id="payroll-software-comparison-intro" />

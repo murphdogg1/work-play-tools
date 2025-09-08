@@ -101,13 +101,13 @@ export default function PayrollCalculatorPage() {
       />
       <WebAppJsonLd 
         name="Free Payroll Calculator"
-        url="https://workpaytools.com/calculators/payroll"
+        url="https://www.workpaytools.com/calculators/payroll"
         description="Free payroll calculator for 2025. Calculate employee pay, taxes, deductions, and net pay instantly."
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Calculators", url: "https://workpaytools.com/calculators" },
-        { name: "Payroll Calculator", url: "https://workpaytools.com/calculators/payroll" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Calculators", url: "https://www.workpaytools.com/calculators" },
+        { name: "Payroll Calculator", url: "https://www.workpaytools.com/calculators/payroll" },
       ])}
 
       <AdSlot id="payroll-calculator-overview" />

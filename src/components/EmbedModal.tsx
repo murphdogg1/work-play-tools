@@ -21,7 +21,7 @@ export default function EmbedModal({
   const [width, setWidth] = useState("100%");
   const [height, setHeight] = useState("600");
 
-  const embedUrl = `https://workpaytools.com/embed/calculators/${calculatorSlug}`;
+  const embedUrl = `https://www.workpaytools.com/embed/calculators/${calculatorSlug}`;
   const embedCode = `<iframe src="${embedUrl}" width="${width}" height="${height}" style="border:0" title="${calculatorName}"></iframe>`;
 
   const handleCopy = async () => {
@@ -154,7 +154,7 @@ export default function EmbedModal({
               View Embed Page
             </a>
             <a
-              href="https://workpaytools.com"
+              href="https://www.workpaytools.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"

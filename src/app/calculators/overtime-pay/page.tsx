@@ -84,13 +84,13 @@ export default function OvertimePayCalculatorPage() {
       />
       <WebAppJsonLd 
         name="Overtime Pay Calculator"
-        url="https://workpaytools.com/calculators/overtime-pay"
+        url="https://www.workpaytools.com/calculators/overtime-pay"
         description="Free overtime pay calculator for 2025. Calculate regular and overtime pay with state-specific rules."
       />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Calculators", url: "https://workpaytools.com/calculators" },
-        { name: "Overtime Pay", url: "https://workpaytools.com/calculators/overtime-pay" },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Calculators", url: "https://www.workpaytools.com/calculators" },
+        { name: "Overtime Pay", url: "https://www.workpaytools.com/calculators/overtime-pay" },
       ])}
 
       <Suspense fallback={<div>Loading calculator...</div>}>

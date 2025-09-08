@@ -12,7 +12,7 @@ export default function EmbedButton() {
   const [copied, setCopied] = useState(false);
 
   const embedCode = `<iframe 
-  src="https://workpaytools.com/embed/calculators/paystub-generator" 
+  src="https://www.workpaytools.com/embed/calculators/paystub-generator" 
   width="100%" 
   height="800" 
   frameborder="0"

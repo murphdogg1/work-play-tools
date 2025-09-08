@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const s = getStateBySlug(state);
   const name = s?.name ?? "State";
   const title = `${name} Overtime Rules 2025 | WorkPayTools`;
-  const description = `Learn weekly thresholds and basics for ${name} overtime rules.`;
+  const description = `Learn weekly thresholds and basics for ${name} overtime rules. Get accurate calculations, state-specific rules, and expert guidance.`;
   
   return {
     title,
@@ -90,10 +90,10 @@ export default async function StateOvertimeGuide({ params }: PageParams) {
     <div className="space-y-8">
       <PageHeading title={`Overtime Rules in ${stateName} (2025)`} subtitle={`Key overtime concepts and compliance information for ${stateName}.`} />
       {breadcrumbJsonLd([
-        { name: "Home", url: "https://workpaytools.com/" },
-        { name: "Guides", url: "https://workpaytools.com/guides" },
-        { name: "Overtime Rules", url: "https://workpaytools.com/guides/overtime-rules" },
-        { name: stateName, url: `https://workpaytools.com/guides/overtime-rules/${state}` },
+        { name: "Home", url: "https://www.workpaytools.com/" },
+        { name: "Guides", url: "https://www.workpaytools.com/guides" },
+        { name: "Overtime Rules", url: "https://www.workpaytools.com/guides/overtime-rules" },
+        { name: stateName, url: `https://www.workpaytools.com/guides/overtime-rules/${state}` },
       ])}
 
       <section className="space-y-4">

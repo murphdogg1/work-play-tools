@@ -39,7 +39,7 @@ export default function MinimumWagePage() {
       />
       <WebAppJsonLd 
         name="Minimum Wage Calculator"
-        url="https://workpaytools.com/calculators/minimum-wage"
+        url="https://www.workpaytools.com/calculators/minimum-wage"
         description="Calculate minimum wage rates by state and city. Compare federal vs state minimum wages and calculate overtime pay for minimum wage workers."
       />
       <AdSlot id="minimum-wage-calculator" />

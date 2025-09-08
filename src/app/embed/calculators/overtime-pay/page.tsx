@@ -28,7 +28,7 @@ export default function EmbedOvertimePayCalculator() {
         <p className="text-xs text-gray-500 dark:text-gray-400">
           Powered by{" "}
           <a 
-            href="https://workpaytools.com" 
+            href="https://www.workpaytools.com" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-indigo-600 dark:text-indigo-400 hover:underline"
