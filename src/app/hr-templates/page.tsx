@@ -7,7 +7,7 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "HR Templates",
-  description: "Ready-to-use templates for common HR needs including offer letters, PTO policies, and disciplinary forms. Get accurate calculations, state-specific rules, and expert guidance.",
+  description: "Ready-to-use templates for common HR needs including offer letters, PTO policies, and disciplinary forms. Get accurate calculations and expert guidance.",
   openGraph: {
     title: "HR Templates",
     description: "Ready-to-use templates for common HR needs including offer letters, PTO policies, and disciplinary forms. Get accurate calculations, state-specific rules, and expert guidance.",

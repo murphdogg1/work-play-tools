@@ -5,7 +5,7 @@ import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools. Get accurate calculations, state-specific rules, and expert guidance.",
+  description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools. Get accurate calculations and expert guidance.",
   openGraph: {
     title: "Contact",
     description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools. Get accurate calculations, state-specific rules, and expert guidance.",

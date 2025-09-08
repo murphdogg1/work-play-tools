@@ -6,7 +6,7 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Payroll & HR Guides",
-  description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits. Get accurate calculations, state-specific rules, and expert guidance.",
+  description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits. Get accurate calculations and expert guidance.",
   openGraph: {
     title: "Payroll & HR Guides",
     description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits. Get accurate calculations, state-specific rules, and expert guidance.",
