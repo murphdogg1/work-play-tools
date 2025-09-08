@@ -49,6 +49,8 @@ const navigation = {
       { title: "About WorkPayTools", href: "/about", description: "Learn about our mission and team" },
       { title: "Contact Us", href: "/contact", description: "Get help or provide feedback" },
       { title: "Privacy Policy", href: "/privacy", description: "How we protect your data" },
+      { title: "SEO Tools", href: "/seo-check", description: "SEO monitoring and optimization tools" },
+      { title: "All Resources", href: "/resources", description: "Complete list of resources and tools" },
     ]
   }
 };

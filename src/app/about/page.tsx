@@ -203,6 +203,28 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Developer Tools Section */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Developer Tools</h2>
+        <p className="text-gray-600 dark:text-gray-400">
+          Tools for monitoring and optimizing our site's performance:
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/seo-check" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">SEO Status Check</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Quick SEO health check and indexing status</p>
+          </Link>
+          <Link href="/seo-audit" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">SEO Audit</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Comprehensive SEO analysis and recommendations</p>
+          </Link>
+          <Link href="/seo-comprehensive" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Comprehensive SEO</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Detailed SEO audit report with fixes applied</p>
+          </Link>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-6">
         <h2 className="text-lg font-semibold text-indigo-900 dark:text-indigo-100 mb-3">Get in Touch</h2>

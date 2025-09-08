@@ -99,6 +99,24 @@ const additionalResources = [
     href: "/editorial-policy",
     description: "How we create, review, and maintain our content",
     status: "Available"
+  },
+  {
+    title: "SEO Status Check",
+    href: "/seo-check",
+    description: "Quick SEO health check and indexing status",
+    status: "Available"
+  },
+  {
+    title: "SEO Audit",
+    href: "/seo-audit",
+    description: "Comprehensive SEO analysis and recommendations",
+    status: "Available"
+  },
+  {
+    title: "Comprehensive SEO",
+    href: "/seo-comprehensive",
+    description: "Detailed SEO audit report with fixes applied",
+    status: "Available"
   }
 ];
 

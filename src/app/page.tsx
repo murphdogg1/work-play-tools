@@ -278,7 +278,69 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* Developer Tools Section */}
+      <section className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Developer & SEO Tools
+          </h2>
+          <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+            Tools for monitoring and optimizing your site
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link 
+            href="/seo-check" 
+            className="group relative bg-white dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg transition-all duration-200"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                <CheckCircle className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  SEO Status Check
+                </h3>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Quick SEO health check</p>
+              </div>
+            </div>
+          </Link>
+          
+          <Link 
+            href="/seo-audit" 
+            className="group relative bg-white dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg transition-all duration-200"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                <FileText className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  SEO Audit
+                </h3>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Comprehensive SEO analysis</p>
+              </div>
+            </div>
+          </Link>
+          
+          <Link 
+            href="/seo-comprehensive" 
+            className="group relative bg-white dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg transition-all duration-200"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                <BookOpen className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  Comprehensive SEO
+                </h3>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Detailed SEO audit report</p>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
 
       {/* Enhanced JSON-LD Structured Data */}
       <script type="application/ld+json">

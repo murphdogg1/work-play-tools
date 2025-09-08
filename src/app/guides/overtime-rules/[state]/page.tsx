@@ -33,9 +33,15 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   return {
     title: validTitle,
     description: validDescription,
+    alternates: {
+      canonical: `https://www.workpaytools.com/guides/overtime-rules/${state}`,
+    },
     openGraph: {
       title: validTitle,
       description: validDescription,
+      url: `https://www.workpaytools.com/guides/overtime-rules/${state}`,
+      type: "article",
+      siteName: "WorkPayTools",
       images: [
         {
           url: generateOgImageUrl(title, description),
