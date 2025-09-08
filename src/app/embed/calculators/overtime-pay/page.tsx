@@ -4,7 +4,7 @@ import Calculator from "@/app/calculators/overtime-pay/Calculator";
 
 export const metadata: Metadata = {
   title: "Overtime Pay Calculator - Embed",
-  description: "Calculate overtime pay with this embeddable calculator",
+  description: "Calculate overtime pay with this embeddable calculator. Get accurate calculations, state-specific rules, and expert guidance.",
   robots: "noindex, nofollow",
 };
 

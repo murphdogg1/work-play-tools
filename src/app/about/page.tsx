@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHeading from "@/components/PageHeading";
 import AdSlot from "@/components/AdSlot";
 import { generateOgImageUrl } from "@/lib/og";
@@ -113,6 +114,41 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Our Tools Section */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Our Tools</h2>
+        <p className="text-gray-600 dark:text-gray-400">
+          Explore our comprehensive suite of free payroll and HR tools:
+        </p>
+        
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/calculators/overtime-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Overtime Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate overtime pay with state-specific rules</p>
+          </Link>
+          <Link href="/calculators/payroll" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Payroll Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate gross pay, taxes, and deductions</p>
+          </Link>
+          <Link href="/guides/overtime-rules" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Overtime Rules Guide</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Learn about federal and state overtime requirements</p>
+          </Link>
+          <Link href="/hr-templates" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">HR Templates</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Ready-to-use templates for common HR needs</p>
+          </Link>
+          <Link href="/calculators/take-home-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Take-Home Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate net pay after taxes and deductions</p>
+          </Link>
+          <Link href="/calculators/minimum-wage" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Minimum Wage Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Check minimum wage rates by state and city</p>
+          </Link>
         </div>
       </section>
 

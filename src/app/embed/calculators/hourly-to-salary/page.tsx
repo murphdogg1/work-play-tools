@@ -4,7 +4,7 @@ import Calculator from "@/app/calculators/hourly-to-salary/Calculator";
 
 export const metadata: Metadata = {
   title: "Hourly to Salary Converter - Embed",
-  description: "Convert hourly rates to annual salary with this embeddable calculator",
+  description: "Convert hourly rates to annual salary with this embeddable calculator. Get accurate calculations, state-specific rules, and expert guidance.",
   robots: "noindex, nofollow",
 };
 

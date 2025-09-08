@@ -4,7 +4,7 @@ import TimecardForm from "@/app/calculators/timecard/TimecardForm";
 
 export const metadata: Metadata = {
   title: "Timecard Calculator - Embed",
-  description: "Track work hours and calculate totals with this embeddable calculator",
+  description: "Track work hours and calculate totals with this embeddable calculator. Get accurate calculations, state-specific rules, and expert guidance.",
   robots: "noindex, nofollow",
 };
 
