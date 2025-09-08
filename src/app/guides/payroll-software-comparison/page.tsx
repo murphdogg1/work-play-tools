@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Payroll Software 2025 | Complete Comparison Guide",
     description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect payroll solution for your business size and budget.",
+    url: "https://www.workpaytools.com/guides/payroll-software-comparison",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("Best Payroll Software 2025", "Complete comparison guide of top payroll software solutions for businesses of all sizes."),
@@ -27,6 +30,9 @@ export const metadata: Metadata = {
     title: "Best Payroll Software 2025 | Complete Comparison Guide",
     description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect payroll solution for your business size and budget.",
     images: [generateOgImageUrl("Best Payroll Software 2025", "Complete comparison guide of top payroll software solutions for businesses of all sizes.")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/guides/payroll-software-comparison",
   },
 };
 

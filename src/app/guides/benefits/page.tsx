@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Benefits & Deductions Guide",
     description: "Learn about employee benefits, deductions, and their impact on take-home pay. Get accurate calculations, state-specific rules, and expert guidance.",
+    url: "https://www.workpaytools.com/guides/benefits",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("Benefits & Deductions Guide", "Learn about employee benefits, deductions, and their impact on take-home pay."),
@@ -27,6 +30,9 @@ export const metadata: Metadata = {
     title: "Benefits & Deductions Guide",
     description: "Learn about employee benefits, deductions, and their impact on take-home pay. Get accurate calculations, state-specific rules, and expert guidance.",
     images: [generateOgImageUrl("Benefits & Deductions Guide", "Learn about employee benefits, deductions, and their impact on take-home pay.")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/guides/benefits",
   },
 };
 

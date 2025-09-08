@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Payroll Basics Guide: Complete Processing Guide",
     description: "Master payroll processing with our complete guide. Learn cycles, calculations, compliance, and best practices for accurate payroll.",
+    url: "https://www.workpaytools.com/guides/payroll-basics",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("Payroll Basics Guide", "Master payroll processing with our complete guide"),
@@ -28,6 +31,9 @@ export const metadata: Metadata = {
     title: "Payroll Basics Guide: Complete Processing Guide",
     description: "Master payroll processing with our complete guide. Learn cycles, calculations, compliance, and best practices for accurate payroll.",
     images: [generateOgImageUrl("Payroll Basics Guide", "Master payroll processing with our complete guide")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/guides/payroll-basics",
   },
 };
 
