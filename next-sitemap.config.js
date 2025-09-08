@@ -47,6 +47,20 @@ module.exports = {
       });
     });
     
+    // Add state-specific overtime rules pages
+    const states = [
+      'al', 'ak', 'az', 'ar', 'ca', 'co', 'ct', 'de', 'dc', 'fl', 'ga', 'hi', 'id', 'il', 'in', 'ia', 'ks', 'ky', 'la', 'me', 'md', 'ma', 'mi', 'mn', 'ms', 'mo', 'mt', 'ne', 'nv', 'nh', 'nj', 'nm', 'ny', 'nc', 'nd', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'vt', 'va', 'wa', 'wv', 'wi', 'wy'
+    ];
+    
+    states.forEach(state => {
+      result.push({
+        loc: `/guides/overtime-rules/${state}`,
+        changefreq: 'monthly',
+        priority: 0.7,
+        lastmod: new Date().toISOString(),
+      });
+    });
+    
     // Add HR template pages
     const templates = [
       '/hr-templates/offer-letter',
