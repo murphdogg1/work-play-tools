@@ -4,30 +4,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import AdSlot from "@/components/AdSlot";
 import TakeHomePayCalculator from "./Calculator";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 
-export const metadata: Metadata = {
-  title: "Take-Home Pay Calculator",
-  description: "Calculate your net take-home pay after taxes, benefits, and deductions. See exactly how much you'll receive in your paycheck.",
-  openGraph: {
-    title: "Take-Home Pay Calculator",
-    description: "Calculate your net take-home pay after taxes, benefits, and deductions. See exactly how much you'll receive in your paycheck.",
-    images: [
-      {
-        url: generateOgImageUrl("Take-Home Pay Calculator", "Calculate your net take-home pay after taxes, benefits, and deductions"),
-        width: 1200,
-        height: 630,
-        alt: "Take-Home Pay Calculator - Calculate your net take-home pay",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Take-Home Pay Calculator",
-    description: "Calculate your net take-home pay after taxes, benefits, and deductions. See exactly how much you'll receive in your paycheck.",
-    images: [generateOgImageUrl("Take-Home Pay Calculator", "Calculate your net take-home pay after taxes, benefits, and deductions")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Take-Home Pay Calculator",
+  "Calculate net pay after taxes and deductions. Get accurate take-home pay calculations for any salary.",
+  "/calculators/take-home-pay"
+);
 
 export default function TakeHomePayPage() {
   return (

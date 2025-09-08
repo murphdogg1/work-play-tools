@@ -6,34 +6,16 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
-export const metadata: Metadata = {
-  title: "Free Overtime Pay Calculator 2025 | Calculate Overtime Hours & Pay",
-  description:
-    "Free overtime pay calculator for 2025. Calculate regular and overtime pay with state-specific rules. Supports federal and state overtime laws. No signup required.",
-  keywords: ["overtime calculator", "overtime pay calculator", "overtime hours calculator", "calculate overtime pay", "overtime pay 2025", "federal overtime calculator", "state overtime rules"],
-  openGraph: {
-    title: "Free Overtime Pay Calculator 2025 | Calculate Overtime Hours & Pay",
-    description: "Free overtime pay calculator for 2025. Calculate regular and overtime pay with state-specific rules. Supports federal and state overtime laws. No signup required.",
-    images: [
-      {
-        url: generateOgImageUrl("Overtime Pay Calculator (2025)", "Calculate regular and overtime pay based on hourly rate, hours worked, and overtime thresholds."),
-        width: 1200,
-        height: 630,
-        alt: "Overtime Pay Calculator (2025) - Calculate regular and overtime pay",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Overtime Pay Calculator (2025)",
-    description: "Calculate regular and overtime pay based on hourly rate, hours worked, and overtime thresholds.",
-    images: [generateOgImageUrl("Overtime Pay Calculator (2025)", "Calculate regular and overtime pay based on hourly rate, hours worked, and overtime thresholds.")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Overtime Pay Calculator",
+  "Calculate regular and overtime pay with state-specific rules. Supports federal and state overtime laws. No signup required.",
+  "/calculators/overtime-pay"
+);
 
 const faqItems: FaqItem[] = [
   {

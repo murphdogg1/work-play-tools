@@ -6,33 +6,16 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import PaystubGenerator from "./PaystubGenerator";
 import EmbedButton from "./EmbedButton";
 
-export const metadata: Metadata = {
-  title: "Free Paystub Generator 2025 | Create Professional Pay Stubs",
-  description: "Free paystub generator that creates professional ADP-style pay stubs. Generate realistic pay stubs for employees, contractors, or personal use. No signup required.",
-  keywords: ["paystub generator", "pay stub creator", "ADP paystub", "payroll stub generator", "employee paystub", "contractor paystub", "free paystub maker"],
-  openGraph: {
-    title: "Free Paystub Generator 2025 | Create Professional Pay Stubs",
-    description: "Free paystub generator that creates professional ADP-style pay stubs. Generate realistic pay stubs for employees, contractors, or personal use. No signup required.",
-    images: [
-      {
-        url: generateOgImageUrl("Paystub Generator", "Create professional ADP-style pay stubs instantly"),
-        width: 1200,
-        height: 630,
-        alt: "Paystub Generator - Create professional ADP-style pay stubs",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Paystub Generator",
-    description: "Create professional ADP-style pay stubs instantly",
-    images: [generateOgImageUrl("Paystub Generator", "Create professional ADP-style pay stubs instantly")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Paystub Generator",
+  "Create professional ADP-style pay stubs instantly. Generate accurate pay stubs with all necessary deductions and calculations.",
+  "/calculators/paystub-generator"
+);
 
 const faqItems: FaqItem[] = [
   {

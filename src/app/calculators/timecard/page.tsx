@@ -6,33 +6,16 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import TimecardForm from "./TimecardForm";
 import EmbedButton from "./EmbedButton";
 
-export const metadata: Metadata = {
-  title: "Free Timecard Calculator 2025 | Track Hours & Calculate Overtime",
-  description: "Free timecard calculator for 2025. Track daily hours, calculate overtime, and manage weekly timecards. Perfect for hourly workers, freelancers, and payroll processing. No signup required.",
-  keywords: ["timecard calculator", "time tracking calculator", "hours calculator", "overtime calculator", "weekly hours calculator", "timecard template", "employee hours tracker"],
-  openGraph: {
-    title: "Free Timecard Calculator 2025 | Track Hours & Calculate Overtime",
-    description: "Free timecard calculator for 2025. Track daily hours, calculate overtime, and manage weekly timecards. Perfect for hourly workers, freelancers, and payroll processing. No signup required.",
-    images: [
-      {
-        url: generateOgImageUrl("Timecard Calculator", "Calculate total hours, overtime, and regular hours for weekly timecards."),
-        width: 1200,
-        height: 630,
-        alt: "Timecard Calculator - Calculate total hours, overtime, and regular hours for weekly timecards",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Timecard Calculator",
-    description: "Calculate total hours, overtime, and regular hours for weekly timecards.",
-    images: [generateOgImageUrl("Timecard Calculator", "Calculate total hours, overtime, and regular hours for weekly timecards.")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Timecard Calculator",
+  "Track work hours and calculate totals with break time. Perfect for hourly workers and freelancers.",
+  "/calculators/timecard"
+);
 
 const faqItems: FaqItem[] = [
   { q: "How are breaks handled?", a: "Enter unpaid break minutes; we subtract them from daily totals." },

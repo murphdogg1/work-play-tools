@@ -4,30 +4,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import AdSlot from "@/components/AdSlot";
 import PayrollTaxCalculator from "./Calculator";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 
-export const metadata: Metadata = {
-  title: "Payroll Tax Calculator",
-  description: "Calculate federal, state, and local payroll taxes for employees. Get accurate tax withholding amounts for payroll processing.",
-  openGraph: {
-    title: "Payroll Tax Calculator",
-    description: "Calculate federal, state, and local payroll taxes for employees. Get accurate tax withholding amounts for payroll processing.",
-    images: [
-      {
-        url: generateOgImageUrl("Payroll Tax Calculator", "Calculate federal, state, and local payroll taxes for employees"),
-        width: 1200,
-        height: 630,
-        alt: "Payroll Tax Calculator - Calculate federal, state, and local payroll taxes",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Payroll Tax Calculator",
-    description: "Calculate federal, state, and local payroll taxes for employees. Get accurate tax withholding amounts for payroll processing.",
-    images: [generateOgImageUrl("Payroll Tax Calculator", "Calculate federal, state, and local payroll taxes for employees")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Payroll Tax Calculator",
+  "Calculate federal, state, and local payroll taxes for employees. Includes FICA, Medicare, and Social Security taxes.",
+  "/calculators/payroll-tax"
+);
 
 export default function PayrollTaxPage() {
   return (

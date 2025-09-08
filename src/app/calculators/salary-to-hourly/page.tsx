@@ -6,33 +6,16 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
-export const metadata: Metadata = {
-  title: "Free Salary to Hourly Calculator 2025 | Convert Annual Salary to Hourly Rate",
-  description: "Free salary to hourly calculator for 2025. Convert annual salary to hourly rate instantly. Perfect for contract negotiations, freelance pricing, and salary comparisons. No signup required.",
-  keywords: ["salary to hourly calculator", "annual salary to hourly rate", "convert salary to hourly", "salary converter", "hourly rate calculator", "salary breakdown calculator", "annual to hourly converter"],
-  openGraph: {
-    title: "Free Salary to Hourly Calculator 2025 | Convert Annual Salary to Hourly Rate",
-    description: "Free salary to hourly calculator for 2025. Convert annual salary to hourly rate instantly. Perfect for contract negotiations, freelance pricing, and salary comparisons. No signup required.",
-    images: [
-      {
-        url: generateOgImageUrl("Salary to Hourly Calculator 2025", "Convert annual salary to hourly rate instantly. Perfect for contract negotiations and freelance pricing."),
-        width: 1200,
-        height: 630,
-        alt: "Salary to Hourly Calculator 2025 - Convert annual salary to hourly rate",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Salary to Hourly Calculator 2025 | Convert Annual Salary to Hourly Rate",
-    description: "Free salary to hourly calculator for 2025. Convert annual salary to hourly rate instantly. Perfect for contract negotiations, freelance pricing, and salary comparisons. No signup required.",
-    images: [generateOgImageUrl("Salary to Hourly Calculator 2025", "Convert annual salary to hourly rate instantly. Perfect for contract negotiations and freelance pricing.")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Salary to Hourly Calculator",
+  "Convert annual salary to hourly rate for contracts and negotiations. Essential for freelancers and contract workers.",
+  "/calculators/salary-to-hourly"
+);
 
 const faqItems: FaqItem[] = [
   { 

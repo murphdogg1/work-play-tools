@@ -6,31 +6,14 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 
-export const metadata: Metadata = {
-  title: "Free Payroll Calculator 2025 | Calculate Employee Pay & Taxes",
-  description: "Free payroll calculator for 2025. Calculate employee pay, taxes, deductions, and net pay. Perfect for small businesses, HR professionals, and employers. No signup required.",
-  keywords: ["payroll calculator", "free payroll calculator", "employee payroll calculator", "payroll tax calculator", "payroll calculator 2025", "small business payroll", "payroll software", "calculate payroll"],
-  openGraph: {
-    title: "Free Payroll Calculator 2025 | Calculate Employee Pay & Taxes",
-    description: "Free payroll calculator for 2025. Calculate employee pay, taxes, deductions, and net pay. Perfect for small businesses, HR professionals, and employers. No signup required.",
-    images: [
-      {
-        url: generateOgImageUrl("Free Payroll Calculator 2025", "Calculate employee pay, taxes, deductions, and net pay instantly"),
-        width: 1200,
-        height: 630,
-        alt: "Free Payroll Calculator 2025 - Calculate Employee Pay & Taxes",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Payroll Calculator 2025 | Calculate Employee Pay & Taxes",
-    description: "Free payroll calculator for 2025. Calculate employee pay, taxes, deductions, and net pay instantly.",
-    images: [generateOgImageUrl("Free Payroll Calculator 2025", "Calculate employee pay, taxes, deductions, and net pay instantly")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Payroll Calculator",
+  "Calculate employee pay, taxes, deductions, and net pay instantly. Free payroll calculator for 2025.",
+  "/calculators/payroll"
+);
 
 const relatedItems: RelatedItem[] = [
   {

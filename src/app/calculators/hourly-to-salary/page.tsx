@@ -6,33 +6,16 @@ import Related, { type RelatedItem } from "@/components/Related";
 import AdSlot from "@/components/AdSlot";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { generateCalculatorMetadata } from "@/lib/seo/metadata";
 import WebAppJsonLd from "@/lib/seo/appJsonLd";
 import Calculator from "./Calculator";
 import EmbedButton from "./EmbedButton";
 
-export const metadata: Metadata = {
-  title: "Free Hourly to Salary Calculator 2025 | Convert Hourly Rate to Annual Pay",
-  description: "Free hourly to salary calculator for 2025. Convert hourly pay to annual, monthly, and weekly salary instantly. Perfect for job negotiations and salary comparisons. No signup required.",
-  keywords: ["hourly to salary calculator", "hourly rate to salary", "convert hourly to annual salary", "hourly wage calculator", "salary converter", "hourly pay calculator", "annual salary calculator"],
-  openGraph: {
-    title: "Free Hourly to Salary Calculator 2025 | Convert Hourly Rate to Annual Pay",
-    description: "Free hourly to salary calculator for 2025. Convert hourly pay to annual, monthly, and weekly salary instantly. Perfect for job negotiations and salary comparisons. No signup required.",
-    images: [
-      {
-        url: generateOgImageUrl("Hourly to Salary Calculator", "Convert hourly pay to annual, monthly, and weekly salary."),
-        width: 1200,
-        height: 630,
-        alt: "Hourly to Salary Calculator - Convert hourly pay to annual, monthly, and weekly salary",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hourly to Salary Calculator",
-    description: "Convert hourly pay to annual, monthly, and weekly salary.",
-    images: [generateOgImageUrl("Hourly to Salary Calculator", "Convert hourly pay to annual, monthly, and weekly salary.")],
-  },
-};
+export const metadata: Metadata = generateCalculatorMetadata(
+  "Hourly to Salary Calculator",
+  "Convert hourly rates to annual salary equivalents. Essential for job negotiations and budgeting.",
+  "/calculators/hourly-to-salary"
+);
 
 const faqItems: FaqItem[] = [
   { q: "Why 2,080 hours?", a: "40 hours × 52 weeks = 2,080. Adjust for PTO, holidays, and overtime if applicable." },
