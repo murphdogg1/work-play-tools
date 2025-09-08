@@ -8,6 +8,7 @@ import { STATES, getStateBySlug } from "@/data/states";
 import { getStateIntro } from "@/lib/state-intros";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { generateOgImageUrl } from "@/lib/og";
+import { validateSeoText } from "@/lib/seo/metadata";
 
 // Enable ISR with 24-hour revalidation
 export const revalidate = 86400;
@@ -27,12 +28,14 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const title = `${name} Overtime Rules 2025 | WorkPayTools`;
   const description = `Learn weekly thresholds and basics for ${name} overtime rules. Get accurate calculations, state-specific rules, and expert guidance.`;
   
+  const { title: validTitle, description: validDescription } = validateSeoText(title, description);
+  
   return {
-    title,
-    description,
+    title: validTitle,
+    description: validDescription,
     openGraph: {
-      title,
-      description,
+      title: validTitle,
+      description: validDescription,
       images: [
         {
           url: generateOgImageUrl(title, description),
@@ -44,9 +47,9 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
-      images: [generateOgImageUrl(title, description)],
+      title: validTitle,
+      description: validDescription,
+      images: [generateOgImageUrl(validTitle, validDescription)],
     },
   };
 }

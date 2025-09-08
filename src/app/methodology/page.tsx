@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeading from "@/components/PageHeading";
 import AdSlot from "@/components/AdSlot";
 import { generateOgImageUrl } from "@/lib/og";
@@ -40,6 +41,29 @@ export default function MethodologyPage() {
       ])}
 
       <AdSlot id="methodology-overview" />
+
+      {/* Related Tools */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Our Calculators</h2>
+        <p className="text-gray-600 dark:text-gray-400">
+          Try our calculators to see our methodology in action:
+        </p>
+        
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/calculators/overtime-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Overtime Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate overtime pay with state-specific rules</p>
+          </Link>
+          <Link href="/calculators/take-home-pay" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Take-Home Pay Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate net pay after taxes and deductions</p>
+          </Link>
+          <Link href="/calculators/payroll" className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Payroll Calculator</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Calculate gross pay, taxes, and deductions</p>
+          </Link>
+        </div>
+      </section>
 
       {/* Overview */}
       <section className="space-y-4">

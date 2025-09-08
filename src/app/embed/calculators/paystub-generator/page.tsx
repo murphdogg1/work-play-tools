@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import PaystubGenerator from "@/app/calculators/paystub-generator/PaystubGenerator";
+
+export const metadata: Metadata = {
+  title: "Paystub Generator - Embed",
+  description: "Generate professional paystubs with this embeddable calculator. Get accurate calculations, state-specific rules, and expert guidance.",
+  robots: "noindex, nofollow",
+};
 
 export default function EmbedPaystubGeneratorPage() {
   return (
