@@ -15,7 +15,7 @@ import AdSlot from "@/components/AdSlot";
 
 export const metadata: Metadata = {
   title: "Free Payroll Calculators & HR Tools | WorkPayTools",
-  description: "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides. No signup required. Calculate payroll taxes, overtime, and more instantly.",
+  description: "Free payroll calculators, overtime pay calculator, take-home pay calculator, HR templates, and comprehensive guides. No signup required.",
   alternates: {
     canonical: "https://www.workpaytools.com",
   },

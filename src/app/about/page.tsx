@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About WorkPayTools - Free Payroll & HR Tools",
     description: "Learn about WorkPayTools mission to provide free, accurate payroll calculators and HR resources. Meet our team and discover our commitment to helping businesses and employees.",
+    url: "https://www.workpaytools.com/about",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("About WorkPayTools", "Free payroll calculators and HR tools for businesses and employees"),
@@ -25,6 +28,9 @@ export const metadata: Metadata = {
     title: "About WorkPayTools - Free Payroll & HR Tools",
     description: "Learn about WorkPayTools mission to provide free, accurate payroll calculators and HR resources.",
     images: [generateOgImageUrl("About WorkPayTools", "Free payroll calculators and HR tools for businesses and employees")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/about",
   },
 };
 

@@ -88,7 +88,7 @@ export function generateCalculatorMetadata(
   url: string
 ): Metadata {
   return generateMetadata({
-    title: `${calculatorName} Calculator 2025 | WorkPayTools`,
+    title: `${calculatorName} 2025 | WorkPayTools`,
     description: `Free ${description} for 2025. Calculate ${calculatorName.toLowerCase()} with accurate rates and rules. No signup required.`,
     url,
     imageTitle: `${calculatorName} (2025)`,

@@ -9,10 +9,13 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Overtime Rules Guide",
-  description: "Learn about overtime thresholds, rates, and compliance requirements by state.",
+  description: "Learn about overtime thresholds, rates, and compliance requirements by state. Get accurate calculations, state-specific rules, and expert guidance.",
   openGraph: {
     title: "Overtime Rules Guide",
-    description: "Learn about overtime thresholds, rates, and compliance requirements by state.",
+    description: "Learn about overtime thresholds, rates, and compliance requirements by state. Get accurate calculations, state-specific rules, and expert guidance.",
+    url: "https://www.workpaytools.com/guides/overtime-rules",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("Overtime Rules Guide", "Learn about overtime thresholds, rates, and compliance requirements by state."),
@@ -25,8 +28,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Overtime Rules Guide",
-    description: "Learn about overtime thresholds, rates, and compliance requirements by state.",
+    description: "Learn about overtime thresholds, rates, and compliance requirements by state. Get accurate calculations, state-specific rules, and expert guidance.",
     images: [generateOgImageUrl("Overtime Rules Guide", "Learn about overtime thresholds, rates, and compliance requirements by state.")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/guides/overtime-rules",
   },
 };
 

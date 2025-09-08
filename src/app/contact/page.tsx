@@ -5,10 +5,13 @@ import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools.",
+  description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools. Get accurate calculations, state-specific rules, and expert guidance.",
   openGraph: {
     title: "Contact",
-    description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools.",
+    description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools. Get accurate calculations, state-specific rules, and expert guidance.",
+    url: "https://www.workpaytools.com/contact",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("Contact", "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools."),
@@ -21,8 +24,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Contact",
-    description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools.",
+    description: "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools. Get accurate calculations, state-specific rules, and expert guidance.",
     images: [generateOgImageUrl("Contact", "Get in touch with WorkPayTools - we'd love to hear from you about our payroll and HR tools.")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/contact",
   },
 };
 

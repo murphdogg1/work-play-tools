@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "All Calculators - WorkPayTools",
     description: "Browse all our free payroll and HR calculators. Calculate overtime pay, take-home pay, minimum wage, payroll taxes, and more.",
+    url: "https://www.workpaytools.com/calculators",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("All Calculators", "Browse all our free payroll and HR calculators"),
@@ -24,6 +27,9 @@ export const metadata: Metadata = {
     title: "All Calculators - WorkPayTools",
     description: "Browse all our free payroll and HR calculators. Calculate overtime pay, take-home pay, minimum wage, payroll taxes, and more.",
     images: [generateOgImageUrl("All Calculators", "Browse all our free payroll and HR calculators")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/calculators",
   },
 };
 

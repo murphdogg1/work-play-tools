@@ -6,10 +6,13 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Payroll & HR Guides",
-  description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.",
+  description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits. Get accurate calculations, state-specific rules, and expert guidance.",
   openGraph: {
     title: "Payroll & HR Guides",
-    description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.",
+    description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits. Get accurate calculations, state-specific rules, and expert guidance.",
+    url: "https://www.workpaytools.com/guides",
+    type: "website",
+    siteName: "WorkPayTools",
     images: [
       {
         url: generateOgImageUrl("Payroll & HR Guides", "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits."),
@@ -22,8 +25,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Payroll & HR Guides",
-    description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.",
+    description: "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits. Get accurate calculations, state-specific rules, and expert guidance.",
     images: [generateOgImageUrl("Payroll & HR Guides", "Learn the essentials and best practices for payroll processing, overtime rules, and employee benefits.")],
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/guides",
   },
 };
 
