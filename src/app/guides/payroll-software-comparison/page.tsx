@@ -8,11 +8,11 @@ import { generateOgImageUrl } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Best Payroll Software 2025 | Complete Comparison Guide",
-  description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect payroll solution for your business size and budget.",
+  description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect solution for your business.",
   keywords: ["best payroll software", "payroll software comparison", "payroll software 2025", "QuickBooks payroll", "ADP payroll", "Gusto payroll", "Paychex payroll", "small business payroll software"],
   openGraph: {
     title: "Best Payroll Software 2025 | Complete Comparison Guide",
-    description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect payroll solution for your business size and budget.",
+    description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect solution for your business.",
     url: "https://www.workpaytools.com/guides/payroll-software-comparison",
     type: "website",
     siteName: "WorkPayTools",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Best Payroll Software 2025 | Complete Comparison Guide",
-    description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect payroll solution for your business size and budget.",
+    description: "Compare the best payroll software for 2025. Detailed reviews of QuickBooks, ADP, Gusto, Paychex, and more. Find the perfect solution for your business.",
     images: [generateOgImageUrl("Best Payroll Software 2025", "Complete comparison guide of top payroll software solutions for businesses of all sizes.")],
   },
   alternates: {

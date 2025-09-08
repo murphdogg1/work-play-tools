@@ -49,7 +49,12 @@ const navigation = {
       { title: "About WorkPayTools", href: "/about", description: "Learn about our mission and team" },
       { title: "Contact Us", href: "/contact", description: "Get help or provide feedback" },
       { title: "Privacy Policy", href: "/privacy", description: "How we protect your data" },
+      { title: "Editorial Policy", href: "/editorial-policy", description: "Our content standards and review process" },
+      { title: "Methodology", href: "/methodology", description: "How we calculate payroll and tax rates" },
       { title: "SEO Tools", href: "/seo-check", description: "SEO monitoring and optimization tools" },
+      { title: "SEO Audit", href: "/seo-audit", description: "Comprehensive SEO analysis and recommendations" },
+      { title: "SEO Comprehensive", href: "/seo-comprehensive", description: "Detailed SEO audit with fixes applied" },
+      { title: "AdSense Test", href: "/adsense-test", description: "Test AdSense integration and ad rendering" },
       { title: "All Resources", href: "/resources", description: "Complete list of resources and tools" },
     ]
   }

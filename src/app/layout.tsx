@@ -239,6 +239,12 @@ export default function RootLayout({
                   >
                     Contact
                   </a>
+                  <a 
+                    href="/seo-audit" 
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  >
+                    SEO Audit
+                  </a>
                 </div>
               </div>
             </div>

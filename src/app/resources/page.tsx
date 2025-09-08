@@ -129,6 +129,18 @@ const additionalResources = [
     href: "/seo-fixes",
     description: "Track and monitor SEO improvements",
     status: "Available"
+  },
+  {
+    title: "AdSense Debug",
+    href: "/adsense-debug",
+    description: "Debug AdSense integration and ad rendering issues",
+    status: "Available"
+  },
+  {
+    title: "AdSense Test",
+    href: "/adsense-test",
+    description: "Test AdSense ad units and integration",
+    status: "Available"
   }
 ];
 

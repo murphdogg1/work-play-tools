@@ -1,4 +1,25 @@
+import type { Metadata } from "next";
 import AdSlot from "@/components/AdSlot";
+
+export const metadata: Metadata = {
+  title: "AdSense Test Page",
+  description: "Test AdSense integration and ad rendering. Debug ad placement and verify AdSense configuration.",
+  openGraph: {
+    title: "AdSense Test Page",
+    description: "Test AdSense integration and ad rendering. Debug ad placement and verify AdSense configuration.",
+    url: "https://www.workpaytools.com/adsense-test",
+    type: "website",
+    siteName: "WorkPayTools",
+  },
+  twitter: {
+    card: "summary",
+    title: "AdSense Test Page",
+    description: "Test AdSense integration and ad rendering. Debug ad placement and verify AdSense configuration.",
+  },
+  alternates: {
+    canonical: "https://www.workpaytools.com/adsense-test",
+  },
+};
 
 export default function AdSenseTestPage() {
   return (
