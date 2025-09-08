@@ -41,7 +41,9 @@ export default function SEOComprehensivePage() {
 
       for (const page of testPages) {
         try {
-          const response = await fetch(page.path);
+          // Use absolute URL for production environment
+          const baseUrl = window.location.origin;
+          const response = await fetch(`${baseUrl}${page.path}`);
           if (response.ok) {
             const html = await response.text();
             const parser = new DOMParser();
