@@ -6,7 +6,7 @@ Disallow: /embed/
 Disallow: /confirm
 
 # Host
-Host: https://workplaytools.com
+Host: https://workpaytools.com
 
 # Sitemaps
-Sitemap: https://workplaytools.com/sitemap.xml
+Sitemap: https://workpaytools.com/sitemap.xml

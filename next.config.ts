@@ -62,40 +62,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.workplaytools.com',
-          },
-        ],
-        destination: 'https://workplaytools.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'workplaytools.com',
-          },
-        ],
-        missing: [
-          {
-            type: 'header',
-            key: 'x-forwarded-proto',
-            value: 'https',
-          },
-        ],
-        destination: 'https://workplaytools.com/:path*',
-        permanent: true,
-      },
-      // Legacy domain redirects
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
             value: 'www.workpaytools.com',
           },
         ],
-        destination: 'https://workplaytools.com/:path*',
+        destination: 'https://workpaytools.com/:path*',
         permanent: true,
       },
       {
@@ -106,7 +76,14 @@ const nextConfig: NextConfig = {
             value: 'workpaytools.com',
           },
         ],
-        destination: 'https://workplaytools.com/:path*',
+        missing: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'https',
+          },
+        ],
+        destination: 'https://workpaytools.com/:path*',
         permanent: true,
       },
       // SEO redirects

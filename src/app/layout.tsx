@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://workplaytools.com"),
+  metadataBase: new URL("https://workpaytools.com"),
   title: {
     default: "Free Payroll Calculators & HR Tools | WorkPayTools",
     template: "%s | WorkPayTools",
