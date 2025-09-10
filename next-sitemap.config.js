@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.workpaytools.com',
+  siteUrl: 'https://workplaytools.com',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   exclude: ['/api/*', '/embed/*', '/confirm'],
@@ -139,7 +139,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://www.workpaytools.com/sitemap.xml',
+      'https://workplaytools.com/sitemap.xml',
     ],
   },
 };

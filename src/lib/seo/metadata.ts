@@ -43,7 +43,7 @@ export function generateMetadata(config: SeoConfig): Metadata {
   const { title, description, url, imageTitle, imageDescription, noIndex } = config;
   const { title: validTitle, description: validDescription } = validateSeoText(title, description);
   
-  const baseUrl = "https://www.workpaytools.com";
+  const baseUrl = "https://workplaytools.com";
   const pageUrl = url ? `${baseUrl}${url}` : baseUrl;
   const ogImageUrl = `${baseUrl}/og?title=${encodeURIComponent(imageTitle || validTitle)}&description=${encodeURIComponent(imageDescription || validDescription)}`;
   

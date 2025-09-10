@@ -53,9 +53,63 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Redirects for SEO
+  // Redirects for SEO and domain canonicalization
   async redirects() {
     return [
+      // Domain canonicalization redirects
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.workplaytools.com',
+          },
+        ],
+        destination: 'https://workplaytools.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'workplaytools.com',
+          },
+        ],
+        missing: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'https',
+          },
+        ],
+        destination: 'https://workplaytools.com/:path*',
+        permanent: true,
+      },
+      // Legacy domain redirects
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.workpaytools.com',
+          },
+        ],
+        destination: 'https://workplaytools.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'workpaytools.com',
+          },
+        ],
+        destination: 'https://workplaytools.com/:path*',
+        permanent: true,
+      },
+      // SEO redirects
       {
         source: '/calculator',
         destination: '/calculators',
